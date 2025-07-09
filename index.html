@@ -3,71 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Dawntasy Creations - Jasper Jiang | AI, Writing, Music Innovation</title>
-    <meta name="description" content="Jasper Jiang, a 13-year-old AI scientist, author, and musical artist, presents Dawntasy Creations. Explore groundbreaking AI research like DDTN, published novels, original music, and a vision to change the world.">
-    <meta name="keywords" content="Jasper Jiang, Dawntasy Creations, AI research, DDTN, Q-Exp-Art, machine learning, deep learning, LLM, author, musician, innovation, portfolio, AI scientist, child prodigy, futuristic AI">
-    <meta name="author" content="Jasper Jiang, Dawntasy Creations">
-    <link rel="canonical" href="https://www.dawntasy.com/"> <!-- Replace with your actual domain -->
-
-    <!-- Open Graph Meta Tags (for social sharing) -->
-    <meta property="og:title" content="Dawntasy Creations - Jasper Jiang | AI, Writing, Music Innovation">
-    <meta property="og:description" content="Explore Jasper Jiang's groundbreaking work in AI (DDTN, Q-Exp-Art), captivating novels, and original music.">
-    <meta property="og:image" content="https://www.dawntasy.com/assets/og-image.png"> <!-- Replace with a link to an engaging OG image -->
-    <meta property="og:url" content="https://www.dawntasy.com/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Dawntasy Creations">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Dawntasy Creations - Jasper Jiang | AI, Writing, Music Innovation">
-    <meta name="twitter:description" content="Discover Jasper Jiang's multifaceted talents in AI, writing, and music.">
-    <meta name="twitter:image" content="https://www.dawntasy.com/assets/twitter-card-image.png"> <!-- Replace with a link to a Twitter card image -->
-    <!-- <meta name="twitter:site" content="@YourTwitterHandle"> --> <!-- Optional: Your Twitter handle -->
-
-    <!-- Favicon (Place favicon.ico in root, and others in assets/favicons/) -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/assets/dawntasy_logo.png" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
-    <link rel="manifest" href="/assets/favicons/site.webmanifest">
-
-    <!-- Google Fonts (Exo 2, Inter) -->
+    <title>Jasper - Author, Researcher, Artist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Dawntasy Creations",
-      "url": "https://www.dawntasy.com/", // Replace with your actual domain
-      "author": {
-        "@type": "Person",
-        "name": "Jasper Jiang",
-        "url": "https://www.dawntasy.com/about.html", // Link to your about page
-        "jobTitle": "AI Scientist, Author, Musical Artist",
-        "description": "A 13-year-old innovator at the intersection of Artificial Intelligence, creative writing, and musical composition.",
-        "image": "https://www.dawntasy.com/assets/jasper-jiang-profile.jpg", // Replace with a link to your profile photo
-        "sameAs": [
-          "https://www.youtube.com/@DawntasyRevelate",
-          "https://www.amazon.com/stores/Jasper-Jiang/author/B0DT7QN8CV",
-          "https://github.com/dawnstoryrevelation/dawntasyproj"
-          // Add other relevant professional profiles (LinkedIn, etc.)
-        ]
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.dawntasy.com/search?q={search_term_string}", // Replace with your site search URL if you have one
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset and Base Styles */
+        /*
+        ==========================================================================
+        I. MASTER BLUEPRINT & GLOBAL STYLES
+        ==========================================================================
+        This section establishes the foundational aesthetic of the entire experience.
+        - CSS Variables for supreme control and consistency.
+        - A subtle, high-performance parallax foundation.
+        - Global typography and a clean reset.
+        */
+        :root {
+            --color-white: #ffffff;
+            --color-off-white: #f8f9fa;
+            --color-dark: #1a1a1a;
+            --color-logo-brown: #3b2a23;
+            --color-primary-accent: #007bff;
+            --color-card-beige: rgba(245, 245, 220, 0.9);
+            --color-card-peach: rgba(255, 229, 204, 0.9);
+            --color-card-cerulean: rgba(223, 239, 255, 0.9);
+            --color-quote-gradient: linear-gradient(135deg, #2D65B3, #1E4276);
+            --font-primary: 'Poppins', sans-serif;
+            --transition-smooth: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition-fast: 0.3s ease;
+        }
+
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
@@ -76,863 +40,844 @@
 
         html {
             scroll-behavior: smooth;
-            font-size: 16px; /* Base font size */
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0A0F22; /* Midnight Blue */
-            color: #F0F0F0; /* Off-white */
-            line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scroll */
-            position: relative; /* For celestial background */
+            font-family: var(--font-primary);
+            background-color: var(--color-white);
+            color: var(--color-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Celestial Background & Parallax */
-        #celestial-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-            /* JavaScript will populate this with stars/layers */
-        }
-
-        .star-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-repeat: repeat;
-        }
-        /* Define 3 layers for parallax */
-        #stars1 { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle fill="%23FFFFFF" cx="10" cy="10" r="0.5"/><circle fill="%23FFFFFF" cx="50" cy="30" r="0.3"/><circle fill="%23FFFFFF" cx="80" cy="70" r="0.4"/></svg>'); opacity: 0.4; } /* Faintest, slowest */
-        #stars2 { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150"><circle fill="%23FFFFFF" cx="20" cy="50" r="0.7"/><circle fill="%23FFFFFF" cx="100" cy="100" r="0.5"/><circle fill="%23FFFFFF" cx="130" cy="20" r="0.6"/></svg>'); opacity: 0.6; }
-        #stars3 { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle fill="%23FFFFFF" cx="30" cy="80" r="1"/><circle fill="%23FFFFFF" cx="150" cy="150" r="0.8"/><circle fill="%23FFFFFF" cx="180" cy="50" r="0.9"/></svg>'); opacity: 0.8; } /* Brightest, fastest */
-
-
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-family: 'Exo 2', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            color: #E0E0FF; /* Slightly bluish white for headings */
-        }
-        h1 { font-size: 3.5rem; margin-bottom: 1.5rem; }
-        h2 { font-size: 2.5rem; }
-        h3 { font-size: 1.75rem; }
-        p { margin-bottom: 1rem; font-weight: 300; }
-        a { color: #00CFE8; /* Electric Blue/Cyan */ text-decoration: none; transition: color 0.3s ease; }
-        a:hover, a:focus { color: #61DAFB; /* Lighter Cyan */ }
-
-        /* Container and Utility Classes */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 0; /* Vertical padding for sections */
-            position: relative; /* For z-indexing content above background */
-            z-index: 1;
-        }
-        .text-center { text-align: center; }
-        .section-title {
-            font-size: 3rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #4169E1, #007BA7, #6A0DAD);
-            border-radius: 2px;
-        }
-
-        /* Scroll Progress Bar */
+        /* The Scroll Progress Bar: A constant, fluid companion */
         #scroll-progress-bar {
             position: fixed;
             top: 0;
             left: 0;
             height: 4px;
-            background: linear-gradient(90deg, #4169E1, #007BA7, #6A0DAD);
+            background: var(--color-primary-accent);
             width: 0%;
-            z-index: 1000;
-            transition: width 0.1s linear;
+            z-index: 1001;
+            transform-origin: left;
+            transition: transform 0.1s linear;
         }
 
-        /* Navigation Bar */
-        .main-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            background-color: rgba(10, 15, 34, 0.85); /* Semi-transparent Midnight Blue */
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            transition: background-color 0.3s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .main-nav .logo-link img {
-            height: 45px; /* Adjust as needed */
-            width: auto;
-            filter: /* Apply Electric Blue/Cyan color to the rabbit logo */
-                brightness(0) saturate(100%) 
-                invert(67%) sepia(89%) saturate(1463%) hue-rotate(155deg) brightness(102%) contrast(101%); /* This filter creates a cyan tone, needs fine-tuning */
-            transition: transform 0.3s ease;
-        }
-        .main-nav .logo-link:hover img {
-            transform: scale(1.05);
-        }
-
-        .main-nav ul {
-            list-style-type: none;
-            display: flex;
-            align-items: center;
-        }
-        .main-nav ul li {
-            margin-left: 2rem;
-        }
-        .main-nav ul li a {
-            font-family: 'Exo 2', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            padding: 0.5rem 0;
-            position: relative;
-        }
-        .main-nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #00CFE8;
-            transition: width 0.3s ease;
-        }
-        .main-nav ul li a:hover::after, .main-nav ul li a:focus::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding-top: 80px; /* Account for fixed nav */
-            position: relative;
-            background: linear-gradient(45deg, rgba(65, 105, 225, 0.3), rgba(0, 123, 167, 0.3), rgba(106, 13, 173, 0.3)), 
-                        radial-gradient(ellipse at center, rgba(10, 15, 34, 0) 0%, #0A0F22 70%); /* Dynamic gradient + vignette */
-            animation: subtleGradientShift 20s ease infinite alternate;
-        }
-        @keyframes subtleGradientShift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-        .hero-section .hero-text-primary {
-            font-size: 4.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #FFF;
-            animation: fadeInDown 1s ease-out;
-        }
-        .hero-section .hero-text-secondary {
-            font-size: 1.5rem;
-            max-width: 700px;
-            margin: 0 auto 2rem auto;
-            font-weight: 300;
-            color: #E0E0FF;
-            animation: fadeInUp 1s ease-out 0.5s;
-            animation-fill-mode: backwards; /* Start invisible */
-        }
-        .scroll-down-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite, fadeIn 1s ease-out 1.5s;
-            animation-fill-mode: backwards;
-            color: #00CFE8;
-            font-size: 2rem;
-        }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes fadeInDown { from { opacity:0; transform: translateY(-30px); } to { opacity:1; transform: translateY(0); } }
-        @keyframes fadeInUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
-
-
-        /* About Me Section */
-        .about-me-section { background-color: rgba(13, 17, 23, 0.5); /* Slightly different dark shade */ }
-        .about-me-content {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-        }
-        .about-me-photo {
-            flex-basis: 35%;
-            max-width: 350px; /* Control photo size */
-        }
-        .about-me-photo img {
-            width: 100%;
-            border-radius: 50%; /* Circular photo */
-            border: 5px solid #00CFE8;
-            box-shadow: 0 0 20px rgba(0, 207, 232, 0.5);
-        }
-        .about-me-text {
-            flex-basis: 65%;
-        }
-        .about-me-text strong { font-weight: 600; color: #00CFE8; }
-        .about-me-text .mission-statement {
-            font-style: italic;
-            font-size: 1.1rem;
-            color: #A0A8B0; /* Lighter gray */
-            margin-top: 1rem;
-            border-left: 3px solid #6A0DAD; /* Violet accent */
-            padding-left: 1rem;
-        }
-
-        /* Button Style */
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            background: linear-gradient(90deg, #007BA7, #00CFE8);
-            color: #FFF;
-            border-radius: 50px; /* Pill shape */
-            font-family: 'Exo 2', sans-serif;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 123, 167, 0.3);
-        }
-        .btn:hover, .btn:focus {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 207, 232, 0.4);
-        }
-
-        /* Pillars Section */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .pillar-card {
-            background-color: rgba(17, 24, 39, 0.7); /* Dark, slightly transparent */
-            backdrop-filter: blur(5px);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(0, 207, 232, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden; /* For abstract background */
-        }
-        .pillar-card::before { /* Abstract background element */
-            content: '';
-            position: absolute;
-            top: -50%; right: -50%;
-            width: 150%; height: 150%;
-            background: radial-gradient(circle, rgba(0, 207, 232, 0.1) 0%, rgba(0, 207, 232, 0) 60%);
-            animation: rotateBackground 30s linear infinite;
+        /* Utility Class for animation triggers */
+        .reveal-on-scroll {
             opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s var(--transition-smooth), transform 1.2s var(--transition-smooth);
         }
-        .pillar-card:hover::before { opacity: 1; }
-        .pillar-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 207, 232, 0.3);
-        }
-        .pillar-card h3 { color: #61DAFB; margin-bottom: 0.8rem; position: relative; z-index: 1; }
-        .pillar-card p { font-size: 0.95rem; margin-bottom: 1.5rem; position: relative; z-index: 1; }
-        .pillar-card .btn { position: relative; z-index: 1; }
-        @keyframes rotateBackground { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        /* Placeholder for pillar card specific abstract background animations (JS might add these) */
-        .pillar-card.ai-card::after { /* content: ''; styles for AI specific animation */ }
-        .pillar-card.writing-card::after { /* content: ''; styles for Writing specific animation */ }
-        .pillar-card.music-card::after { /* content: ''; styles for Music specific animation */ }
 
-        /* Roadmap Section */
-        .roadmap-section { position: relative; }
-        .roadmap-flow {
-            position: relative;
-            padding: 2rem 0;
-            /* JS will draw the path */
-        }
-        .roadmap-path { /* SVG path for the flowing line */
-            stroke-width: 4px;
-            stroke: url(#roadmapGradient); /* Defined in SVG below */
-            fill: none;
-            stroke-dasharray: 1000; /* JS will animate this */
-            stroke-dashoffset: 1000;
-        }
-        .roadmap-node {
-            position: absolute; /* Positioned by JS */
-            width: 100px; /* Node area */
-            text-align: center;
-            transform: translate(-50%, -50%); /* Center on JS coords */
-            opacity: 0; /* Fade in */
-            transition: opacity 0.5s ease;
-        }
-        .roadmap-node .node-icon {
-            width: 30px; height: 30px;
-            border-radius: 50%;
-            background: #0A0F22;
-            border: 3px solid #00CFE8;
-            margin: 0 auto 0.5rem auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            color: #00CFE8;
-            box-shadow: 0 0 10px rgba(0, 207, 232, 0.5);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-        .roadmap-node .node-text {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #C0C0FF;
-        }
-        .roadmap-node:hover .node-icon {
-            transform: scale(1.2);
-            background-color: #00CFE8;
-            color: #0A0F22;
-        }
-        .roadmap-node .node-status-icon { /* For tick/flag */
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            font-size: 1.5rem;
-            opacity: 0;
-            transform: scale(0.5);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        .roadmap-node:hover .node-status-icon {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .roadmap-node.completed .node-icon { border-color: #4CAF50; /* Green for completed */ }
-        .roadmap-node.completed .node-status-icon { color: #4CAF50; }
-        .roadmap-node.in-progress .node-icon { border-color: #FFC107; /* Yellow for in-progress */ animation: pulseBorder 1.5s infinite; }
-        .roadmap-node.in-progress .node-status-icon { color: #FFC107; }
-        @keyframes pulseBorder { 0% { box-shadow: 0 0 10px rgba(255, 193, 7, 0.5); } 50% { box-shadow: 0 0 20px rgba(255, 193, 7, 1); } 100% { box-shadow: 0 0 10px rgba(255, 193, 7, 0.5); } }
-        .roadmap-node.tbc .node-icon { border-color: #9E9E9E; opacity: 0.7; }
-
-        /* Featured Innovation Section (DDTN) */
-        .featured-innovation-grid {
-            display: flex;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            gap: 3rem;
-            align-items: flex-start; /* Align items to the top */
-        }
-        .ddtn-info-card {
-            flex: 1; /* Takes up available space */
-            min-width: 320px; /* Minimum width before wrapping */
-            background-color: rgba(17, 24, 39, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 5px solid #6A0DAD; /* Violet accent */
-            box-shadow: 0 8px 25px rgba(10, 15, 34, 0.5);
-        }
-        .ddtn-info-card h3 { color: #E0E0FF; }
-        .ddtn-info-card .elevator-pitch { font-style: italic; margin-bottom: 1.5rem; color: #A0A8B0; }
-        .ddtn-info-card ul { list-style-type: none; padding-left: 0; }
-        .ddtn-info-card ul li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.8rem;
-            position: relative;
-            font-size: 0.95rem;
-        }
-        .ddtn-info-card ul li::before { /* Custom bullet point */
-            content: '✨'; /* Sparkle icon or SVG */
-            position: absolute;
-            left: 0;
-            color: #00CFE8;
-            font-size: 1.1rem;
-        }
-        .ddtn-visualization {
-            flex: 1.5; /* Takes up more space */
-            min-width: 320px;
-            min-height: 400px; /* Ensure space for visualization */
-            background-color: rgba(10, 15, 34, 0.7);
-            border-radius: 15px;
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(0, 207, 232, 0.3);
-            /* JS will populate this with the DDTN flow animation */
-        }
-        /* Basic styles for DDTN conceptual animation elements */
-        .ddtn-flow-stage { text-align: center; margin: 5px; padding: 8px; border-radius: 5px; color: white; font-size:0.8em; }
-        .ddtn-token { width:10px; height:10px; background-color: #00CFE8; border-radius:50%; position:absolute; animation: ddtnTokenFlow 5s linear infinite; }
-        @keyframes ddtnTokenFlow { /* Simplified example */
-            0% { transform: translateX(-100px) translateY(0px); opacity:0; }
-            20% { transform: translateX(0px) translateY(50px); opacity:1; } /* Embedding */
-            40% { transform: translateX(100px) translateY(0px); } /* HDM */
-            60% { transform: translateX(0px) translateY(-50px); } /* Routing */
-            80% { transform: translateX(-100px) translateY(0px); } /* Output */
-            100% { transform: translateX(-100px) translateY(0px); opacity:0; }
-        }
-        /* Placeholder for more complex DDTN visualization styles */
-
-        /* Call to Connect Section */
-        .connect-section {
-            background: linear-gradient(rgba(10, 15, 34, 0.8), rgba(10, 15, 34, 0.8)), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><path d="M0 50 Q25 25 50 50 T100 50" stroke="%23007BA7" stroke-width="0.5" fill="none" opacity="0.1"/></svg>'); /* Subtle wave pattern */
-            background-size: auto, 200px 200px;
-            padding: 5rem 0;
-        }
-        .connect-section h2 { font-size: 2.8rem; color: #FFF; }
-        .connect-section p { font-size: 1.2rem; color: #E0E0FF; max-width: 600px; margin: 0 auto 2rem auto;}
-
-        /* Footer */
-        .main-footer {
-            background-color: #080C17; /* Even darker blue */
-            padding: 3rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .footer-logo img {
-            height: 40px;
-            margin-bottom: 1rem;
-             filter: brightness(0) saturate(100%) 
-                invert(67%) sepia(89%) saturate(1463%) hue-rotate(155deg) brightness(102%) contrast(101%); /* Cyan */
-        }
-        .social-icons a {
-            color: #A0A8B0;
-            font-size: 1.5rem; /* Adjust icon size */
-            margin: 0 0.75rem;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-        .social-icons a:hover {
-            color: #00CFE8;
-            transform: scale(1.2);
-        }
-        .copyright-text {
-            font-size: 0.9rem;
-            color: #707A8A;
-            margin-top: 1.5rem;
-        }
-        
-        /* Animation Helper for Scroll-Triggered Entrances */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in-section.is-visible {
+        .reveal-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            h1 { font-size: 3rem; }
-            .hero-section .hero-text-primary { font-size: 3.5rem; }
-            .hero-section .hero-text-secondary { font-size: 1.3rem; }
-            .section-title { font-size: 2.5rem; }
-        }
-        @media (max-width: 768px) {
-            .main-nav { flex-direction: column; padding: 1rem; }
-            .main-nav ul { margin-top: 1rem; flex-wrap: wrap; justify-content: center; }
-            .main-nav ul li { margin: 0.3rem 0.5rem; }
-            .hero-section { padding-top: 120px; /* More space for stacked nav */ }
-            .hero-section .hero-text-primary { font-size: 2.8rem; }
-            .hero-section .hero-text-secondary { font-size: 1.1rem; }
-            .about-me-content { flex-direction: column; text-align: center; }
-            .about-me-photo { margin-bottom: 2rem; max-width: 250px; }
-            .featured-innovation-grid { flex-direction: column; }
-            .ddtn-visualization { min-height: 300px; }
-            .section-title { font-size: 2.2rem; }
-        }
-        @media (max-width: 480px) {
-            html { font-size: 14px; }
-            h1 { font-size: 2.5rem; }
-            .hero-section .hero-text-primary { font-size: 2.2rem; }
-            .main-nav ul li a { font-size: 0.9rem; }
-            .btn { padding: 0.7rem 1.5rem; font-size: 0.9rem; }
-            .section-title { font-size: 1.8rem; }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 0;
         }
 
+        h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            height: 4px;
+            width: 0;
+            background-color: var(--color-primary-accent);
+            transition: width 0.8s ease 0.5s;
+        }
+
+        .is-visible h2::after {
+            width: 70%;
+        }
+
+        /*
+        ==========================================================================
+        II. NAVIGATION: THE ELEGANT GUIDE
+        ==========================================================================
+        */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 45px;
+            transition: transform var(--transition-fast);
+        }
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--color-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--color-dark);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+        .main-nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /*
+        ==========================================================================
+        III. HERO SECTION: THE GRAND OVERTURE
+        ==========================================================================
+        */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-white);
+            padding: 0 5%;
+            position: relative;
+        }
+        
+        /* The Parallax Background Layer */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('assets/hero_card.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1.1);
+            transition: opacity 2s ease-out, transform 2s ease-out;
+            z-index: 1;
+        }
+        
+        .hero-section.is-loaded::before {
+            opacity: 0.95;
+            transform: scale(1);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--color-white);
+        }
+
+        .hero-content h1 {
+            font-size: 6rem;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease 1s, transform 1s ease 1s;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-top: 10px;
+            min-height: 2.5rem; /* Reserve space */
+        }
+
+        .hero-section.is-loaded .hero-content h1 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Typewriter Cursor */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.5rem;
+            background-color: var(--color-white);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { background-color: transparent }
+            50% { background-color: var(--color-white); }
+        }
+
+        /*
+        ==========================================================================
+        IV. ABOUT ME: THE EXPOSITION
+        ==========================================================================
+        */
+        .about-section .container {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .about-text {
+            flex: 1.2;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-graphic {
+            flex: 0.8;
+            text-align: center;
+        }
+
+        .about-graphic img {
+            max-width: 80%;
+            height: auto;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
+        }
+
+        /*
+        ==========================================================================
+        V. INNOVATIONS: THE CARD PROGRESSION
+        ==========================================================================
+        */
+        .innovations-section {
+            background-color: var(--color-off-white);
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .innovation-card {
+            width: 320px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .innovation-card:nth-child(1) { background-color: var(--color-card-beige); transform: translateY(20px); }
+        .innovation-card:nth-child(2) { background-color: var(--color-card-peach); }
+        .innovation-card:nth-child(3) { background-color: var(--color-card-cerulean); transform: translateY(-20px); }
+
+        .innovation-card:hover {
+            transform: translateY(var(--hover-translateY, 0)) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 2px solid var(--color-primary-accent);
+        }
+        
+        .innovation-card:nth-child(1):hover { --hover-translateY: 10px; }
+        .innovation-card:nth-child(2):hover { --hover-translateY: -10px; }
+        .innovation-card:nth-child(3):hover { --hover-translateY: -30px; }
+
+        .innovation-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .innovation-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            min-height: 120px;
+        }
+
+        .card-graphic {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            opacity: 0;
+            transform: scale(0.8) rotate(-10deg);
+            transition: opacity 0.6s var(--transition-smooth), transform 0.6s var(--transition-smooth);
+        }
+
+        .innovation-card:hover .card-graphic {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+
+        /*
+        ==========================================================================
+        VI. RESEARCH PREVIEW: THE CLIMAX
+        ==========================================================================
+        */
+        .research-section .container {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+        .research-text {
+            flex: 1;
+        }
+        .research-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 30px 0;
+        }
+        .research-graphic {
+            flex: 1;
+            perspective: 1000px;
+        }
+        .research-graphic img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            transform: rotateY(-20deg) rotateX(5deg);
+            transition: transform var(--transition-smooth);
+        }
+        .research-graphic:hover img {
+            transform: rotateY(0) rotateX(0);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-primary-accent);
+            color: var(--color-white);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+        }
+        
+        /*
+        ==========================================================================
+        VII. QUOTE INTERLUDE: A MOMENT OF PROPHUNDITY
+        ==========================================================================
+        */
+        .quote-section {
+            padding: 120px 5%;
+            background: var(--color-quote-gradient);
+            color: var(--color-white);
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-section blockquote {
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        /*
+        ==========================================================================
+        VIII. CURRENT WORK: THE CLIFFHANGER
+        ==========================================================================
+        */
+        .current-work-section .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5%;
+            position: relative;
+        }
+
+        .current-work-card {
+            background-image: url('assets/hero_card.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 25px;
+            padding: 50px;
+            color: var(--color-white);
+            width: 45%;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(220, 53, 69, 0.2);
+        }
+        
+        .current-work-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .current-work-graphic {
+            width: 30%;
+            text-align: center;
+        }
+
+        .current-work-graphic img {
+            width: 100%;
+            max-width: 250px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /*
+        ==========================================================================
+        IX. FOOTER: THE GRAND FINALE & RESOLUTION
+        ==========================================================================
+        */
+        .footer-transition-wrapper {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+            background-color: var(--color-white);
+        }
+
+        .footer-wave {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: var(--color-dark);
+            clip-path: url(#wave-clip);
+        }
+
+        .main-footer {
+            background-color: var(--color-dark);
+            color: var(--color-off-white);
+            padding: 80px 5% 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+        @media (min-width: 992px) {
+            .footer-brand {
+                grid-column: 1 / 2;
+                margin-bottom: 0;
+            }
+        }
+        
+        .footer-brand img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-brand p {
+            color: #ccc;
+            line-height: 1.7;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--color-white);
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color var(--transition-fast), padding-left var(--transition-fast);
+        }
+        
+        .footer-section a:hover {
+            color: var(--color-white);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-bottom p {
+            color: #888;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #ccc;
+            font-size: 1.5rem;
+            transition: color var(--transition-fast), transform var(--transition-fast);
+        }
+        
+        .social-links a:hover {
+            color: var(--color-white);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .about-section .container, .research-section .container {
+                flex-direction: column;
+                text-align: center;
+            }
+             .about-text, .research-text {
+                 text-align: left;
+             }
+             .research-graphic img {
+                 transform: none;
+             }
+             .innovation-card:nth-child(n) {
+                 transform: translateY(0);
+             }
+             .current-work-section .container {
+                 flex-direction: column-reverse;
+                 gap: 40px;
+             }
+             .current-work-card, .current-work-graphic {
+                 width: 100%;
+                 max-width: 500px;
+             }
+        }
+        @media (max-width: 768px) {
+             .main-header {
+                 flex-direction: column;
+                 gap: 10px;
+                 padding: 10px 5%;
+             }
+             .main-nav ul {
+                 gap: 20px;
+             }
+             .hero-content h1 {
+                 font-size: 3.5rem;
+             }
+             .hero-content .subtitle {
+                 font-size: 1.2rem;
+             }
+             h2 {
+                 font-size: 2.5rem;
+             }
+             .quote-section blockquote {
+                 font-size: 1.8rem;
+             }
+        }
     </style>
 </head>
 <body>
 
     <div id="scroll-progress-bar"></div>
-    <div id="celestial-background">
-        <div class="star-layer" id="stars1" data-depth="0.1"></div>
-        <div class="star-layer" id="stars2" data-depth="0.3"></div>
-        <div class="star-layer" id="stars3" data-depth="0.6"></div>
-        <!-- More layers or canvas for constellations can be added by JS -->
-    </div>
 
-    <nav class="main-nav">
-        <a href="index.html" class="logo-link">
-            <img src="assets/dawntasy_logo.png" alt="Dawntasy Creations Logo" id="navbar-logo">
+    <header class="main-header">
+        <a href="index.html" class="logo-container">
+            <img src="assets/logo.png" alt="Jasper Logo">
         </a>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="ai.html">AI</a></li>
-            <li><a href="writing.html">Writing</a></li>
-            <li><a href="music.html">Music</a></li>
-            <li><a href="our_mission.html">Our Mission</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <header class="hero-section fade-in-section">
-        <div class="container text-center">
-            <h1 class="hero-text-primary">Hi, I'm Jasper.</h1>
-            <p class="hero-text-secondary">Just a 13-year-old author, AI research and creator, and musical artist who wants to change the world – in all ways.</p>
-        </div>
-        <div class="scroll-down-indicator">
-            <span>↓</span> <!-- Down Arrow -->
-        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="ai.html">AI</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <section id="about" class="about-me-section fade-in-section">
+    <main id="parallax-container">
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="reveal-on-scroll">Hi, I'm Jasper.</h1>
+                <p class="subtitle" id="typewriter"></p>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container reveal-on-scroll">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>
+                        I'm Jasper, a 13 year old author, musical artist and data/ML researcher. My core innovations include my latest novel, Dawntasy, which features a fantasy-dystopian world where good and evil are synonyms and the hero is the villain. Besides literature, I have also exhibited interest in composition, especially for instrumental soundtracks, like my latest single, Constellations. My most powerful innovation, my work with machine learning, deep learning and artificial intelligence, involves training LLMs, neural networks and other kinds of models, and writing research papers with the goal in mind to stretch far beyond the Transformer.
+                    </p>
+                </div>
+                <div class="about-graphic">
+                    <img src="assets/tree.png" alt="A flourishing tree in a box, symbolizing growth and potential.">
+                </div>
+            </div>
+        </section>
+
+        <section class="innovations-section">
             <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-me-content">
-                    <div class="about-me-text">
-                        <p>Hi, I'm Jasper. At 13, I'm deeply passionate about the fusion of music, artificial intelligence, and writing. My project, <strong>Dawntasy Creations</strong>, is where I bring these worlds together to make a difference.</p>
-                        <p>In writing, I've published the fantasy-dystopian novella series <em>Dawntasy</em>, beginning with <em>Time's True Name</em>. Musically, you might enjoy my latest Spotify singles like "Constellations" or "Reflection."</p>
-                        <p>My core focus in AI involves exploring advanced concepts like Wasserstein GANs and developing innovative research, including proposals like <strong>DDTN (Deep Descriptive Transformative Network)</strong>. This network introduces a novel matrix-based factorization approach for compact, activated "Descriptors."</p>
-                        <p class="mission-statement">Inspired by trailblazers who shape our future, my goal: <strong>The world reimagined. From music. From AI. From writing.</strong></p>
-                        <a href="about.html" class="btn" style="margin-top: 1.5rem;">More About My Journey</a>
+                <div class="cards-container">
+                    <div class="innovation-card reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <h3>Music</h3>
+                        <p>Exploring the emotional landscapes of sound through instrumental composition, creating auditory worlds that tell stories without words.</p>
+                        <img src="assets/music.png" alt="Musical Note" class="card-graphic">
+                    </div>
+                    <div class="innovation-card reveal-on-scroll" style="transition-delay: 0.3s;">
+                        <h3>Writing</h3>
+                        <p>Crafting intricate narratives and challenging conventions in literature, building worlds where moral ambiguity reigns supreme.</p>
+                        <img src="assets/books.png" alt="Stack of Books" class="card-graphic">
+                    </div>
+                    <div class="innovation-card reveal-on-scroll" style="transition-delay: 0.5s;">
+                        <h3>Artificial Intelligence</h3>
+                        <p>Pioneering new architectures and paradigms in machine learning to build more efficient, capable, and truly intelligent systems.</p>
+                        <img src="assets/machine.png" alt="AI Cog Symbol" class="card-graphic">
                     </div>
                 </div>
             </div>
         </section>
-
-        <section id="pillars" class="pillars-section fade-in-section">
-            <div class="container">
-                <h2 class="section-title">Exploring Dawntasy</h2>
-                <div class="pillars-grid">
-                    <article class="pillar-card ai-card">
-                        <h3>AI Innovation</h3>
-                        <p>Pioneering next-generation intelligence. Delve into Q-Exp-Art, the novel Descriptive Network architecture (DDTN), and research aimed at redefining AI's frontiers.</p>
-                        <a href="ai.html" class="btn">Explore AI</a>
-                    </article>
-                    <article class="pillar-card writing-card">
-                        <h3>Writing Innovation</h3>
-                        <p>Crafting immersive dystopian and fantasy realms. Uncover the published <em>Dawntasy</em> series and the art of weaving hidden narratives.</p>
-                        <a href="https://www.amazon.com/Dawntasy-Circular-Dawn-breathtaking-greatest/dp/B0DWKN5QKH/" target="_blank" rel="noopener noreferrer" class="btn">Read the Book</a>
-                    </article>
-                    <article class="pillar-card music-card">
-                        <h3>Music Innovation</h3>
-                        <p>Composing and performing across genres. Experience original Spotify singles like 'Constellations' and 'Reflection,' alongside classical depth on piano and cello.</p>
-                        <a href="https://distrokid.com/hyperfollow/dawntasymelodic/constellations" target="_blank" rel="noopener noreferrer" class="btn">Listen Now</a>
-                    </article>
+        
+        <section id="research" class="research-section">
+            <div class="container reveal-on-scroll">
+                <div class="research-text">
+                    <h2>A Preview Into My Research</h2>
+                    <p>
+                        The current paradigm of AI models, in particular, LLMs, are slow and inefficient. The common rule of thumb is that scale = power. Scaling laws state that the more you spend, the more power you get - true in economics and in LLM training. My research proposals defy this principle entirely. This new paradigm, which I call "ProbSolSpace", tackles the many inefficiencies of Transformers and other architectures alike, such as the GPU communication cost, Amdahl's Law of Parallelism, information bottlenecks, hallucinations, catastrophic forgetting, immense cost for little power, etc.
+                    </p>
+                    <a href="research.html" class="cta-button">Learn More</a>
+                </div>
+                <div class="research-graphic">
+                    <img src="assets/paper.png" alt="A stylized representation of a research paper.">
                 </div>
             </div>
         </section>
 
-        <section id="roadmap" class="roadmap-section fade-in-section">
-            <div class="container">
-                <h2 class="section-title">Our Roadmap</h2>
-                <div class="roadmap-flow">
-                    <svg width="100%" height="600px" id="roadmap-svg-container" style="display: block; margin: 0 auto; max-width:1000px;">
-                        <defs>
-                            <linearGradient id="roadmapGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:#4169E1;stop-opacity:1" />
-                                <stop offset="50%" style="stop-color:#007BA7;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#6A0DAD;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <path id="roadmap-svg-path" class="roadmap-path"/>
-                    </svg>
-                    <!-- Nodes will be dynamically added here by JavaScript -->
+        <section class="quote-section">
+            <blockquote class="reveal-on-scroll">
+                "Linear thinking will get you no where. Nor circular thinking. Now activate it with softmax. Now you are thinking in strategic probabilities, not numbers."
+            </blockquote>
+        </section>
+
+        <section id="current-work" class="current-work-section">
+            <div class="container reveal-on-scroll">
+                <div class="current-work-card">
+                    <h2>What's happening?</h2>
+                    <p>
+                        I am currently working on deep learning research and projects. I am training a series of LLMs known as ProbSolSpace ranging from 1B parameters to 100B parameters, with the hopes of achieving SOTA intelligence through a grounded basis on my research proposals. Stay tuned!
+                    </p>
+                </div>
+                <div class="current-work-graphic">
+                    <img src="assets/question.png" alt="A stylized, floating question mark.">
                 </div>
             </div>
         </section>
-
-        <section id="featured-innovation" class="featured-innovation-section fade-in-section">
-            <div class="container">
-                <h2 class="section-title">Featured Innovation</h2>
-                <div class="featured-innovation-grid">
-                    <div class="ddtn-info-card">
-                        <h3>Spotlight: DDTN v4.3</h3>
-                        <p class="elevator-pitch">DDTN v4.3 (“Networks with Descriptive Projections”) is a revolutionary 1B-parameter LLM architecture, provably rivaling 30B dense Transformers with >80x inference and >60x training speedup. Built on entirely novel modules, it redefines AI efficiency and performance.</p>
-                        <ul>
-                            <li><strong>Unmatched Speed:</strong> >80x faster inference, >60x faster training vs. 30B Transformer.</li>
-                            <li><strong>Extreme Efficiency:</strong> ~7.6x FLOP reduction; 10B token corpus yields "100B-equivalent" signal.</li>
-                            <li><strong>Novel Architecture:</strong> Hyperbolic Descriptors, USRLR, FleX-Routing.</li>
-                            <li><strong>Provably Stable & Robust:</strong> <0.01% NaN/crash; >95% adversarial test coverage.</li>
-                            <li><strong>Transcendent Intelligence:</strong> 1B model MMLU ≥ 70%, matching 30B reference.</li>
-                            <li><strong>Radically Simple:</strong> ~3200 LOC, ≤ 5 core components.</li>
-                        </ul>
-                        <a href="ai.html#ddtn" class="btn" style="margin-top: 1.5rem;">Explore DDTN Deep Dive</a>
-                    </div>
-                    <div class="ddtn-visualization" id="ddtn-visualization-container">
-                        <!-- Conceptual DDTN Animation will be rendered here by JS -->
-                        <p style="font-style:italic; color: #707A8A;">DDTN Conceptual Flow Visualization Loading...</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="connect" class="connect-section fade-in-section">
-            <div class="container text-center">
-                <h2>Let's Innovate Together</h2>
-                <p>Intrigued by the fusion of AI, narrative, and music? Let's connect and explore how we can shape the future, spark new ideas, and create something truly breathtaking.</p>
-                <a href="contact.html" class="btn">Get in Touch</a>
-            </div>
-        </section>
+        
+        <div class="footer-transition-wrapper">
+            <div class="footer-wave"></div>
+        </div>
     </main>
+    
+    <!-- SVG for footer wave transition -->
+    <svg style="position: absolute; width: 0; height: 0;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <clipPath id="wave-clip" clipPathUnits="objectBoundingBox">
+                <path d="M0,1 C0.33,0.33 0.67,0.33 1,1 V1 H0 Z" />
+            </clipPath>
+        </defs>
+    </svg>
 
     <footer class="main-footer">
-        <div class="container text-center">
-            <div class="footer-logo">
-                <img src="assets/dawntasy_logo.png" alt="Dawntasy Creations Small Logo">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="assets/extended_logo.png" alt="Dawntasy Creative Logo">
+                <p>Pushing the frontiers of what is possible through creativity and code.</p>
             </div>
-            <div class="social-icons">
-                <a href="https://www.youtube.com/@DawntasyRevelate" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.267,4,12,4,12,4S5.733,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.733,2,12,2,12s0,4.267,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.733,20,12,20,12,20s6.267,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.267,22,12,22,12S22,7.733,21.582,6.186z M9.996,15.006V8.994l4.958,3.006L9.996,15.006z"/></svg></a>
-                <a href="https://www.amazon.com/stores/Jasper-Jiang/author/B0DT7QN8CV" target="_blank" rel="noopener noreferrer" aria-label="Amazon Author Page"><svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M16.313,11.958c0.604-0.938,1.021-2.021,1.021-3.167c0-2.979-2.406-5.396-5.375-5.396 c-2.979,0-5.396,2.417-5.396,5.396c0,1.146,0.417,2.229,1.021,3.167C5.104,13.104,3,14.979,3,17.188c0,0.604,0.406,1.021,1,1.021 h2.073c0.052,0.906,0.323,1.75,0.76,2.479c0.531,0.698,1.229,1.156,2.021,1.385c0.188,0.052,0.385,0.083,0.573,0.083 c0.188,0,0.385-0.031,0.573-0.083c0.792-0.229,1.49-0.688,2.021-1.385c0.438-0.729,0.708-1.573,0.76-2.479h2.073 c0.594,0,1-0.417,1-1.021C21,14.979,18.896,13.104,16.313,11.958z M11.958,4.604c2.344,0,4.229,1.906,4.229,4.229 c0,0.844-0.26,1.635-0.708,2.292C15.229,11.375,14.771,11,14.25,11c-0.552,0-1.042,0.385-1.302,0.938 C12.771,11.375,12.385,11,11.958,11c-0.427,0-0.813,0.375-1.021,0.938c-0.26-0.552-0.75-0.938-1.302-0.938 c-0.521,0-0.979,0.375-1.229,0.625C8,10.469,7.729,9.677,7.729,8.833C7.729,6.51,9.615,4.604,11.958,4.604z M12.771,21.073 c-0.396,0-0.75-0.208-0.979-0.542c-0.229-0.375-0.365-0.813-0.396-1.292h2.76c-0.031,0.479-0.167,0.917-0.396,1.292 C13.521,20.865,13.167,21.073,12.771,21.073z M19,17.188h-2.156c-0.063-1.115-0.438-2.135-1.042-2.969 c0.604-0.333,1.115-0.802,1.479-1.385C17.958,12,19,13.75,19,17.188z M9.729,14.219c-0.604,0.833-0.979,1.854-1.042,2.969H5 c0-3.438,1.042-5.188,1.729-5.979C7.104,11.833,7.615,11.365,8.229,11.031z"/></svg></a>
-                <a href="https://github.com/dawnstoryrevelation/dawntasyproj" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M12,2C6.477,2,2,6.477,2,12c0,4.419,2.865,8.166,6.839,9.491c0.5,0.092,0.682-0.217,0.682-0.482 c0-0.238-0.009-0.868-0.013-1.703c-2.782,0.605-3.369-1.341-3.369-1.341c-0.455-1.156-1.11-1.465-1.11-1.465 c-0.908-0.62,0.069-0.608,0.069-0.608c1.004,0.071,1.532,1.03,1.532,1.03c0.891,1.529,2.341,1.089,2.91,0.833 c0.091-0.647,0.349-1.089,0.635-1.339c-2.225-0.252-4.555-1.112-4.555-4.943c0-1.091,0.39-1.984,1.029-2.682 C6.546,8.985,6.213,8.012,6.774,6.675c0,0,0.841-0.269,2.75,1.025A9.722,9.722,0,0,1,12,7.648 c0.898,0.005,1.797,0.121,2.638,0.354c1.909-1.294,2.748-1.025,2.748-1.025c0.561,1.337,0.228,2.31,0.084,2.658 c0.64,0.698,1.028,1.591,1.028,2.682c0,3.841-2.334,4.687-4.565,4.935c0.359,0.309,0.679,0.921,0.679,1.856 c0,1.339-0.012,2.419-0.012,2.746c0,0.267,0.18,0.577,0.686,0.479C19.139,20.161,22,16.419,22,12C22,6.477,17.523,2,12,2z"/></svg></a>
-                <!-- Add more social icons as needed -->
+            <div class="footer-section">
+                <h4>Main</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
-            <p class="copyright-text">© Dawntasy Creations 2024. All Rights Reserved.</p>
+             <div class="footer-section">
+                <h4>Artificial Intelligence</h4>
+                <ul>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="ai.html">LLM</a></li>
+                    <li><a href="docs.html">Documentation</a></li>
+                    <li><a href="future_ai.html">Future AI Prospects</a></li>
+                    <li><a href="probsolspace.html">ProbSolSpace</a></li>
+                    <li><a href="models.html">Models</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Writing</h4>
+                <ul>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="future_writing.html">Future Writing Prospects</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Music</h4>
+                <ul>
+                    <li><a href="music.html">Songs</a></li>
+                    <li><a href="future_music.html">Future Musical Prospects</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Jasper / Dawntasy Creative. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/dawnstoryrevelation/dawntasyproj" target="_blank" title="GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
+                <a href="https://huggingface.co/Dawntasy" target="_blank" title="Hugging Face">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.283,9.444c-0.188-0.2-0.5-0.2-0.688,0l-1.333,1.354c-0.188,0.2-0.188,0.521,0,0.729l1.333,1.354 c0.188,0.2,0.5,0.2,0.688,0l1.458-1.479C21.948,11.2,22,10.885,22,10.552C22,10.219,21.948,9.9,21.74,9.688L20.283,9.444z M17.433,7.861c-0.188-0.2-0.5-0.2-0.688,0l-1.333,1.354c-0.188,0.2-0.188,0.521,0,0.729l1.333,1.354c0.188,0.2,0.5,0.2,0.688,0 l1.458-1.479c0.208-0.208,0.26-0.521,0.26-0.854c0-0.333-0.052-0.646-0.26-0.854L17.433,7.861z M6.567,7.861l-1.458,1.479 c-0.208,0.208-0.26,0.521-0.26,0.854c0,0.333,0.052,0.646,0.26,0.854l1.458,1.479c0.188,0.2,0.5,0.2,0.688,0l1.333-1.354 c0.188-0.2,0.188-0.521,0-0.729L7.254,8.581c-0.188-0.2-0.5-0.2-0.688,0L6.567,7.861z M3.717,9.444L2.26,10.861 c-0.208,0.208-0.26,0.521-0.26,0.854s0.052,0.646,0.26,0.854l1.458,1.479c0.188,0.2,0.5,0.2,0.688,0l1.333-1.354 c0.188-0.2,0.188-0.521,0-0.729L4.404,10.171c-0.188-0.2-0.5-0.2-0.688,0V9.444z M13.155,2.133c-0.25,0-0.458,0.219-0.458,0.479 v2.563c0,0.26,0.208,0.479,0.458,0.479h1.708c0.25,0,0.458-0.219,0.458-0.479V2.612c0-0.26-0.208-0.479-0.458-0.479H13.155z M9.138,2.133c-0.25,0-0.458,0.219-0.458,0.479v2.563c0,0.26,0.208,0.479,0.458,0.479h1.708c0.25,0,0.458-0.219,0.458-0.479V2.612 c0-0.26-0.208-0.479-0.458-0.479H9.138z M12,6.925c-2.823,0-5.125,2.365-5.125,5.271v3.292c0,0.917,0.74,1.667,1.646,1.667h7.021 c0.906,0,1.583-0.75,1.583-1.667v-3.292C17.125,9.289,14.823,6.925,12,6.925z M12,18.55c-0.969,0-1.75-0.792-1.75-1.771 c0-0.979,0.781-1.771,1.75-1.771c0.969,0,1.75,0.792,1.75,1.771C13.75,17.758,12.969,18.55,12,18.55z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@DawntasyRevelate" target="_blank" title="YouTube">
+                     <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M21.582,6.186c-0.23-0.854-0.908-1.532-1.762-1.762C18.254,4,12,4,12,4S5.746,4,4.18,4.424 c-0.854,0.23-1.532,0.908-1.762,1.762C2,7.754,2,12,2,12s0,4.246,0.418,5.814c0.23,0.854,0.908,1.532,1.762,1.762 C5.746,20,12,20,12,20s6.254,0,7.82-0.424c0.854-0.23,1.532-0.908,1.762-1.762C22,16.246,22,12,22,12S22,7.754,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"/></svg>
+                </a>
+            </div>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Scroll Progress Bar
-            const progressBar = document.getElementById('scroll-progress-bar');
-            window.addEventListener('scroll', () => {
-                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (scrollTop / scrollHeight) * 100;
-                progressBar.style.width = scrolled + '%';
-            });
+    document.addEventListener("DOMContentLoaded", function() {
+        // --- MASTER JAVASCRIPT ORCHESTRATOR ---
 
-            // Parallax Effect for Celestial Background
-            const starLayers = [
-                { id: 'stars1', depth: 0.1 },
-                { id: 'stars2', depth: 0.2 }, // Adjusted depth for more noticeable effect
-                { id: 'stars3', depth: 0.4 }  // Adjusted depth
-            ];
-            window.addEventListener('scroll', () => {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                starLayers.forEach(layerConfig => {
-                    const layerElement = document.getElementById(layerConfig.id);
-                    if (layerElement) {
-                        const yPos = -(scrollTop * layerConfig.depth);
-                        layerElement.style.transform = `translate3d(0, ${yPos}px, 0)`;
-                    }
-                });
-            });
+        // 1. SCROLL PROGRESS BAR
+        const progressBar = document.getElementById('scroll-progress-bar');
+        const body = document.body;
+        const html = document.documentElement;
+
+        function updateProgressBar() {
+            const scrollTop = body.scrollTop || html.scrollTop;
+            const scrollHeight = html.scrollHeight - html.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            progressBar.style.width = progress + '%';
+        }
+
+        // 2. PARALLAX EFFECT
+        const parallaxContainer = document.getElementById('parallax-container');
+        
+        function handleParallax() {
+            let offset = window.pageYOffset;
+            // A very subtle, smooth parallax effect. The small multiplier is key.
+            parallaxContainer.style.transform = `translateY(${offset * 0.1}px)`;
             
-            // Intersection Observer for Fade-in Animations
-            const sections = document.querySelectorAll('.fade-in-section');
-            const observerOptions = {
-                root: null, // viewport
-                rootMargin: '0px',
-                threshold: 0.15 // 15% of item is visible
-            };
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        // Optional: unobserve after animation to save resources
-                        // observer.unobserve(entry.target); 
-                    }
-                });
-            }, observerOptions);
-            sections.forEach(section => {
-                observer.observe(section);
+            const heroBg = document.querySelector('.hero-section');
+            if(heroBg) {
+                // Creates depth by moving the hero card slower than the scroll
+                 heroBg.style.backgroundPositionY = `${offset * 0.5}px`;
+            }
+        }
+
+        // 3. REVEAL ON SCROLL (using Intersection Observer for performance)
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Optional: unobserve after revealing to save resources
+                    // observer.unobserve(entry.target);
+                }
             });
+        }, observerOptions);
 
-            // Roadmap Visualization
-            const roadmapData = [
-                { text: "Write & Publish Dawntasy Book", status: "completed", id: "roadmap-book" },
-                { text: "Create Musical Songs", status: "completed", id: "roadmap-music" },
-                { text: "Create DawntasyAI using API", status: "completed", id: "roadmap-api" },
-                { text: "Fine Tune DawntasyAI", status: "completed", id: "roadmap-finetune" },
-                { text: "Research Machine/Deep Learning", status: "completed", id: "roadmap-research" },
-                { text: "Draft Proposal Research Papers for ML", status: "in-progress", id: "roadmap-proposals" },
-                { text: "Create 1B param prototype/test models", status: "upcoming", id: "roadmap-proto1b" },
-                { text: "Create Q-Exp-Art Tokenizer", status: "upcoming", id: "roadmap-tokenizer" },
-                { text: "Create Q-Exp-Art Mini Model", status: "upcoming", id: "roadmap-qmini" },
-                { text: "Release ALL Proposals onto ArXiv", status: "upcoming", id: "roadmap-arxiv" },
-                { text: "Publish Q-Exp-Art", status: "upcoming", id: "roadmap-qpublish" },
-                { text: "TO BE CONTINUED...", status: "tbc", id: "roadmap-tbc" }
-            ];
+        revealElements.forEach(el => revealObserver.observe(el));
 
-            const roadmapFlowContainer = document.querySelector('.roadmap-flow');
-            const roadmapSVG = document.getElementById('roadmap-svg-path');
-            const svgContainer = document.getElementById('roadmap-svg-container');
-            
-            if (roadmapFlowContainer && roadmapSVG && svgContainer) {
-                let pathD = "M ";
-                const nodeSpacingX = 200; // Horizontal spacing, can be dynamic
-                const nodeSpacingY = 120; // Vertical spacing
-                let currentX = 50; // Start X
-                let currentY = 50; // Start Y
-                let pathPoints = [];
+        // 4. HERO SECTION ANIMATION TRIGGER
+        const heroSection = document.getElementById('hero');
+        // Use a slight timeout on load to ensure assets are ready for a smooth transition
+        setTimeout(() => {
+            heroSection.classList.add('is-loaded');
+        }, 200); // 200ms delay
 
-                roadmapData.forEach((item, index) => {
-                    const nodeDiv = document.createElement('div');
-                    nodeDiv.classList.add('roadmap-node');
-                    nodeDiv.classList.add(item.status);
-                    nodeDiv.id = item.id;
+        // 5. TYPEWRITER EFFECT
+        const typewriterElement = document.getElementById('typewriter');
+        const textToType = "Pushing the frontiers of what is possible.";
+        let charIndex = 0;
 
-                    // Staggered layout for flow
-                    if (index > 0) {
-                        if (index % 3 === 1) currentX += nodeSpacingX;
-                        else if (index % 3 === 2) currentX -= nodeSpacingX * 0.7; // Slightly back
-                        else currentX += nodeSpacingX * 0.3; // Forward again
-                        currentY += nodeSpacingY;
-                        if (currentX < 50) currentX = 50;
-                        if (currentX > svgContainer.clientWidth - 50) currentX = svgContainer.clientWidth - 50;
-                    }
-                    pathPoints.push({x: currentX, y: currentY});
-                    
-                    nodeDiv.style.left = `${currentX}px`;
-                    nodeDiv.style.top = `${currentY}px`;
-                    
-                    const iconDiv = document.createElement('div');
-                    iconDiv.classList.add('node-icon');
-                    iconDiv.innerHTML = item.status === 'tbc' ? '...' : String(index + 1); // Simple number or ellipsis
-
-                    const textDiv = document.createElement('div');
-                    textDiv.classList.add('node-text');
-                    textDiv.textContent = item.text;
-
-                    const statusIconDiv = document.createElement('div');
-                    statusIconDiv.classList.add('node-status-icon');
-                    if (item.status === 'completed') statusIconDiv.innerHTML = '✔️';
-                    else if (item.status === 'in-progress') statusIconDiv.innerHTML = '🚩';
-                    
-                    nodeDiv.appendChild(iconDiv);
-                    nodeDiv.appendChild(textDiv);
-                    nodeDiv.appendChild(statusIconDiv);
-                    roadmapFlowContainer.appendChild(nodeDiv);
-
-                    // Make nodes visible with a delay
-                    setTimeout(() => { nodeDiv.style.opacity = 1; }, index * 200 + 500);
-                });
-
-                // Create SVG path from points (simple straight lines for now)
-                // For curved "pipe" look, Bezier curves would be needed (more complex)
-                if(pathPoints.length > 0) {
-                    pathD += `${pathPoints[0].x} ${pathPoints[0].y}`;
-                    for(let i = 1; i < pathPoints.length; i++) {
-                        // Simple line for now, could be replaced with curves
-                        pathD += ` L ${pathPoints[i].x} ${pathPoints[i].y}`;
-                    }
-                    roadmapSVG.setAttribute('d', pathD);
-                    
-                    // Animate path drawing
-                    const pathLength = roadmapSVG.getTotalLength();
-                    roadmapSVG.style.strokeDasharray = pathLength;
-                    roadmapSVG.style.strokeDashoffset = pathLength;
-                    setTimeout(() => {
-                        roadmapSVG.style.transition = 'stroke-dashoffset 2s ease-out';
-                        roadmapSVG.style.strokeDashoffset = '0';
-                    }, 300);
-                }
-                 // Adjust SVG container height
-                if (pathPoints.length > 0) {
-                    const lastPointY = pathPoints[pathPoints.length - 1].y;
-                    svgContainer.style.height = `${lastPointY + 100}px`; // Add some padding
-                }
+        function typeWriter() {
+            if (charIndex < textToType.length) {
+                typewriterElement.innerHTML = textToType.substring(0, charIndex + 1) + '<span class="typewriter-cursor"></span>';
+                charIndex++;
+                setTimeout(typeWriter, 80);
+            } else {
+                 // Keep cursor blinking at the end
+                 typewriterElement.innerHTML = textToType + '<span class="typewriter-cursor"></span>';
             }
+        }
+        
+        // Start typewriter after hero text fades in (1s delay from CSS + 1s for fade-in)
+        setTimeout(typeWriter, 2000);
 
-            // Conceptual DDTN Visualization
-            const ddtnVizContainer = document.getElementById('ddtn-visualization-container');
-            if (ddtnVizContainer) {
-                ddtnVizContainer.innerHTML = ''; // Clear loading text
-                const stages = [
-                    { name: "Tokens In", color: "#3498db" },
-                    { name: "Embedding", color: "#9b59b6" },
-                    { name: "HDM", color: "#2ecc71" },
-                    { name: "Aggregation", color: "#f1c40f" },
-                    { name: "FleX-Routing", color: "#e67e22" },
-                    { name: "USRLR", color: "#e74c3c" },
-                    { name: "Output", color: "#1abc9c" }
-                ];
-
-                const vizSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                vizSvg.setAttribute("width", "100%");
-                vizSvg.setAttribute("height", "100%");
-                vizSvg.style.minHeight = "350px"; // Ensure it has some height
-                ddtnVizContainer.appendChild(vizSvg);
-
-                const numParticles = 5;
-                const particleRadius = 5;
-                const pathWidth = ddtnVizContainer.clientWidth * 0.8;
-                const pathHeight = ddtnVizContainer.clientHeight * 0.8;
-                const startX = ddtnVizContainer.clientWidth * 0.1;
-                const startY = ddtnVizContainer.clientHeight * 0.5;
-
-                // Draw stages as simple rectangles
-                stages.forEach((stage, i) => {
-                    const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-                    const stageWidth = pathWidth / stages.length;
-                    rect.setAttribute("x", startX + i * stageWidth);
-                    rect.setAttribute("y", startY - 20);
-                    rect.setAttribute("width", stageWidth - 5);
-                    rect.setAttribute("height", "40");
-                    rect.setAttribute("fill", stage.color);
-                    rect.setAttribute("rx", "5");
-                    vizSvg.appendChild(rect);
-
-                    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                    text.setAttribute("x", startX + i * stageWidth + (stageWidth - 5) / 2);
-                    text.setAttribute("y", startY + 10);
-                    text.setAttribute("fill", "white");
-                    text.setAttribute("font-size", "10px");
-                    text.setAttribute("text-anchor", "middle");
-                    text.textContent = stage.name;
-                    vizSvg.appendChild(text);
-                });
-
-                // Animate particles (conceptual flow)
-                for (let i = 0; i < numParticles; i++) {
-                    const particle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-                    particle.setAttribute("r", particleRadius);
-                    particle.setAttribute("fill", "#00CFE8"); // Cyan particle
-                    vizSvg.appendChild(particle);
-
-                    const animate = particle.appendChild(document.createElementNS("http://www.w3.org/2000/svg", "animateMotion"));
-                    animate.setAttribute("dur", `${5 + Math.random() * 2}s`); // Random duration
-                    animate.setAttribute("repeatCount", "indefinite");
-                    animate.setAttribute("path", `M ${startX - 20} ${startY} L ${startX + pathWidth + 20} ${startY}`);
-                    animate.setAttribute("begin", `${i * 0.5}s`); // Stagger start times
-                }
-                 // Simple "interactivity" placeholder: glow stages on hover
-                vizSvg.querySelectorAll('rect').forEach(rect => {
-                    rect.addEventListener('mouseover', () => rect.style.opacity = '0.7');
-                    rect.addEventListener('mouseout', () => rect.style.opacity = '1');
-                });
-            }
+        // --- GLOBAL EVENT LISTENERS ---
+        window.addEventListener('scroll', () => {
+            requestAnimationFrame(() => {
+                updateProgressBar();
+                // We could enable the JS parallax here, but for ultimate smoothness,
+                // the CSS perspective approach is often superior.
+                // handleParallax(); // Uncomment for JS-driven parallax
+            });
         });
+
+    });
     </script>
+
 </body>
 </html>
