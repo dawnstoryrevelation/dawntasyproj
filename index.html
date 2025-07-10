@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jasper - Author, Researcher, Artist</title>
+    <title>Dawntasy Creative</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -125,25 +126,28 @@
             align-items: center;
         }
         .footer-brand .footer-logo-container {
-            width: 120px;
-            height: 120px;
+            width: 180px; /* Increased width for the oval shape */
+            height: 110px; /* Adjusted height */
             background-color: var(--color-white);
-            border-radius: 50%;
+            border-radius: 50%; /* This still creates a perfect oval with non-equal w/h */
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 25px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-            transition: transform var(--transition-fast);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            padding: 10px; /* Adds some internal breathing room */
         }
         .footer-brand .footer-logo-container:hover {
             transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.25);
         }
 
         .footer-brand img {
-            max-width: 80%; /* Adjust logo size within the circle */
+            max-width: 100%; /* Allow the image to fill the container's padding box */
             height: auto;
             margin: 0;
+            object-fit: contain; /* Ensures the entire logo is visible without distortion */
         }
         .logo-container img {
             height: 45px;
