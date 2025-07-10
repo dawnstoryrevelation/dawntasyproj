@@ -1,0 +1,15 @@
+# Pinning versions for maximum stability and reproducibility.
+# These versions are known to work well together on Python 3.10 with modern CUDA drivers.
+torch==2.2.1
+transformers==4.39.3
+datasets==2.18.0
+accelerate==0.28.0
+bitsandbytes==0.43.0 # Required for FSDP
+scipy==1.13.0
+scikit-learn==1.4.1.post1
+matplotlib==3.8.4
+tqdm==4.66.2
+einops==0.7.0
+# flash-attn is critical for speed. Installation can be tricky, so we build from source.
+# The run script will handle this installation.
+flash-attn==2.5.8
