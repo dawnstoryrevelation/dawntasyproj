@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Jasper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-white: #ffffff;
+            --color-off-white: #f8f9fa;
+            --color-dark: #1a1a1a;
+            --color-logo-brown: #3b2a23;
+            --color-primary-accent: #007bff;
+            --color-contact-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --font-primary: 'Poppins', sans-serif;
+            --transition-smooth: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition-fast: 0.3s ease;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-primary); background-color: var(--color-off-white); color: var(--color-dark); overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        #scroll-progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--color-primary-accent); width: 0%; z-index: 1001; transform-origin: left; transition: transform 0.1s linear; }
+        
+        /* Shared Styles from index.html */
+        .main-header { position: fixed; top: 0; left: 0; width: 100%; background-color: var(--color-white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container img { height: 45px; transition: transform var(--transition-fast); }
+        .logo-container img:hover { transform: scale(1.05); }
+        .main-nav ul { list-style: none; display: flex; gap: 40px; }
+        .main-nav a { text-decoration: none; color: var(--color-dark); font-weight: 600; font-size: 1rem; position: relative; padding: 5px 0; }
+        .main-nav a::after { content: ''; position: absolute; width: 100%; height: 2px; bottom: 0; left: 0; background-color: var(--color-dark); transform: scaleX(0); transform-origin: bottom right; transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1); }
+        .main-nav a:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+        
+        .footer-transition-wrapper { position: relative; height: 150px; overflow: hidden; background-color: var(--color-off-white); }
+        .footer-wave { position: absolute; bottom: -2px; left: 0; width: 100%; height: 150px; background: var(--color-dark); clip-path: url(#wave-clip); }
+        .main-footer { background-color: var(--color-dark); color: var(--color-off-white); padding: 80px 5% 40px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 60px; }
+        .footer-brand { grid-column: 1 / -1; }
+        @media (min-width: 992px) { .footer-brand { grid-column: 1 / 2; } }
+        .footer-brand .footer-logo-container { width: 120px; height: 120px; background-color: var(--color-white); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); transition: transform var(--transition-fast); }
+        .footer-brand .footer-logo-container:hover { transform: scale(1.05); }
+        .footer-brand img { max-width: 80%; height: auto; margin: 0; }
+        .footer-brand p { color: #ccc; line-height: 1.7; }
+        .footer-section h4 { font-size: 1.2rem; margin-bottom: 20px; color: var(--color-white); font-weight: 600; }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 10px; }
+        .footer-section a { color: #ccc; text-decoration: none; transition: color var(--transition-fast), padding-left var(--transition-fast); }
+        .footer-section a:hover { color: var(--color-white); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-bottom p { color: #888; }
+        .social-links { display: flex; gap: 20px; }
+        .social-links a { color: #ccc; font-size: 1.5rem; transition: color var(--transition-fast), transform var(--transition-fast); }
+        .social-links a:hover { color: var(--color-white); transform: translateY(-3px); }
+
+        /* CONTACT PAGE SPECIFIC STYLES */
+        .contact-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 150px 5% 100px;
+            background: var(--color-contact-bg);
+            position: relative;
+        }
+
+        .contact-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 50px 60px;
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transform: translateY(40px);
+            opacity: 0;
+            animation: fadeIn 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .contact-card h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--color-dark);
+        }
+
+        .contact-card .subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .email-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--color-off-white);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+        }
+
+        .email-address {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-primary-accent);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .copy-button {
+            background-color: var(--color-primary-accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .copy-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+        .copy-button.copied {
+            background-color: #28a745;
+        }
+        
+        .contact-socials {
+            margin-top: 30px;
+        }
+        
+        .contact-socials .social-links a {
+            color: #555;
+            font-size: 2rem;
+        }
+         .contact-socials .social-links a:hover {
+            color: var(--color-primary-accent);
+        }
+        
+        @media (max-width: 768px) {
+             .main-header { flex-direction: column; gap: 10px; padding: 10px 5%; }
+             .main-nav ul { gap: 20px; }
+             .contact-card { padding: 40px 25px; }
+             .contact-card h1 { font-size: 2.5rem; }
+             .contact-card .subtitle { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="scroll-progress-bar"></div>
+
+    <header class="main-header">
+        <a href="index.html" class="logo-container">
+            <img src="assets/logo.png" alt="Jasper Logo">
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="ai.html">AI</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contact-page">
+        <div class="contact-card">
+            <h1>Let's Connect</h1>
+            <p class="subtitle">Have a question, a project idea, or just want to discuss the future of intelligence? I'd love to hear from you.</p>
+
+            <div class="email-container">
+                <a href="mailto:musicaljasperj@gmail.com" id="email" class="email-address">musicaljasperj@gmail.com</a>
+                <button id="copy-btn" class="copy-button">Copy</button>
+            </div>
+
+            <div class="contact-socials">
+                <p>You can also find me on these platforms:</p>
+                <div class="social-links">
+                     <a href="https://github.com/dawnstoryrevelation/dawntasyproj" target="_blank" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                     <a href="https://huggingface.co/Dawntasy" target="_blank" title="Hugging Face"><svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.283,9.444c-0.188-0.2-0.5-0.2-0.688,0l-1.333,1.354c-0.188,0.2-0.188,0.521,0,0.729l1.333,1.354 c0.188,0.2,0.5,0.2,0.688,0l1.458-1.479C21.948,11.2,22,10.885,22,10.552C22,10.219,21.948,9.9,21.74,9.688L20.283,9.444z M17.433,7.861c-0.188-0.2-0.5-0.2-0.688,0l-1.333,1.354c-0.188,0.2-0.188,0.521,0,0.729l1.333,1.354c0.188,0.2,0.5,0.2,0.688,0 l1.458-1.479c0.208-0.208,0.26-0.521,0.26-0.854c0-0.333-0.052-0.646-0.26-0.854L17.433,7.861z M6.567,7.861l-1.458,1.479 c-0.208,0.208-0.26,0.521-0.26,0.854c0,0.333,0.052,0.646,0.26,0.854l1.458,1.479c0.188,0.2,0.5,0.2,0.688,0l1.333-1.354 c0.188-0.2,0.188-0.521,0-0.729L7.254,8.581c-0.188-0.2-0.5-0.2-0.688,0L6.567,7.861z M3.717,9.444L2.26,10.861 c-0.208,0.208-0.26,0.521-0.26,0.854s0.052,0.646,0.26,0.854l1.458,1.479c0.188,0.2,0.5,0.2,0.688,0l1.333-1.354 c0.188-0.2,0.188-0.521,0-0.729L4.404,10.171c-0.188-0.2-0.5-0.2-0.688,0V9.444z M13.155,2.133c-0.25,0-0.458,0.219-0.458,0.479 v2.563c0,0.26,0.208,0.479,0.458,0.479h1.708c0.25,0,0.458-0.219,0.458-0.479V2.612c0-0.26-0.208-0.479-0.458-0.479H13.155z M9.138,2.133c-0.25,0-0.458,0.219-0.458,0.479v2.563c0,0.26,0.208,0.479,0.458,0.479h1.708c0.25,0,0.458-0.219,0.458-0.479V2.612 c0-0.26-0.208-0.479-0.458-0.479H9.138z M12,6.925c-2.823,0-5.125,2.365-5.125,5.271v3.292c0,0.917,0.74,1.667,1.646,1.667h7.021 c0.906,0,1.583-0.75,1.583-1.667v-3.292C17.125,9.289,14.823,6.925,12,6.925z M12,18.55c-0.969,0-1.75-0.792-1.75-1.771 c0-0.979,0.781-1.771,1.75-1.771c0.969,0,1.75,0.792,1.75,1.771C13.75,17.758,12.969,18.55,12,18.55z"/></svg></a>
+                     <a href="https://www.youtube.com/@DawntasyRevelate" target="_blank" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M21.582,6.186c-0.23-0.854-0.908-1.532-1.762-1.762C18.254,4,12,4,12,4S5.746,4,4.18,4.424 c-0.854,0.23-1.532,0.908-1.762,1.762C2,7.754,2,12,2,12s0,4.246,0.418,5.814c0.23,0.854,0.908,1.532,1.762,1.762 C5.746,20,12,20,12,20s6.254,0,7.82-0.424c0.854-0.23,1.532-0.908,1.762-1.762C22,16.246,22,12,22,12S22,7.754,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <div class="footer-transition-wrapper">
+        <div class="footer-wave"></div>
+    </div>
+    
+    <svg style="position: absolute; width: 0; height: 0;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <clipPath id="wave-clip" clipPathUnits="objectBoundingBox">
+                <path d="M0,1 C0.33,0.33 0.67,0.33 1,1 V1 H0 Z" />
+            </clipPath>
+        </defs>
+    </svg>
+
+    <!-- Footer remains the same -->
+    <footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <div class="footer-logo-container">
+                 <img src="assets/extended_logo.png" alt="Dawntasy Creative Logo">
+            </div>
+            <p>Pushing the frontiers of what is possible through creativity and code.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Main</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+         <div class="footer-section">
+            <h4>Artificial Intelligence</h4>
+            <ul>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="ai.html">LLM</a></li>
+                <li><a href="docs.html">Documentation</a></li>
+                <li><a href="future_ai.html">Future AI Prospects</a></li>
+                <li><a href="probsolspace.html">ProbSolSpace</a></li>
+                <li><a href="models.html">Models</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Writing</h4>
+            <ul>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="future_writing.html">Future Writing Prospects</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Music</h4>
+            <ul>
+                <li><a href="music.html">Songs</a></li>
+                <li><a href="future_music.html">Future Musical Prospects</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 Jasper / Dawntasy Creative. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/dawnstoryrevelation/dawntasyproj" target="_blank" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="https://huggingface.co/Dawntasy" target="_blank" title="Hugging Face">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.283,9.444c-0.188-0.2-0.5-0.2-0.688,0l-1.333,1.354c-0.188,0.2-0.188,0.521,0,0.729l1.333,1.354 c0.188,0.2,0.5,0.2,0.688,0l1.458-1.479C21.948,11.2,22,10.885,22,10.552C22,10.219,21.948,9.9,21.74,9.688L20.283,9.444z M17.433,7.861c-0.188-0.2-0.5-0.2-0.688,0l-1.333,1.354c-0.188,0.2-0.188,0.521,0,0.729l1.333,1.354c0.188,0.2,0.5,0.2,0.688,0 l1.458-1.479c0.208-0.208,0.26-0.521,0.26-0.854c0-0.333-0.052-0.646-0.26-0.854L17.433,7.861z M6.567,7.861l-1.458,1.479 c-0.208,0.208-0.26,0.521-0.26,0.854c0,0.333,0.052,0.646,0.26,0.854l1.458,1.479c0.188,0.2,0.5,0.2,0.688,0l1.333-1.354 c0.188-0.2,0.188-0.521,0-0.729L7.254,8.581c-0.188-0.2-0.5-0.2-0.688,0L6.567,7.861z M3.717,9.444L2.26,10.861 c-0.208,0.208-0.26,0.521-0.26,0.854s0.052,0.646,0.26,0.854l1.458,1.479c0.188,0.2,0.5,0.2,0.688,0l1.333-1.354 c0.188-0.2,0.188-0.521,0-0.729L4.404,10.171c-0.188-0.2-0.5-0.2-0.688,0V9.444z M13.155,2.133c-0.25,0-0.458,0.219-0.458,0.479 v2.563c0,0.26,0.208,0.479,0.458,0.479h1.708c0.25,0,0.458-0.219,0.458-0.479V2.612c0-0.26-0.208-0.479-0.458-0.479H13.155z M9.138,2.133c-0.25,0-0.458,0.219-0.458,0.479v2.563c0,0.26,0.208,0.479,0.458,0.479h1.708c0.25,0,0.458-0.219,0.458-0.479V2.612 c0-0.26-0.208-0.479-0.458-0.479H9.138z M12,6.925c-2.823,0-5.125,2.365-5.125,5.271v3.292c0,0.917,0.74,1.667,1.646,1.667h7.021 c0.906,0,1.583-0.75,1.583-1.667v-3.292C17.125,9.289,14.823,6.925,12,6.925z M12,18.55c-0.969,0-1.75-0.792-1.75-1.771 c0-0.979,0.781-1.771,1.75-1.771c0.969,0,1.75,0.792,1.75,1.771C13.75,17.758,12.969,18.55,12,18.55z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@DawntasyRevelate" target="_blank" title="YouTube">
+                 <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M21.582,6.186c-0.23-0.854-0.908-1.532-1.762-1.762C18.254,4,12,4,12,4S5.746,4,4.18,4.424 c-0.854,0.23-1.532,0.908-1.762,1.762C2,7.754,2,12,2,12s0,4.246,0.418,5.814c0.23,0.854,0.908,1.532,1.762,1.762 C5.746,20,12,20,12,20s6.254,0,7.82-0.424c0.854-0.23,1.532-0.908,1.762-1.762C22,16.246,22,12,22,12S22,7.754,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"/></svg>
+            </a>
+        </div>
+    </div>
+</footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // SCROLL PROGRESS BAR
+        const progressBar = document.getElementById('scroll-progress-bar');
+        const body = document.body;
+        const html = document.documentElement;
+
+        function updateProgressBar() {
+            const scrollTop = body.scrollTop || html.scrollTop;
+            const scrollHeight = html.scrollHeight - html.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            progressBar.style.width = progress + '%';
+        }
+        window.addEventListener('scroll', updateProgressBar);
+        updateProgressBar(); // Initial call
+
+        // CONTACT PAGE: COPY TO CLIPBOARD
+        const copyBtn = document.getElementById('copy-btn');
+        const emailAddress = document.getElementById('email');
+
+        if (copyBtn && emailAddress) {
+            copyBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(emailAddress.innerText).then(() => {
+                    copyBtn.textContent = 'Copied!';
+                    copyBtn.classList.add('copied');
+                    setTimeout(() => {
+                        copyBtn.textContent = 'Copy';
+                        copyBtn.classList.remove('copied');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+            });
+        }
+    });
+    </script>
+</body>
+</html>
