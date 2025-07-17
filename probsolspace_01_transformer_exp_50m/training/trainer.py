@@ -11,7 +11,6 @@ import functools
 from torch.distributed.fsdp.wrap import transformer_auto_wrap_policy
 from transformers.models.llama.modeling_llama import LlamaDecoderLayer
 from tqdm import tqdm
-from torch.utils.data import DataLoader
 from transformers import get_cosine_schedule_with_warmup
 
 from config.training_args import TrainingArguments
@@ -33,11 +32,9 @@ def main():
     )
 
 # FSDP plugin configuration. This must be done before Accelerator init.
-    # MODIFY IT TO LOOK LIKE THIS
     fsdp_plugin = FullyShardedDataParallelPlugin(
         state_dict_config=FullStateDictConfig(offload_to_cpu=False, rank0_only=False),
         auto_wrap_policy=llama_auto_wrap_policy,
-        use_orig_params=True,  # This is the final, required flag
     )
     accelerator = Accelerator(fsdp_plugin=fsdp_plugin, log_with="tensorboard", project_dir="./results/logs")
     
@@ -81,12 +78,14 @@ def main():
             # For subsequent stages, components are already prepared
             prepared_model, prepared_optimizer, prepared_lr_scheduler = model, optimizer, lr_scheduler
 
-        # REPLACE IT WITH THESE TWO LINES
-        torch_dataloader = DataLoader(dataloader, batch_size=args.per_device_batch_size)
-        prepared_dataloader = accelerator.prepare(torch_dataloader)
+        prepared_dataloader = accelerator.prepare(dataloader)
         
         # `torch.compile` is a key speedup. Apply after `accelerator.prepare`.
         # This needs to be done on all ranks.
+        if global_step_offset == 0: # Compile only once
+            logger.info("Compiling the model with torch.compile()... This may take a few minutes.")
+            prepared_model = torch.compile(prepared_model, mode="reduce-overhead")
+            logger.info("Model compilation complete.")
 
         
         progress_bar = tqdm(

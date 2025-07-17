@@ -33,8 +33,7 @@ def _process_pretrain_cosmopedia(batch: Dict, system_prompt: str) -> Dict:
 def _process_pretrain_numinamath(batch: Dict, system_prompt: str) -> Dict:
     """Processes a batch from the NuminaMath dataset, formatting it as a conversation."""
     formatted_texts = []
-    # This line is CORRECT, based on your findings
-    for q, s in zip(batch["problem"], batch["solution"]):
+    for q, s in zip(batch["prompt"], batch["answer"]):
 
         if q and s:
             messages = [
@@ -126,7 +125,6 @@ def create_dataset(args, tokenizer: PreTrainedTokenizer, stage: str):
         batched=True,
         remove_columns=dataset.column_names # Remove old 'text' column
     )
-    tokenized_dataset = tokenized_dataset.with_format("torch")
-
+    
     logger.info(f"Dataset for stage '{stage}' created successfully.")
     return tokenized_dataset
