@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepLearn Visualize | Advanced Neural Network Visualization</title>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #9b59b6;
+            --light: #ecf0f1;
+            --dark: #1a1a2e;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .main-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .control-panel {
+            background: rgba(44, 62, 80, 0.7);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            height: fit-content;
+        }
+
+        .architecture-selector {
+            margin-bottom: 1.5rem;
+        }
+
+        .architecture-selector h2, .param-control h2 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            color: var(--secondary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .arch-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+        }
+
+        .arch-btn {
+            background: rgba(52, 73, 94, 0.6);
+            border: 2px solid var(--secondary);
+            border-radius: 10px;
+            padding: 0.8rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .arch-btn:hover, .arch-btn.active {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .param-control {
+            margin-top: 2rem;
+        }
+
+        .control-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(25, 40, 55, 0.8);
+            border: 1px solid var(--secondary);
+            border-radius: 8px;
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .slider-container input {
+            flex: 1;
+        }
+
+        .slider-container span {
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+        .btn:hover {
+            background: #8e44ad;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(155, 89, 182, 0.4);
+        }
+
+        .visualization-container {
+            background: rgba(44, 62, 80, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            min-height: 70vh;
+        }
+
+        .visualization-area {
+            height: 500px;
+            width: 100%;
+            background: rgba(25, 40, 55, 0.5);
+            border-radius: 10px;
+            border: 2px dashed var(--secondary);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .architecture-info {
+            background: rgba(25, 40, 55, 0.8);
+            border-radius: 10px;
+            padding: 1.5rem;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .architecture-info h2 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .architecture-info h3 {
+            color: var(--accent);
+            margin: 1.2rem 0 0.7rem;
+            font-size: 1.4rem;
+        }
+
+        .architecture-info p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .math-section {
+            background: rgba(30, 50, 70, 0.6);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.2rem 0;
+            overflow-x: auto;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .pros, .cons {
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .pros {
+            background: rgba(46, 204, 113, 0.15);
+            border-left: 4px solid var(--success);
+        }
+
+        .cons {
+            background: rgba(231, 76, 60, 0.15);
+            border-left: 4px solid var(--danger);
+        }
+
+        .pros h4, .cons h4 {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(52, 152, 219, 0.3);
+        }
+
+        /* Neural Network Visualization Elements */
+        .neuron {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px rgba(155, 89, 182, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: all 0.5s ease;
+            z-index: 2;
+        }
+
+        .connection {
+            position: absolute;
+            height: 3px;
+            background: rgba(52, 152, 219, 0.7);
+            transform-origin: 0 0;
+            z-index: 1;
+            transition: all 0.5s ease;
+        }
+
+        .layer-label {
+            position: absolute;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            z-index: 3;
+        }
+
+        @media (max-width: 1100px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+          
+            .control-panel {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">DeepLearn Visualize</div>
+        <div class="header-info">Interactive Neural Network Visualization Platform</div>
+    </header>
+
+    <div class="main-container">
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <div class="architecture-selector">
+                <h2>Architecture</h2>
+                <div class="arch-grid">
+                    <div class="arch-btn active" data-arch="cnn">CNN</div>
+                    <div class="arch-btn" data-arch="gan">GAN</div>
+                    <div class="arch-btn" data-arch="rnn">RNN</div>
+                    <div class="arch-btn" data-arch="gnn">GNN</div>
+                    <div class="arch-btn" data-arch="dqn">DQN</div>
+                    <div class="arch-btn" data-arch="diffusion">Diffusion</div>
+                    <div class="arch-btn" data-arch="transformer">Transformer</div>
+                    <div class="arch-btn" data-arch="moe">Mixture of Experts</div>
+                    <div class="arch-btn" data-arch="ssm">SSM</div>
+                    <div class="arch-btn" data-arch="mlp">MLP</div>
+                </div>
+            </div>
+
+            <div class="param-control">
+                <h2>Parameters</h2>
+              
+                <div class="control-group">
+                    <label for="layer-depth">Network Depth</label>
+                    <div class="slider-container">
+                        <input type="range" id="layer-depth" min="1" max="10" value="4">
+                        <span id="depth-value">4</span>
+                    </div>
+                </div>
+              
+                <div class="control-group">
+                    <label for="activation">Activation Function</label>
+                    <select id="activation">
+                        <option value="relu">ReLU</option>
+                        <option value="sigmoid">Sigmoid</option>
+                        <option value="tanh">Tanh</option>
+                        <option value="leakyrelu">Leaky ReLU</option>
+                        <option value="softmax">Softmax</option>
+                    </select>
+                </div>
+              
+                <div class="control-group">
+                    <label for="loss-function">Loss Function</label>
+                    <select id="loss-function">
+                        <option value="mse">Mean Squared Error</option>
+                        <option value="crossentropy">Cross Entropy</option>
+                        <option value="huber">Huber Loss</option>
+                        <option value="wasserstein">Wasserstein</option>
+                    </select>
+                </div>
+              
+                <div class="control-group">
+                    <label for="learning-rate">Learning Rate</label>
+                    <div class="slider-container">
+                        <input type="range" id="learning-rate" min="-3" max="0" step="0.1" value="-2">
+                        <span id="lr-value">0.01</span>
+                    </div>
+                </div>
+              
+                <button id="simulate-btn" class="btn">Run Simulation</button>
+                <button id="reset-btn" class="btn">Reset Visualization</button>
+            </div>
+        </div>
+
+        <!-- Visualization Area -->
+        <div class="visualization-container">
+            <div class="visualization-area" id="vis-area">
+                <!-- Neural network visualization will be rendered here -->
+            </div>
+          
+            <div class="architecture-info" id="arch-info">
+                <!-- Architecture information will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>DeepLearn Visualize | Production-Grade Neural Network Visualization System</p>
+        <p>Deploy via GitHub: <a href="https://github.com/dawnstoryrevelation/dawntasyproj/tree/main/deeplearn_visualize" target="_blank">dawnstoryrevelation/dawntasyproj</a></p>
+    </footer>
+
+    <script>
+        // Architecture information database
+        const architectureData = {
+            cnn: {
+                name: "Convolutional Neural Network (CNN)",
+                description: "CNNs are specialized deep learning architectures designed for processing grid-like data such as images. They use convolutional layers to automatically learn spatial hierarchies of features.",
+                usage: "Image recognition, object detection, medical image analysis, video analysis.",
+                components: [
+                    "Convolutional Layers: Apply filters to detect features",
+                    "Pooling Layers: Downsample feature maps (Max Pooling, Average Pooling)",
+                    "Fully Connected Layers: Final classification/regression",
+                    "Activation Functions: ReLU, Sigmoid, Tanh",
+                    "Dropout: Regularization to prevent overfitting"
+                ],
+                math: {
+                    convolution: `\\text{Convolution Operation: } (I * K)(x,y) = \\sum_{i=-a}^{a} \\sum_{j=-b}^{b} I(x+i, y+j) \\cdot K(i,j)`,
+                    relu: `\\text{ReLU Activation: } f(x) = \\max(0, x)`,
+                    maxpool: `\\text{Max Pooling: } \\text{output} = \\max_{i,j \\in \\text{window}} (\\text{input}_{i,j})`
+                },
+                pros: [
+                    "Automatic feature extraction from raw data",
+                    "Translation invariance",
+                    "Parameter sharing reduces complexity",
+                    "Excellent for spatial data processing"
+                ],
+                cons: [
+                    "Computationally intensive",
+                    "Requires large datasets for training",
+                    "Can be challenging to interpret",
+                    "Not optimal for sequential data"
+                ],
+                variants: ["LeNet", "AlexNet", "VGGNet", "ResNet", "Inception", "MobileNet"]
+            },
+            gan: {
+                name: "Generative Adversarial Network (GAN)",
+                description: "GANs consist of two competing neural networks - a generator and a discriminator - trained simultaneously through adversarial process.",
+                usage: "Image generation, style transfer, data augmentation, super-resolution.",
+                components: [
+                    "Generator: Creates synthetic data",
+                    "Discriminator: Distinguishes real from synthetic data",
+                    "Latent Space: Random noise input to generator",
+                    "Adversarial Loss: Minimax game objective"
+                ],
+                math: {
+                    objective: `\\min_G \\max_D V(D, G) = \\mathbb{E}_{x \\sim p_{data}(x)}[\\log D(x)] + \\mathbb{E}_{z \\sim p_z(z)}[\\log (1 - D(G(z)))]`,
+                    generator: `G: \\mathcal{Z} \\rightarrow \\mathcal{X}`,
+                    discriminator: `D: \\mathcal{X} \\rightarrow [0,1]`
+                },
+                pros: [
+                    "Can generate highly realistic samples",
+                    "No requirement for explicit probability density",
+                    "Versatile for various data types",
+                    "Unsupervised learning capability"
+                ],
+                cons: [
+                    "Training instability (mode collapse)",
+                    "Hard to evaluate performance",
+                    "Sensitive to hyperparameters",
+                    "Computationally expensive"
+                ],
+                variants: ["DCGAN", "WGAN", "CycleGAN", "StyleGAN", "BigGAN"]
+            },
+            rnn: {
+                name: "Recurrent Neural Network (RNN)",
+                description: "RNNs are designed to process sequential data by maintaining a hidden state that captures information about previous elements in the sequence.",
+                usage: "Time series prediction, natural language processing, speech recognition, music composition.",
+                components: [
+                    "Hidden State: Maintains memory of previous inputs",
+                    "Recurrent Connections: Feedback loops in time",
+                    "Input/Output Gates: Regulate information flow (in LSTM/GRU)",
+                    "Sequence Processing: Handles variable-length inputs"
+                ],
+                math: {
+                    recurrence: `h_t = \\sigma(W_{xh} x_t + W_{hh} h_{t-1} + b_h)`,
+                    output: `o_t = \\sigma(W_{ho} h_t + b_o)`,
+                    lstm: `\\begin{array}{c}
+                    f_t = \\sigma(W_f \\cdot [h_{t-1}, x_t] + b_f) \\\\
+                    i_t = \\sigma(W_i \\cdot [h_{t-1}, x_t] + b_i) \\\\
+                    \\tilde{C}_t = \\tanh(W_C \\cdot [h_{t-1}, x_t] + b_C) \\\\
+                    C_t = f_t \\odot C_{t-1} + i_t \\odot \\tilde{C}_t \\\\
+                    o_t = \\sigma(W_o \\cdot [h_{t-1}, x_t] + b_o) \\\\
+                    h_t = o_t \\odot \\tanh(C_t)
+                    \\end{array}`
+                },
+                pros: [
+                    "Handles variable-length sequences",
+                    "Memory of previous inputs",
+                    "Parameter sharing across time steps",
+                    "Natural for sequential data"
+                ],
+                cons: [
+                    "Vanishing/exploding gradient problem",
+                    "Computationally intensive for long sequences",
+                    "Difficulty learning long-term dependencies",
+                    "Training instability"
+                ],
+                variants: ["Simple RNN", "LSTM", "GRU", "Bidirectional RNN", "Hierarchical RNN"]
+            },
+            // Data for other architectures follows similar structure...
+            gnn: {
+                name: "Graph Neural Network (GNN)",
+                description: "GNNs operate on graph-structured data, learning representations for nodes, edges, and entire graphs through message passing between nodes.",
+                usage: "Social network analysis, recommendation systems, molecular chemistry, knowledge graphs.",
+                components: [
+                    "Node Embeddings: Vector representations",
+                    "Message Passing: Aggregating neighbor information",
+                    "Graph Pooling: For graph-level predictions",
+                    "Edge Features: Optional edge information"
+                ],
+                math: {
+                    message: `m_{u}^{(k)} = \\text{MSG}^{(k)} \\left( h_u^{(k-1)} \\right)`,
+                    aggregate: `a_v^{(k)} = \\text{AGG}^{(k)} \\left( \\{ m_{u}^{(k)}, u \\in \\mathcal{N}(v) \\} \\right)`,
+                    update: `h_v^{(k)} = \\text{UPD}^{(k)} \\left( h_v^{(k-1)}, a_v^{(k)} \\right)`
+                },
+                pros: [
+                    "Handles irregular structured data",
+                    "Permutation invariance/equivariance",
+                    "Incorporates relational information",
+                    "Flexible representation learning"
+                ],
+                cons: [
+                    "Computationally intensive for large graphs",
+                    "Over-smoothing with many layers",
+                    "Scalability challenges",
+                    "Limited theoretical understanding"
+                ],
+                variants: ["GCN", "GAT", "GraphSAGE", "GIN", "Message Passing Networks"]
+            },
+            transformer: {
+                name: "Transformer",
+                description: "Transformers use self-attention mechanisms to process input data in parallel, enabling superior performance on sequence tasks without recurrence.",
+                usage: "Machine translation, text generation, BERT models, image recognition (ViT).",
+                components: [
+                    "Self-Attention: Weighted aggregation of input elements",
+                    "Multi-Head Attention: Multiple attention heads",
+                    "Positional Encoding: Captures sequence order",
+                    "Encoder-Decoder Architecture: For sequence tasks",
+                    "Layer Normalization & Residual Connections"
+                ],
+                math: {
+                    attention: `\\text{Attention}(Q, K, V) = \\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right)V`,
+                    multihead: `\\text{MultiHead}(Q, K, V) = \\text{Concat}(\\text{head}_1, \\ldots, \\text{head}_h)W^O`,
+                    ff: `\\text{FFN}(x) = \\max(0, xW_1 + b_1)W_2 + b_2`
+                },
+                pros: [
+                    "Parallel processing capability",
+                    "Superior long-range dependency modeling",
+                    "State-of-the-art performance on NLP tasks",
+                    "Scalable to very large models"
+                ],
+                cons: [
+                    "High computational requirements",
+                    "Quadratic complexity with sequence length",
+                    "Large memory footprint",
+                    "Data-hungry"
+                ],
+                variants: ["BERT", "GPT", "T5", "ViT", "Swin Transformer", "Longformer"]
+            }
+            // Additional architectures would be defined similarly
+        };
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default architecture
+            let currentArchitecture = 'cnn';
+          
+            // Update architecture info display
+            function updateArchitectureInfo(arch) {
+                const archInfo = document.getElementById('arch-info');
+                const data = architectureData[arch];
+              
+                archInfo.innerHTML = `
+                    <h2>${data.name}</h2>
+                    <p>${data.description}</p>
+                  
+                    <h3>Primary Use Cases</h3>
+                    <p>${data.usage}</p>
+                  
+                    <h3>Key Components</h3>
+                    <ul>
+                        ${data.components.map(comp => `<li>${comp}</li>`).join('')}
+                    </ul>
+                  
+                    <h3>Mathematical Foundation</h3>
+                    <div class="math-section">
+                        ${Object.values(data.math).map(eq => `<p>$${eq}$</p>`).join('')}
+                    </div>
+                  
+                    <h3>Variants</h3>
+                    <p>${data.variants.join(', ')}</p>
+                  
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✓ Advantages</h4>
+                            <ul>
+                                ${data.pros.map(pro => `<li>${pro}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>✗ Limitations</h4>
+                            <ul>
+                                ${data.cons.map(con => `<li>${con}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+              
+                // Render MathJax equations
+                MathJax.typeset();
+            }
+          
+            // Visualization functions
+            function visualizeCNN() {
+                const container = document.getElementById('vis-area');
+                container.innerHTML = '';
+              
+                // Create layers
+                const layers = [
+                    {type: 'input', neurons: 3, label: 'Input'},
+                    {type: 'conv', neurons: 6, label: 'Conv1'},
+                    {type: 'pool', neurons: 6, label: 'Pool1'},
+                    {type: 'conv', neurons: 12, label: 'Conv2'},
+                    {type: 'pool', neurons: 12, label: 'Pool2'},
+                    {type: 'dense', neurons: 10, label: 'FC1'},
+                    {type: 'output', neurons: 2, label: 'Output'}
+                ];
+              
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                const layerSpacing = width / (layers.length + 1);
+              
+                // Draw layers and neurons
+                layers.forEach((layer, layerIndex) => {
+                    const x = layerSpacing * (layerIndex + 1);
+                    const neuronSpacing = height / (layer.neurons + 1);
+                  
+                    // Draw layer label
+                    const label = document.createElement('div');
+                    label.className = 'layer-label';
+                    label.style.left = `${x - 30}px`;
+                    label.style.top = '20px';
+                    label.textContent = layer.label;
+                    container.appendChild(label);
+                  
+                    // Draw neurons
+                    for (let i = 0; i < layer.neurons; i++) {
+                        const neuron = document.createElement('div');
+                        neuron.className = 'neuron';
+                        neuron.style.width = layer.type === 'input' ? '30px' : '25px';
+                        neuron.style.height = layer.type === 'input' ? '30px' : '25px';
+                        neuron.style.left = `${x - (layer.type === 'input' ? 15 : 12.5)}px`;
+                        neuron.style.top = `${neuronSpacing * (i + 1)}px`;
+                        neuron.style.background = layer.type === 'input' ? 
+                            'radial-gradient(circle at 30% 30%, #3498db, #2980b9)' :
+                            layer.type === 'output' ?
+                            'radial-gradient(circle at 30% 30%, #e74c3c, #c0392b)' :
+                            'radial-gradient(circle at 30% 30%, #9b59b6, #8e44ad)';
+                        container.appendChild(neuron);
+                    }
+                  
+                    // Draw connections to next layer
+                    if (layerIndex < layers.length - 1) {
+                        const nextLayer = layers[layerIndex + 1];
+                        for (let i = 0; i < layer.neurons; i++) {
+                            for (let j = 0; j < nextLayer.neurons; j++) {
+                                const startX = x;
+                                const startY = neuronSpacing * (i + 1);
+                                const endX = layerSpacing * (layerIndex + 2);
+                                const endY = height / (nextLayer.neurons + 1) * (j + 1);
+                              
+                                const connection = document.createElement('div');
+                                connection.className = 'connection';
+                              
+                                // Calculate length and angle
+                                const length = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
+                                const angle = Math.atan2(endY - startY, endX - startX) * 180 / Math.PI;
+                              
+                                connection.style.width = `${length}px`;
+                                connection.style.left = `${startX}px`;
+                                connection.style.top = `${startY}px`;
+                                connection.style.transform = `rotate(${angle}deg)`;
+                                connection.style.opacity = 0.3 + Math.random() * 0.3;
+                              
+                                container.appendChild(connection);
+                            }
+                        }
+                    }
+                });
+            }
+          
+            // Event listeners
+            document.querySelectorAll('.arch-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.arch-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentArchitecture = this.dataset.arch;
+                    updateArchitectureInfo(currentArchitecture);
+                  
+                    // Call appropriate visualization function
+                    if (currentArchitecture === 'cnn') visualizeCNN();
+                    // Additional visualization functions would be called here
+                });
+            });
+          
+            // Parameter controls
+            document.getElementById('layer-depth').addEventListener('input', function() {
+                document.getElementById('depth-value').textContent = this.value;
+            });
+          
+            document.getElementById('learning-rate').addEventListener('input', function() {
+                const lr = Math.pow(10, this.value);
+                document.getElementById('lr-value').textContent = lr.toFixed(4);
+            });
+          
+            document.getElementById('simulate-btn').addEventListener('click', function() {
+                // Animation effect
+                const neurons = document.querySelectorAll('.neuron');
+                neurons.forEach(neuron => {
+                    neuron.style.transform = 'scale(1.2)';
+                    neuron.style.boxShadow = '0 0 20px rgba(155, 89, 182, 1)';
+                    setTimeout(() => {
+                        neuron.style.transform = 'scale(1)';
+                        neuron.style.boxShadow = '0 0 10px rgba(155, 89, 182, 0.7)';
+                    }, 500);
+                });
+              
+                // Connection animation
+                const connections = document.querySelectorAll('.connection');
+                connections.forEach(conn => {
+                    conn.style.background = 'rgba(46, 204, 113, 0.8)';
+                    setTimeout(() => {
+                        conn.style.background = 'rgba(52, 152, 219, 0.7)';
+                    }, 800);
+                });
+            });
+          
+            document.getElementById('reset-btn').addEventListener('click', function() {
+                if (currentArchitecture === 'cnn') visualizeCNN();
+                // Reset other visualizations similarly
+            });
+          
+            // Initialize
+            updateArchitectureInfo(currentArchitecture);
+            visualizeCNN();
+        });
+    </script>
+</body>
+</html>
