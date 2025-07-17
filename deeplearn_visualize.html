@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepLearn Visualize</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-bg: #f5f7fa;
+            --dark-bg: #2c3e50;
+            --text-color: #333;
+            --light-text: #f5f7fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .visualization-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            min-height: 500px;
+        }
+        
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .control-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        select, button {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            background-color: white;
+            font-size: 1rem;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .visualization {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .explanation {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        
+        .explanation h2 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .explanation-content {
+            display: none;
+        }
+        
+        .explanation-content.active {
+            display: block;
+        }
+        
+        .math {
+            overflow-x: auto;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        .pros-cons {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .pros, .cons {
+            flex: 1;
+        }
+        
+        .pros h3, .cons h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .pros ul, .cons ul {
+            padding-left: 1.5rem;
+        }
+        
+        .pros h3 {
+            color: #27ae60;
+        }
+        
+        .cons h3 {
+            color: #e74c3c;
+        }
+        
+        .examples {
+            margin-top: 2rem;
+        }
+        
+        .examples h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .example-cards {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+        
+        .example-card {
+            min-width: 250px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid #ddd;
+        }
+        
+        .example-card h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--light-text);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .pros-cons {
+                flex-direction: column;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Deep<span>Learn</span> Visualize</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#architectures">Architectures</a></li>
+                <li><a href="#examples">Examples</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Interactive Deep Learning Architecture Visualization</h1>
+            <p>Explore and understand various deep learning architectures through interactive visualizations and comprehensive explanations.</p>
+        </section>
+
+        <section class="main-content">
+            <div class="visualization-container">
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="architecture">Architecture</label>
+                        <select id="architecture">
+                            <option value="cnn">Convolutional Neural Network (CNN)</option>
+                            <option value="gan">Generative Adversarial Network (GAN)</option>
+                            <option value="rnn">Recurrent Neural Network (RNN)</option>
+                            <option value="gnn">Graph Neural Network (GNN)</option>
+                            <option value="dqn">Deep Q-Network (DQN)</option>
+                            <option value="diffusion">Diffusion Model</option>
+                            <option value="transformer">Transformer</option>
+                            <option value="moe">Mixture of Experts (MoE)</option>
+                            <option value="ssm">State Space Model (SSM)</option>
+                            <option value="mlp">Multi-Layer Perceptron (MLP)</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="variant">Variant</label>
+                        <select id="variant">
+                            <!-- Will be populated based on architecture selection -->
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="activation">Activation Function</label>
+                        <select id="activation">
+                            <option value="relu">ReLU</option>
+                            <option value="sigmoid">Sigmoid</option>
+                            <option value="tanh">Tanh</option>
+                            <option value="leakyrelu">Leaky ReLU</option>
+                            <option value="elu">ELU</option>
+                            <option value="swish">Swish</option>
+                            <option value="gelu">GELU</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="loss">Loss Function</label>
+                        <select id="loss">
+                            <option value="mse">Mean Squared Error</option>
+                            <option value="crossentropy">Cross Entropy</option>
+                            <option value="bce">Binary Cross Entropy</option>
+                            <option value="huber">Huber Loss</option>
+                            <option value="kld">KL Divergence</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="visualization" id="visualization-canvas">
+                    <!-- Canvas for visualization will be inserted here -->
+                </div>
+                
+                <div class="controls">
+                    <div class="control-group">
+                        <button id="animate">Animate Forward Pass</button>
+                    </div>
+                    <div class="control-group">
+                        <button id="reset">Reset Visualization</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation">
+                <h2>Understanding the Architecture</h2>
+                
+                <!-- CNN Explanation -->
+                <div class="explanation-content" id="cnn-explanation">
+                    <h3>Convolutional Neural Network (CNN)</h3>
+                    <p>Convolutional Neural Networks are specialized deep neural networks designed primarily for processing structured grid data such as images. They have revolutionized computer vision tasks by automatically learning spatial hierarchies of features.</p>
+                    
+                    <div class="math">
+                        <p>The convolution operation can be mathematically represented as:</p>
+                        <p>(f * g)(t) = \int_{-\infty}^{\infty} f(\tau) g(t - \tau) d\tau</p>
+                        <p>In discrete form for 2D images:</p>
+                        <p>(I * K)(i, j) = \sum_m \sum_n I(i+m, j+n) K(m, n)</p>
+                        <p>Where I is the input image, K is the kernel, and (i,j) are the pixel coordinates.</p>
+                    </div>
+                    
+                    <h3>Components Breakdown</h3>
+                    <ul>
+                        <li><strong>Convolutional Layer:</strong> Applies a set of learnable filters to input data</li>
+                        <li><strong>Pooling Layer:</strong> Reduces spatial dimensions through downsampling</li>
+                        <li><strong>Activation Functions:</strong> Introduces non-linearity (commonly ReLU)</li>
+                        <li><strong>Fully Connected Layer:</strong> Performs classification based on features extracted</li>
+                        <li><strong>Batch Normalization:</strong> Normalizes layer inputs for stable training</li>
+                    </ul>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h3>Advantages</h3>
+                            <ul>
+                                <li>Parameter sharing reduces model complexity</li>
+                                <li>Translation invariance captures patterns regardless of position</li>
+                                <li>Hierarchical feature learning</li>
+                                <li>Highly effective for spatial data</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h3>Limitations</h3>
+                            <ul>
+                                <li>Limited ability to understand global context</li>
+                                <li>Not rotation or scale invariant by default</li>
+                                <li>Computationally intensive for large images</li>
+                                <li>Requires large datasets for optimal performance</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="examples">
+                        <h3>Notable CNN Architectures</h3>
+                        <div class="example-cards">
+                            <div class="example-card">
+                                <h4>LeNet-5</h4>
+                                <p>Pioneer CNN architecture by Yann LeCun for digit recognition</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>AlexNet</h4>
+                                <p>Breakthrough architecture that won ILSVRC 2012</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>VGG-16</h4>
+                                <p>Deep network with uniform 3x3 convolutions</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>ResNet</h4>
+                                <p>Introduced skip connections to train very deep networks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- GAN Explanation -->
+                <div class="explanation-content" id="gan-explanation">
+                    <h3>Generative Adversarial Network (GAN)</h3>
+                    <p>Generative Adversarial Networks are a class of deep learning frameworks designed by Ian Goodfellow and colleagues in 2014. They consist of two neural networks, the Generator and the Discriminator, that compete against each other in a zero-sum game.</p>
+                    
+                    <div class="math">
+                        <p>The GAN objective function can be expressed as:</p>
+                        <p>\min_G \max_D V(D, G) = \mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]</p>
+                        <p>Where:</p>
+                        <p>- G is the generator network</p>
+                        <p>- D is the discriminator network</p>
+                        <p>- p_data is the real data distribution</p>
+                        <p>- p_z is the prior distribution (typically Gaussian noise)</p>
+                    </div>
+                    
+                    <h3>Components Breakdown</h3>
+                    <ul>
+                        <li><strong>Generator:</strong> Creates synthetic data samples from random noise</li>
+                        <li><strong>Discriminator:</strong> Distinguishes between real and generated samples</li>
+                        <li><strong>Adversarial Loss:</strong> Drives the competition between networks</li>
+                        <li><strong>Latent Space:</strong> The input noise distribution for the generator</li>
+                    </ul>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h3>Advantages</h3>
+                            <ul>
+                                <li>Can generate highly realistic synthetic data</li>
+                                <li>Learns complex, high-dimensional distributions</li>
+                                <li>Doesn't require labeled data (unsupervised learning)</li>
+                                <li>Versatile applications across domains</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h3>Limitations</h3>
+                            <ul>
+                                <li>Training instability and mode collapse</li>
+                                <li>Difficult to evaluate generated sample quality</li>
+                                <li>Challenging to achieve convergence</li>
+                                <li>Computationally intensive training process</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="examples">
+                        <h3>Notable GAN Architectures</h3>
+                        <div class="example-cards">
+                            <div class="example-card">
+                                <h4>DCGAN</h4>
+                                <p>Deep Convolutional GAN with architectural constraints for stability</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>WGAN</h4>
+                                <p>Wasserstein GAN with improved training stability</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>CycleGAN</h4>
+                                <p>Unpaired image-to-image translation using cycle consistency</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>StyleGAN</h4>
+                                <p>High-quality image synthesis with style-based generator</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Transformer Explanation -->
+                <div class="explanation-content" id="transformer-explanation">
+                    <h3>Transformer</h3>
+                    <p>Transformers are a type of deep learning model introduced in the paper "Attention Is All You Need" by Vaswani et al. in 2017. They revolutionized natural language processing by replacing recurrent neural networks with self-attention mechanisms, enabling more efficient parallel processing and better modeling of long-range dependencies.</p>
+                    
+                    <div class="math">
+                        <p>The self-attention mechanism can be expressed as:</p>
+                        <p>\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V</p>
+                        <p>Where:</p>
+                        <p>- Q is the query matrix</p>
+                        <p>- K is the key matrix</p>
+                        <p>- V is the value matrix</p>
+                        <p>- d_k is the dimension of the keys</p>
+                    </div>
+                    
+                    <h3>Components Breakdown</h3>
+                    <ul>
+                        <li><strong>Self-Attention:</strong> Allows tokens to attend to all positions in the sequence</li>
+                        <li><strong>Multi-Head Attention:</strong> Multiple attention mechanisms in parallel</li>
+                        <li><strong>Position Encoding:</strong> Adds positional information to token embeddings</li>
+                        <li><strong>Feed-Forward Networks:</strong> Point-wise fully connected layers</li>
+                        <li><strong>Layer Normalization:</strong> Normalizes activations for stable training</li>
+                        <li><strong>Residual Connections:</strong> Helps with gradient flow in deep networks</li>
+                    </ul>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h3>Advantages</h3>
+                            <ul>
+                                <li>Captures long-range dependencies effectively</li>
+                                <li>Highly parallelizable (no sequential computation)</li>
+                                <li>Scales to very large model sizes</li>
+                                <li>State-of-the-art performance across NLP tasks</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h3>Limitations</h3>
+                            <ul>
+                                <li>Quadratic complexity with sequence length</li>
+                                <li>High memory requirements</li>
+                                <li>Requires large datasets for optimal performance</li>
+                                <li>Computationally expensive to train</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="examples">
+                        <h3>Notable Transformer Architectures</h3>
+                        <div class="example-cards">
+                            <div class="example-card">
+                                <h4>BERT</h4>
+                                <p>Bidirectional Encoder Representations from Transformers</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>GPT</h4>
+                                <p>Generative Pre-trained Transformer for text generation</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>T5</h4>
+                                <p>Text-to-Text Transfer Transformer for unified NLP tasks</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>ViT</h4>
+                                <p>Vision Transformer for image classification</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- RNN Explanation -->
+                <div class="explanation-content" id="rnn-explanation">
+                    <h3>Recurrent Neural Network (RNN)</h3>
+                    <p>Recurrent Neural Networks are a class of neural networks designed for processing sequential data. Unlike feedforward networks, RNNs have connections that form directed cycles, allowing them to maintain an internal state or "memory" of previous inputs.</p>
+                    
+                    <div class="math">
+                        <p>The basic RNN update equation is:</p>
+                        <p>h_t = \sigma(W_{xh} x_t + W_{hh} h_{t-1} + b_h)</p>
+                        <p>y_t = W_{hy} h_t + b_y</p>
+                        <p>Where:</p>
+                        <p>- h_t is the hidden state at time t</p>
+                        <p>- x_t is the input at time t</p>
+                        <p>- y_t is the output at time t</p>
+                        <p>- W terms are weight matrices</p>
+                        <p>- b terms are bias vectors</p>
+                        <p>- \sigma is an activation function</p>
+                    </div>
+                    
+                    <h3>Components Breakdown</h3>
+                    <ul>
+                        <li><strong>Hidden State:</strong> Internal memory that captures information from previous time steps</li>
+                        <li><strong>Recurrent Connection:</strong> Connection from a hidden state to itself at the next time step</li>
+                        <li><strong>Input-to-Hidden:</strong> Transforms current input to contribute to hidden state</li>
+                        <li><strong>Hidden-to-Output:</strong> Transforms hidden state to produce output</li>
+                    </ul>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h3>Advantages</h3>
+                            <ul>
+                                <li>Can process sequences of variable length</li>
+                                <li>Parameter sharing across time steps</li>
+                                <li>Captures temporal dependencies</li>
+                                <li>Suitable for sequential data like text, speech, time series</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h3>Limitations</h3>
+                            <ul>
+                                <li>Vanishing/exploding gradient problems</li>
+                                <li>Difficulty capturing long-range dependencies</li>
+                                <li>Sequential computation limits parallelization</li>
+                                <li>Limited context window in practice</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="examples">
+                        <h3>Notable RNN Variants</h3>
+                        <div class="example-cards">
+                            <div class="example-card">
+                                <h4>LSTM</h4>
+                                <p>Long Short-Term Memory with gating mechanisms</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>GRU</h4>
+                                <p>Gated Recurrent Unit with simplified gating</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>Bidirectional RNN</h4>
+                                <p>Processes sequences in both directions</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>Deep RNN</h4>
+                                <p>Multiple recurrent layers stacked together</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- GNN Explanation -->
+                <div class="explanation-content" id="gnn-explanation">
+                    <h3>Graph Neural Network (GNN)</h3>
+                    <p>Graph Neural Networks are deep learning models designed to work with graph-structured data. They can capture complex relationships and interdependencies between entities (nodes) connected by edges in a graph.</p>
+                    
+                    <div class="math">
+                        <p>A typical message passing GNN layer can be expressed as:</p>
+                        <p>h_i^{(l+1)} = \sigma\left(W^{(l)} \cdot \text{AGGREGATE}\left(\{h_j^{(l)} : j \in \mathcal{N}(i)\}\right) + b^{(l)}\right)</p>
+                        <p>Where:</p>
+                        <p>- h_i^{(l)} is the feature vector of node i at layer l</p>
+                        <p>- \mathcal{N}(i) is the set of neighbors of node i</p>
+                        <p>- AGGREGATE is a permutation invariant function (e.g., sum, mean, max)</p>
+                        <p>- W^{(l)} and b^{(l)} are learnable parameters</p>
+                        <p>- \sigma is a non-linear activation function</p>
+                    </div>
+                    
+                    <h3>Components Breakdown</h3>
+                    <ul>
+                        <li><strong>Node Features:</strong> Attributes or embeddings associated with each node</li>
+                        <li><strong>Edge Features:</strong> Attributes associated with connections between nodes</li>
+                        <li><strong>Message Passing:</strong> Process of aggregating information from neighboring nodes</li>
+                        <li><strong>Graph Convolution:</strong> Generalizes convolution operation to graph-structured data</li>
+                        <li><strong>Graph Pooling:</strong> Reduces graph size by combining nodes</li>
+                    </ul>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h3>Advantages</h3>
+                            <ul>
+                                <li>Can process data with arbitrary graph structure</li>
+                                <li>Captures relational information between entities</li>
+                                <li>Permutation invariant to node ordering</li>
+                                <li>Inductive capability for unseen nodes/graphs</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h3>Limitations</h3>
+                            <ul>
+                                <li>Limited expressiveness in distinguishing certain graph structures</li>
+                                <li>Oversmoothing in deep GNNs</li>
+                                <li>Scalability challenges for very large graphs</li>
+                                <li>Difficulty in capturing long-range dependencies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="examples">
+                        <h3>Notable GNN Architectures</h3>
+                        <div class="example-cards">
+                            <div class="example-card">
+                                <h4>GCN</h4>
+                                <p>Graph Convolutional Network with spectral convolutions</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>GAT</h4>
+                                <p>Graph Attention Network with attention mechanisms</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>GraphSAGE</h4>
+                                <p>Inductive representation learning on large graphs</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>GIN</h4>
+                                <p>Graph Isomorphism Network with maximal expressiveness</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>DeepLearn Visualize - Created by dawnstoryrevelation</p>
+        <div class="social-links">
+            <a href="https://github.com/dawnstoryrevelation" target="_blank">GitHub</a>
+        </div>
+    </footer>
+
+    <!-- Include D3.js for visualizations -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Include MathJax for rendering LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script>
+        // Architecture data and visualization code
+        const architectureData = {
+            cnn: {
+                name: "Convolutional Neural Network",
+                variants: [
+                    { id: "basic", name: "Basic CNN" },
+                    { id: "alexnet", name: "AlexNet" },
+                    { id: "vgg16", name: "VGG-16" },
+                    { id: "resnet", name: "ResNet" }
+                ],
+                structure: {
+                    basic: [
+                        { type: "input", name: "Input", shape: [32, 32, 3] },
+                        { type: "conv", name: "Conv2D", filters: 32, kernelSize: 3 },
+                        { type: "activation", name: "ReLU" },
+                        { type: "pool", name: "MaxPool", size: 2 },
+                        { type: "conv", name: "Conv2D", filters: 64, kernelSize: 3 },
+                        { type: "activation", name: "ReLU" },
+                        { type: "pool", name: "MaxPool", size: 2 },
+                        { type: "flatten", name: "Flatten" },
+                        { type: "dense", name: "Dense", units: 128 },
+                        { type: "activation", name: "ReLU" },
+                        { type: "dense", name: "Output", units: 10 }
+                    ]
+                }
+            },
+            gan: {
+                name: "Generative Adversarial Network",
+                variants: [
+                    { id: "basic", name: "Basic GAN" },
+                    { id: "dcgan", name: "DCGAN" },
+                    { id: "wgan", name: "Wasserstein GAN" },
+                    { id: "cyclegan", name: "CycleGAN" }
+                ],
+                structure: {
+                    basic: [
+                        // Generator
+                        { type: "input", name: "Latent Space", shape: [100], group: "generator" },
+                        { type: "dense", name: "Dense", units: 256, group: "generator" },
+                        { type: "activation", name: "LeakyReLU", group: "generator" },
+                        { type: "dense", name: "Dense", units: 512, group: "generator" },
+                        { type: "activation", name: "LeakyReLU", group: "generator" },
+                        { type: "dense", name: "Dense", units: 784, group: "generator" },
+                        { type: "activation", name: "Tanh", group: "generator" },
+                        { type: "output", name: "Generated Image", shape: [28, 28, 1], group: "generator" },
+                        
+                        // Discriminator
+                        { type: "input", name: "Real/Generated Image", shape: [28, 28, 1], group: "discriminator" },
+                        { type: "flatten", name: "Flatten", group: "discriminator" },
+                        { type: "dense", name: "Dense", units: 512, group: "discriminator" },
+                        { type: "activation", name: "LeakyReLU", group: "discriminator" },
+                        { type: "dense", name: "Dense", units: 256, group: "discriminator" },
+                        { type: "activation", name: "LeakyReLU", group: "discriminator" },
+                        { type: "dense", name: "Output", units: 1, group: "discriminator" },
+                        { type: "activation", name: "Sigmoid", group: "discriminator" }
+                    ]
+                }
+            },
+            transformer: {
+                name: "Transformer",
+                variants: [
+                    { id: "basic", name: "Basic Transformer" },
+                    { id: "bert", name: "BERT" },
+                    { id: "gpt", name: "GPT" },
+                    { id: "t5", name: "T5" }
+                ],
+                structure: {
+                    basic: [
+                        { type: "input", name: "Input Tokens", shape: [512] },
+                        { type: "embedding", name: "Token Embedding", dim: 512 },
+                        { type: "add", name: "Position Encoding" },
+                        // Encoder
+                        { type: "attention", name: "Self-Attention", heads: 8 },
+                        { type: "norm", name: "Layer Norm" },
+                        { type: "dense", name: "Feed Forward", units: 2048 },
+                        { type: "norm", name: "Layer Norm" },
+                        // Decoder
+                        { type: "attention", name: "Masked Self-Attention", heads: 8 },
+                        { type: "norm", name: "Layer Norm" },
+                        { type: "attention", name: "Cross-Attention", heads: 8 },
+                        { type: "norm", name: "Layer Norm" },
+                        { type: "dense", name: "Feed Forward", units: 2048 },
+                        { type: "norm", name: "Layer Norm" },
+                        { type: "dense", name: "Output", units: 30000 }
+                    ]
+                }
+            },
+            rnn: {
+                name: "Recurrent Neural Network",
+                variants: [
+                    { id: "basic", name: "Basic RNN" },
+                    { id: "lstm", name: "LSTM" },
+                    { id: "gru", name: "GRU" },
+                    { id: "bidirectional", name: "Bidirectional RNN" }
+                ],
+                structure: {
+                    basic: [
+                        { type: "input", name: "Input", shape: [10, 1] },
+                        { type: "rnn", name: "RNN Cell", units: 64 },
+                        { type: "rnn", name: "RNN Cell", units: 64 },
+                        { type: "dense", name: "Output", units: 10 }
+                    ],
+                    lstm: [
+                        { type: "input", name: "Input", shape: [10, 1] },
+                        { type: "rnn", name: "LSTM Cell", units: 64 },
+                        { type: "rnn", name: "LSTM Cell", units: 64 },
+                        { type: "dense", name: "Output", units: 10 }
+                    ]
+                }
+            },
+            gnn: {
+                name: "Graph Neural Network",
+                variants: [
+                    { id: "basic", name: "Basic GNN" },
+                    { id: "gcn", name: "Graph Convolutional Network" },
+                    { id: "gat", name: "Graph Attention Network" },
+                    { id: "graphsage", name: "GraphSAGE" }
+                ],
+                structure: {
+                    basic: [
+                        { type: "input", name: "Node Features", shape: ["N", "F"] },
+                        { type: "input", name: "Adjacency Matrix", shape: ["N", "N"] },
+                        { type: "gnn", name: "Graph Conv", units: 64 },
+                        { type: "activation", name: "ReLU" },
+                        { type: "gnn", name: "Graph Conv", units: 32 },
+                        { type: "activation", name: "ReLU" },
+                        { type: "pool", name: "Graph Pooling" },
+                        { type: "dense", name: "Output", units: 10 }
+                    ]
+                }
+            },
+            dqn: {
+                name: "Deep Q-Network",
+                variants: [
+                    { id: "basic", name: "Basic DQN" },
+                    { id: "double", name: "Double DQN" },
+                    { id: "dueling", name: "Dueling DQN" },
+                    { id: "rainbow", name: "Rainbow DQN" }
+                ],
+                structure: {
+                    basic: [
+                        { type: "input", name: "State", shape: [4] },
+                        { type: "dense", name: "Hidden", units: 128 },
+                        { type: "activation", name: "ReLU" },
+                        { type: "dense", name: "Hidden", units: 128 },
+                        { type: "activation", name: "ReLU" },
+                        { type: "dense", name: "Q-Values", units: 2 }
+                    ]
+                }
+            },
+            diffusion: {
+                name: "Diffusion Model",
+                variants: [
+                    { id: "basic", name: "Basic Diffusion" },
+                    { id: "ddpm", name: "DDPM" },
+                    { id: "ddim", name: "DDIM" },
+                    { id: "ldm", name: "Latent Diffusion" }
+                ],
+                structure: {
+                    basic: [
+                        { type: "input", name: "Noisy Image", shape: [32, 32, 3] },
+                        { type: "input", name: "Timestep", shape: [1] },
+                        { type: "embedding", name: "Time Embedding", dim: 128 },
+                        { type: "conv", name: "Conv2D", filters: 64, kernelSize: 3 },
+                        { type: "activation", name: "SiLU" },
+                        { type: "conv", name: "Conv2D", filters: 128, kernelSize: 3 },
+                        { type: "pool", name: "Downsample" },
+                        { type: "conv", name: "Conv2D", filters: 256, kernelSize: 3 },
+                        { type: "pool", name: "Downsample" },
+                        { type: "conv", name: "Conv2D", filters: 256, kernelSize: 3 },
+                        { type: "conv", name: "Conv2D", filters: 128, kernelSize: 3 },
+                        { type: "upsample", name: "Upsample" },
+                        { type: "conv", name: "Conv2D", filters: 64, kernelSize: 3 },
+                        { type: "upsample", name: "Upsample" },
+                        { type: "conv", name: "Conv2D", filters: 3, kernelSize: 3 },
+                        { type: "output", name: "Noise Prediction", shape: [32, 32, 3] }
+                    ]
+                }
+            },
+            moe: {
+                name: "Mixture of Experts",
+                variants: [
+                    { id: "basic", name: "Basic MoE" },
+                    { id: "sparse", name: "Sparse MoE" },
+                    { id: "switch", name: "Switch Transformer" },
+                    { id: "gshard", name: "GShard" }
+                ],
+                structure: {
+                    basic: [
+                        { type: "input", name: "Input", shape: [512] },
+                        { type: "dense", name: "Router", units: 8 },
+                        { type: "activation", name: "Softmax" },
+                        // Experts
+                        { type: "dense", name: "Expert 1", units: 256, group: "experts" },
+                        { type: "dense", name: "Expert 2", units: 256, group: "experts" },
+                        { type: "dense", name: "Expert 3", units: 256, group: "experts" },
+                        { type: "dense", name: "Expert 4", units: 256, group: "experts" },
+                        // Output
+                        { type: "add", name: "Weighted Sum" },
+                        { type: "dense", name: "Output", units: 10 }
+                    ]
+                }
+            },
+            ssm: {
+                name: "State Space Model",
+                variants: [
+                    { id: "basic", name: "Basic SSM" },
+                    { id: "s4", name: "S4" },
+                    { id: "mamba", name: "Mamba" },
+                    { id: "h3", name: "H3" }
+                ],
+                structure: {
+                    basic: [
+                        { type: "input", name: "Input", shape: [512, 64] },
+                        { type: "ssm", name: "SSM Layer", state_size: 64 },
+                        { type: "activation", name: "SiLU" },
+                        { type: "ssm", name: "SSM Layer", state_size: 64 },
+                        { type: "activation", name: "SiLU" },
+                        { type: "dense", name: "Output", units: 10 }
+                    ]
+                }
+            },
+            mlp: {
+                name: "Multi-Layer Perceptron",
+                variants: [
+                    { id: "basic", name: "Basic MLP" },
+                    { id: "deep", name: "Deep MLP" },
+                    { id: "residual", name: "Residual MLP" },
+                    { id: "gated", name: "Gated MLP" }
+                ],
+                structure: {
+                    basic: [
+                        { type: "input", name: "Input", shape: [784] },
+                        { type: "dense", name: "Hidden", units: 256 },
+                        { type: "activation", name: "ReLU" },
+                        { type: "dense", name: "Hidden", units: 128 },
+                        { type: "activation", name: "ReLU" },
+                        { type: "dense", name: "Hidden", units: 64 },
+                        { type: "activation", name: "ReLU" },
+                        { type: "dense", name: "Output", units: 10 }
+                    ]
+                }
+            }
+        };
+
+        // Initialize the visualization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up architecture selector
+            const architectureSelect = document.getElementById('architecture');
+            const variantSelect = document.getElementById('variant');
+            const activationSelect = document.getElementById('activation');
+            const lossSelect = document.getElementById('loss');
+            const animateButton = document.getElementById('animate');
+            const resetButton = document.getElementById('reset');
+            const visualizationCanvas = document.getElementById('visualization-canvas');
+            
+            // Initialize canvas with D3
+            const width = visualizationCanvas.clientWidth;
+            const height = visualizationCanvas.clientHeight;
+            
+            const svg = d3.select('#visualization-canvas')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+            
+            // Update variants based on selected architecture
+            architectureSelect.addEventListener('change', function() {
+                const selectedArchitecture = architectureSelect.value;
+                const variants = architectureData[selectedArchitecture]?.variants || [];
+                
+                // Clear existing options
+                variantSelect.innerHTML = '';
+                
+                // Add new options
+                variants.forEach(variant => {
+                    const option = document.createElement('option');
+                    option.value = variant.id;
+                    option.textContent = variant.name;
+                    variantSelect.appendChild(option);
+                });
+                
+                // Update visualization
+                updateVisualization();
+                
+                // Show corresponding explanation
+                showExplanation(selectedArchitecture);
+            });
+            
+            // Update visualization when variant changes
+            variantSelect.addEventListener('change', updateVisualization);
+            activationSelect.addEventListener('change', updateVisualization);
+            lossSelect.addEventListener('change', updateVisualization);
+            
+            // Animation controls
+            animateButton.addEventListener('click', animateForwardPass);
+            resetButton.addEventListener('click', resetVisualization);
+            
+            // Initial visualization
+            updateVariants();
+            updateVisualization();
+            showExplanation('cnn');
+            
+            function updateVariants() {
+                const selectedArchitecture = architectureSelect.value;
+                const variants = architectureData[selectedArchitecture]?.variants || [];
+                
+                // Clear existing options
+                variantSelect.innerHTML = '';
+                
+                // Add new options
+                variants.forEach(variant => {
+                    const option = document.createElement('option');
+                    option.value = variant.id;
+                    option.textContent = variant.name;
+                    variantSelect.appendChild(option);
+                });
+            }
+            
+            function updateVisualization() {
+                const selectedArchitecture = architectureSelect.value;
+                const selectedVariant = variantSelect.value;
+                const selectedActivation = activationSelect.value;
+                const selectedLoss = lossSelect.value;
+                
+                // Clear previous visualization
+                svg.selectAll('*').remove();
+                
+                // Get structure for selected architecture and variant
+                const structure = architectureData[selectedArchitecture]?.structure?.[selectedVariant];
+                
+                if (!structure) {
+                    // Display placeholder if structure not defined
+                    svg.append('text')
+                        .attr('x', width / 2)
+                        .attr('y', height / 2)
+                        .attr('text-anchor', 'middle')
+                        .text(`Visualization for ${selectedArchitecture.toUpperCase()} - ${selectedVariant} coming soon`);
+                    return;
+                }
+                
+                // Render the neural network structure
+                renderNeuralNetwork(svg, structure, width, height, selectedActivation);
+            }
+            
+            function renderNeuralNetwork(svg, structure, width, height, activation) {
+                // Group layers by type for different visualization approaches
+                if (structure[0]?.group) {
+                    // Handle architectures with multiple components (like GANs)
+                    const groups = {};
+                    structure.forEach(layer => {
+                        if (!groups[layer.group]) {
+                            groups[layer.group] = [];
+                        }
+                        groups[layer.group].push(layer);
+                    });
+                    
+                    // Render each group
+                    const groupNames = Object.keys(groups);
+                    const groupHeight = height / groupNames.length;
+                    
+                    groupNames.forEach((groupName, groupIndex) => {
+                        const groupLayers = groups[groupName];
+                        const groupY = groupIndex * groupHeight + 20;
+                        
+                        // Add group label
+                        svg.append('text')
+                            .attr('x', 20)
+                            .attr('y', groupY - 5)
+                            .attr('font-weight', 'bold')
+                            .text(groupName.charAt(0).toUpperCase() + groupName.slice(1));
+                        
+                        // Render layers for this group
+                        renderLayerSequence(svg, groupLayers, width, groupHeight - 40, 20, groupY);
+                    });
+                } else {
+                    // Standard sequential model
+                    renderLayerSequence(svg, structure, width, height, 20, 20);
+                }
+            }
+            
+            function renderLayerSequence(svg, layers, width, height, startX, startY) {
+                const layerWidth = (width - startX * 2) / layers.length;
+                
+                // Draw connections first so they appear behind the layers
+                for (let i = 0; i < layers.length - 1; i++) {
+                    const x1 = startX + (i + 0.5) * layerWidth;
+                    const x2 = startX + (i + 1.5) * layerWidth;
+                    const y = startY + height / 2;
+                    
+                    svg.append('line')
+                        .attr('x1', x1 + 40)
+                        .attr('y1', y)
+                        .attr('x2', x2 - 40)
+                        .attr('y2', y)
+                        .attr('stroke', '#aaa')
+                        .attr('stroke-width', 2);
+                }
+                
+                // Draw layers
+                layers.forEach((layer, i) => {
+                    const x = startX + (i + 0.5) * layerWidth - 40;
+                    const y = startY + height / 2 - 40;
+                    
+                    // Layer rectangle
+                    const rect = svg.append('rect')
+                        .attr('x', x)
+                        .attr('y', y)
+                        .attr('width', 80)
+                        .attr('height', 80)
+                        .attr('rx', 5)
+                        .attr('ry', 5)
+                        .attr('fill', getLayerColor(layer.type))
+                        .attr('stroke', '#333')
+                        .attr('stroke-width', 1);
+                    
+                    // Layer name
+                    svg.append('text')
+                        .attr('x', x + 40)
+                        .attr('y', y + 30)
+                        .attr('text-anchor', 'middle')
+                        .attr('fill', 'white')
+                        .attr('font-weight', 'bold')
+                        .text(layer.name);
+                    
+                    // Layer details
+                    let details = '';
+                    if (layer.type === 'conv') {
+                        details = `${layer.filters}@${layer.kernelSize}x${layer.kernelSize}`;
+                    } else if (layer.type === 'dense') {
+                        details = `${layer.units} units`;
+                    } else if (layer.type === 'pool') {
+                        details = `${layer.size}x${layer.size}`;
+                    } else if (layer.type === 'attention') {
+                        details = `${layer.heads} heads`;
+                    }
+                    
+                    if (details) {
+                        svg.append('text')
+                            .attr('x', x + 40)
+                            .attr('y', y + 50)
+                            .attr('text-anchor', 'middle')
+                            .attr('fill', 'white')
+                            .attr('font-size', '10px')
+                            .text(details);
+                    }
+                });
+            }
+            
+            function getLayerColor(layerType) {
+                const colors = {
+                    'input': '#3498db',
+                    'conv': '#e74c3c',
+                    'pool': '#9b59b6',
+                    'dense': '#2ecc71',
+                    'flatten': '#f39c12',
+                    'activation': '#1abc9c',
+                    'norm': '#34495e',
+                    'attention': '#e67e22',
+                    'embedding': '#8e44ad',
+                    'add': '#16a085',
+                    'output': '#3498db'
+                };
+                
+                return colors[layerType] || '#95a5a6';
+            }
+            
+            function showExplanation(architecture) {
+                // Hide all explanations
+                document.querySelectorAll('.explanation-content').forEach(el => {
+                    el.classList.remove('active');
+                });
+                
+                // Show selected explanation
+                const explanationEl = document.getElementById(`${architecture}-explanation`);
+                if (explanationEl) {
+                    explanationEl.classList.add('active');
+                }
+                
+                // Render math with MathJax
+                if (window.MathJax) {
+                    MathJax.typesetPromise();
+                }
+            }
+            
+            function animateForwardPass() {
+                const selectedArchitecture = architectureSelect.value;
+                const selectedVariant = variantSelect.value;
+                const structure = architectureData[selectedArchitecture]?.structure?.[selectedVariant];
+                
+                if (!structure) return;
+                
+                // Highlight layers in sequence
+                let i = 0;
+                const interval = setInterval(() => {
+                    // Reset previous highlight
+                    svg.selectAll('rect').attr('stroke', '#333').attr('stroke-width', 1);
+                    
+                    if (i < structure.length) {
+                        // Highlight current layer
+                        svg.selectAll('rect').filter((d, j) => j === i)
+                            .attr('stroke', '#f1c40f')
+                            .attr('stroke-width', 3);
+                        i++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 500);
+            }
+            
+            function resetVisualization() {
+                // Reset all highlights
+                svg.selectAll('rect').attr('stroke', '#333').attr('stroke-width', 1);
+                
+                // Redraw visualization
+                updateVisualization();
+            }
+        });
+    </script>
+</body>
+</html>
