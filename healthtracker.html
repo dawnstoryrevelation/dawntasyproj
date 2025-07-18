@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>爷爷奶奶健康助手</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="theme-color" content="#ffeb3b">
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoi6Z2S6Z2S5Z6L6Iqx5oCn6IO95oiQ5p6cIiwic2hvcnRfbmFtZSI6IuaAp+iDveaIkOaenCIsInN0YXJ0X3VybCI6Ii8iLCJkaXNwbGF5Ijoic3RhbmRhbG9uZSIsImJhY2tncm91bmRfY29sb3IiOiIjZmZlYjNiIiwidGhlbWVfY29sb3IiOiIjZmZlYjNiIn0="/>
+<style>
+  *{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","PingFang SC",sans-serif}
+  html,body{margin:0;padding:0;background:#fffbe6;color:#333;font-size:22px}
+  header{background:#ffeb3b;color:#000;padding:12px;text-align:center;font-weight:bold;font-size:28px;position:sticky;top:0;z-index:9}
+  button,input,select,textarea{font-size:24px;width:100%;padding:14px;margin:8px 0;border:2px solid #ddd;border-radius:8px}
+  button{background:#ff9800;color:#fff;border:none}
+  .hidden{display:none}
+  .card{background:#fff;margin:10px;border-radius:12px;padding:14px;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+  #chatBox{height:45vh;overflow-y:auto;border:1px solid #ccc;padding:8px;background:#fafafa}
+  .msg{margin:8px 0}
+  .bot{background:#e3f2fd;border-radius:8px;padding:6px 10px}
+  .user{background:#fff9c4;text-align:right;border-radius:8px;padding:6px 10px}
+</style>
+</head>
+<body>
+<header>爷爷奶奶健康助手</header>
+
+<!-- 今日任务 -->
+<section class="card">
+  <h2>今日任务</h2>
+  <ul id="taskList"></ul>
+  <input id="taskInput" placeholder="新任务，如「饭后散步30分钟」"/>
+  <button onclick="addTask()">添加</button>
+</section>
+
+<!-- 吃药提醒区 -->
+<section class="card">
+  <h2>吃药提醒</h2>
+  <div id="pillList"></div>
+  <input id="pillName" placeholder="药品名"/>
+  <input id="pillTime" type="time"/>
+  <button onclick="addPill()">添加</button>
+</section>
+
+<!-- 快速问答 -->
+<section class="card">
+  <h2>健康问答</h2>
+  <div id="chatBox"></div>
+  <input id="qInput" placeholder="输入问题或直接语音提问"/>
+  <button onclick="ask()">提问</button>
+  <button onclick="speechAsk()">🎤 语音提问</button>
+</section>
+
+<script>
+// 语音播报
+function speak(txt){
+  if(!('speechSynthesis' in window)) return;
+  const u=new SpeechSynthesisUtterance(txt);
+  u.lang='zh-CN';
+  u.rate=0.9;
+  speechSynthesis.speak(u);
+}
+
+// 任务
+function addTask(){
+  const v=document.getElementById('taskInput').value.trim();
+  if(!v) return;
+  const li=document.createElement('li');
+  li.innerHTML=`${v} <button onclick="this.parentElement.remove();saveData()">完成</button>`;
+  document.getElementById('taskList').appendChild(li);
+  document.getElementById('taskInput').value='';
+  saveData();
+  speak('已添加任务：'+v);
+}
+function loadTasks(){
+  const t=JSON.parse(localStorage.getItem('tasks')||'[]');
+  t.forEach(text=>{
+    const li=document.createElement('li');
+    li.innerHTML=`${text} <button onclick="this.parentElement.remove();saveData()">完成</button>`;
+    document.getElementById('taskList').appendChild(li);
+  });
+}
+function saveData(){
+  const tasks=[...document.querySelectorAll('#taskList li')].map(li=>li.textContent.replace('完成','').trim());
+  localStorage.setItem('tasks',JSON.stringify(tasks));
+  const pills=[...document.querySelectorAll('.pillItem')].map(div=>({
+    name:div.dataset.name,
+    time:div.dataset.time
+  }));
+  localStorage.setItem('pills',JSON.stringify(pills));
+}
+
+// 吃药提醒
+function addPill(){
+  const name=document.getElementById('pillName').value.trim();
+  const time=document.getElementById('pillTime').value;
+  if(!name||!time) return;
+  const div=document.createElement('div');
+  div.className='pillItem';
+  div.dataset.name=name;
+  div.dataset.time=time;
+  div.innerHTML=`${name} 每天 ${time} <button onclick="this.parentElement.remove();saveData()">删除</button>`;
+  document.getElementById('pillList').appendChild(div);
+  document.getElementById('pillName').value='';
+  document.getElementById('pillTime').value='';
+  saveData();
+  speak('已添加吃药提醒：'+name+'，'+time);
+}
+function loadPills(){
+  const p=JSON.parse(localStorage.getItem('pills')||'[]');
+  p.forEach(({name,time})=>{
+    const div=document.createElement('div');
+    div.className='pillItem';
+    div.dataset.name=name;
+    div.dataset.time=time;
+    div.innerHTML=`${name} 每天 ${time} <button onclick="this.parentElement.remove();saveData()">删除</button>`;
+    document.getElementById('pillList').appendChild(div);
+  });
+}
+function checkPills(){
+  const now=new Date();
+  const h=String(now.getHours()).padStart(2,'0');
+  const m=String(now.getMinutes()).padStart(2,'0');
+  const nowStr=`${h}:${m}`;
+  document.querySelectorAll('.pillItem').forEach(div=>{
+    if(div.dataset.time===nowStr){
+      speak(`提醒：该吃 ${div.dataset.name} 了！`);
+      if(window.Notification&&Notification.permission==='granted'){
+        new Notification('吃药提醒',{body:`该吃 ${div.dataset.name} 了`});
+      }
+    }
+  });
+}
+setInterval(checkPills,60000);
+
+// 问答
+const qa={
+  "血压高怎么办":"每日减盐到5克以下，多吃蔬菜水果，坚持散步30分钟，定期量血压并遵医嘱服药。",
+  "血糖高吃什么":"燕麦、荞麦、苦瓜、洋葱、菠菜，少吃主食和甜食，分餐少量多餐。",
+  "睡不着怎么办":"睡前不喝茶咖啡，关灯后做腹式呼吸，热水泡脚10分钟，必要时听轻音乐。",
+  "膝盖疼怎么锻炼":"每天抬腿30次，靠墙半蹲1分钟，避免爬楼梯，注意保暖。",
+  "便秘吃什么":"早晨空腹温水300 ml，多吃红薯、玉米、火龙果、酸奶，定时蹲厕。"
+};
+function ask(){
+  const q=document.getElementById('qInput').value.trim();
+  if(!q) return;
+  appendChat('user',q);
+  let ans=qa[q];
+  if(!ans){
+    ans='抱歉，暂时没有这条答案。请尝试“血压高怎么办”、“血糖高吃什么”等常见问题，或联系家人。';
+  }
+  appendChat('bot',ans);
+  speak(ans);
+  document.getElementById('qInput').value='';
+}
+function appendChat(cls,txt){
+  const box=document.getElementById('chatBox');
+  const div=document.createElement('div');
+  div.className='msg '+cls;
+  div.textContent=txt;
+  box.appendChild(div);
+  box.scrollTop=box.scrollHeight;
+}
+function speechAsk(){
+  if(!('webkitSpeechRecognition' in window)){alert('浏览器不支持语音识别');return;}
+  const rec=new webkitSpeechRecognition();
+  rec.lang='zh-CN'; rec.interimResults=false; rec.maxAlternatives=1;
+  rec.onresult=e=>{
+    const q=e.results[0][0].transcript;
+    document.getElementById('qInput').value=q;
+    ask();
+  };
+  rec.start();
+}
+
+// 初始化
+window.onload=()=>{
+  loadTasks(); loadPills();
+  if(window.Notification&&Notification.permission!=='denied'){
+    Notification.requestPermission();
+  }
+  // 缓存离线
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('data:text/javascript,console.log("sw ok")');
+  }
+};
+</script>
+</body>
+</html>
