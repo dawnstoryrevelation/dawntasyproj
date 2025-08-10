@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Algebra Learning Course</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--gradient);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .systems-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .system-card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border-left: 5px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .system-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .system-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .tier-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tier-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .seed { background: #8B4513; color: white; }
+        .sprout { background: #90EE90; color: #2F4F2F; }
+        .seedling { background: #32CD32; color: white; }
+        .plant { background: #228B22; color: white; }
+        .tree { background: #006400; color: white; }
+        .flowering { background: #FF69B4; color: white; }
+        .fruit { background: #DC143C; color: white; }
+
+        .difficulty-scale {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .chili {
+            font-size: 1.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .chili:hover {
+            transform: scale(1.2);
+        }
+
+        .learning-path {
+            margin-top: 50px;
+        }
+
+        .tier-section {
+            margin-bottom: 60px;
+            border: 2px solid var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .tier-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .tier-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .tier-progress {
+            background: rgba(255,255,255,0.2);
+            height: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .tier-progress-bar {
+            height: 100%;
+            background: var(--success);
+            width: 0%;
+            transition: width 0.8s ease;
+        }
+
+        .topics-grid {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .topic-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .topic-title {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .topic-difficulty {
+            display: flex;
+            gap: 2px;
+        }
+
+        .topic-description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .resources {
+            margin-top: 15px;
+        }
+
+        .resource-category {
+            margin-bottom: 10px;
+        }
+
+        .resource-category h5 {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .resource-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .resource-link {
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+        }
+
+        .resource-link:hover {
+            background: var(--primary);
+        }
+
+        .exam-section {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .exam-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .exam-requirements {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .legend {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .legend h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .difficulty-1 { color: #2ecc71; }
+        .difficulty-2 { color: #f1c40f; }
+        .difficulty-3 { color: #e67e22; }
+        .difficulty-4 { color: #e74c3c; }
+        .difficulty-5 { color: #9b59b6; }
+        .difficulty-6 { color: #8e44ad; }
+        .difficulty-7 { color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌱 Linear Algebra Learning Course 🌱</h1>
+            <p>Your Progressive Journey from Beginner to Expert</p>
+        </div>
+
+        <div class="main-content">
+            <div class="legend">
+                <h3>📖 Course Systems Overview</h3>
+                <div class="legend-grid">
+                    <div class="legend-item">
+                        <span class="tier-icon seed">🌰</span>
+                        <strong>Plant Growth System:</strong> 7 progressive tiers
+                    </div>
+                    <div class="legend-item">
+                        <span class="chili difficulty-1">🌶️</span>
+                        <strong>Difficulty Scale:</strong> 7 levels of complexity
+                    </div>
+                    <div class="legend-item">
+                        <span class="exam-icon">⚡</span>
+                        <strong>Thunderstorm System:</strong> Tier advancement exams
+                    </div>
+                </div>
+            </div>
+
+            <div class="systems-overview">
+                <div class="system-card">
+                    <h3>🌱 Plant Growth System (PGS)</h3>
+                    <p>Progress through 7 growth stages by mastering sets of topics</p>
+                    <div class="tier-icons">
+                        <div class="tier-icon seed">🌰</div>
+                        <div class="tier-icon sprout">🌱</div>
+                        <div class="tier-icon seedling">🌿</div>
+                        <div class="tier-icon plant">🪴</div>
+                        <div class="tier-icon tree">🌳</div>
+                        <div class="tier-icon flowering">🌸</div>
+                        <div class="tier-icon fruit">🍎</div>
+                    </div>
+                    <p><small>Seed → Sprout → Seedling → Plant → Tree → Flowering Tree → Fruit Tree</small></p>
+                </div>
+
+                <div class="system-card">
+                    <h3>🌶️ Difficulty System</h3>
+                    <p>Each topic rated on 7-level complexity scale</p>
+                    <div class="difficulty-scale">
+                        <span class="chili difficulty-1" title="Very Easy">🌶️</span>
+                        <span class="chili difficulty-2" title="Easy">🌶️</span>
+                        <span class="chili difficulty-3" title="Fair">🌶️</span>
+                        <span class="chili difficulty-4" title="Moderate">🌶️</span>
+                        <span class="chili difficulty-5" title="Hard">🌶️</span>
+                        <span class="chili difficulty-6" title="Very Hard">🌶️</span>
+                        <span class="chili difficulty-7" title="Astro-Complexity">🌶️</span>
+                    </div>
+                    <p><small>Very Easy → Easy → Fair → Moderate → Hard → Very Hard → Astro-Complexity</small></p>
+                </div>
+
+                <div class="system-card">
+                    <h3>⚡ Thunderstorm System</h3>
+                    <p>Cumulative exams to advance between tiers</p>
+                    <div style="font-size: 2rem; margin: 20px 0;">⚡🌩️⚡</div>
+                    <p><strong>Pass Requirements:</strong></p>
+                    <p>Seed→Sprout: 70% | Sprout→Seedling: 72% | Seedling→Plant: 75%<br>
+                    Plant→Tree: 78% | Tree→Flowering: 82% | Flowering→Fruit: 85%</p>
+                </div>
+            </div>
+
+            <div class="learning-path">
+                <h2 style="text-align: center; color: var(--primary); margin-bottom: 40px;">🎯 Progressive Learning Path</h2>
+
+                <!-- SEED TIER -->
+                <div class="tier-section">
+                    <div class="tier-header">
+                        <h2>🌰 SEED TIER - Foundation Building</h2>
+                        <p>Master the fundamental concepts of linear algebra</p>
+                        <div class="tier-progress">
+                            <div class="tier-progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="topics-grid">
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Linear Equations</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-1">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Understanding what linear equations are and how to solve simple systems.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Free Textbooks:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://hefferon.net/linearalgebra/" class="resource-link">Hefferon - Linear Algebra</a>
+                                        <a href="https://www.math.brown.edu/streil/papers/LADW/LADW.html" class="resource-link">Treil - Done Wrong</a>
+                                    </div>
+                                </div>
+                                <div class="resource-category">
+                                    <h5>🎥 Video Courses:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.khanacademy.org/math/linear-algebra" class="resource-link">Khan Academy</a>
+                                        <a href="https://www.3blue1brown.com/topics/linear-algebra" class="resource-link">3Blue1Brown</a>
+                                    </div>
+                                </div>
+                                <div class="resource-category">
+                                    <h5>🏫 University Courses:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" class="resource-link">MIT 18.06</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">System of Linear Equations</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-2">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Solving multiple equations simultaneously using various methods.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.khanacademy.org/math/linear-algebra" class="resource-link">Khan Academy</a>
+                                        <a href="https://hefferon.net/linearalgebra/" class="resource-link">Hefferon Text</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Gaussian Elimination</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-2">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Systematic method for solving systems of linear equations.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.3blue1brown.com/topics/linear-algebra" class="resource-link">3Blue1Brown</a>
+                                        <a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" class="resource-link">MIT Course</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Gauss-Jordan Elimination</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-2">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Extended form of Gaussian elimination to reach reduced row echelon form.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://hefferon.net/linearalgebra/" class="resource-link">Hefferon Chapter 1</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exam-section">
+                        <div class="exam-icon">⚡</div>
+                        <h4>Seed Tier Exit Exam</h4>
+                        <p>Test your understanding of basic linear equations and systems</p>
+                        <div class="exam-requirements">
+                            <strong>Exam Resources:</strong>
+                            <ul>
+                                <li><a href="https://www.varsitytutors.com/linear_algebra-practice-tests">Varsity Tutors Practice Tests</a></li>
+                                <li><a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/pages/exams/">MIT Exam Archive</a></li>
+                                <li><strong>Pass Requirement:</strong> 70% to advance to Sprout Tier</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SPROUT TIER -->
+                <div class="tier-section">
+                    <div class="tier-header" style="background: #27ae60;">
+                        <h2>🌱 SPROUT TIER - Matrix Fundamentals</h2>
+                        <p>Learn the building blocks of linear algebra: matrices and vectors</p>
+                        <div class="tier-progress">
+                            <div class="tier-progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="topics-grid">
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Matrix Introduction</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-1">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Understanding what matrices are and basic notation.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🎥 Visual Learning:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.3blue1brown.com/topics/linear-algebra" class="resource-link">3Blue1Brown - Matrices</a>
+                                        <a href="https://www.khanacademy.org/math/linear-algebra" class="resource-link">Khan Academy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Matrix Addition</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-1">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Adding matrices element by element.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://hefferon.net/linearalgebra/" class="resource-link">Hefferon Ch.2</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Matrix Multiplication</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-2">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Understanding the dot product rule for matrix multiplication.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🎥 Visual Learning:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.3blue1brown.com/topics/linear-algebra" class="resource-link">3Blue1Brown - Matrix Mult</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Vector Spaces</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-3">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Introduction to vector spaces and their properties.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Advanced Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.math.brown.edu/streil/papers/LADW/LADW.html" class="resource-link">Treil - Done Wrong</a>
+                                        <a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" class="resource-link">MIT Course</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Linear Combination</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-2">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Combining vectors using scalar multiplication and addition.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🎥 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.3blue1brown.com/topics/linear-algebra" class="resource-link">3Blue1Brown - Linear Combinations</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Linear Independence</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-3">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Understanding when vectors are linearly independent.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://hefferon.net/linearalgebra/" class="resource-link">Hefferon Ch.2</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exam-section">
+                        <div class="exam-icon">⚡</div>
+                        <h4>Sprout Tier Exit Exam</h4>
+                        <p>Cumulative test: Linear equations + Matrix basics + Vector spaces</p>
+                        <div class="exam-requirements">
+                            <strong>Exam Resources:</strong>
+                            <ul>
+                                <li><a href="https://www.geeksforgeeks.org/quizzes/linear-algebra-gq/">GeeksforGeeks Linear Algebra Quiz</a></li>
+                                <li><a href="https://web.math.princeton.edu/~jmjohnso/teaching/202handouts/OldExamHomePage.html">Princeton Exam Archive</a></li>
+                                <li><strong>Pass Requirement:</strong> 72% to advance to Seedling Tier</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEEDLING TIER -->
+                <div class="tier-section">
+                    <div class="tier-header" style="background: #2ecc71;">
+                        <h2>🌿 SEEDLING TIER - Linear Transformations & Determinants</h2>
+                        <p>Explore how matrices transform space and measure their properties</p>
+                        <div class="tier-progress">
+                            <div class="tier-progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="topics-grid">
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Linear Transformations</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-3">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Understanding how matrices transform vectors geometrically.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🎥 Essential Videos:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.3blue1brown.com/topics/linear-algebra" class="resource-link">3Blue1Brown - Transformations</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Determinant</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-3">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Understanding determinants as area/volume scaling factors.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🎥 Visual Learning:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.3blue1brown.com/topics/linear-algebra" class="resource-link">3Blue1Brown - Determinant</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Matrix Inversion</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-4">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Finding inverse matrices and understanding when they exist.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://hefferon.net/linearalgebra/" class="resource-link">Hefferon Ch.3</a>
+                                        <a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" class="resource-link">MIT Lectures</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Cramer's Rule</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-3">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Using determinants to solve systems of linear equations.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🎥 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.3blue1brown.com/topics/linear-algebra" class="resource-link">3Blue1Brown - Cramer's Rule</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Basis and Dimension</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-4">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Understanding coordinate systems and vector space dimensions.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.math.brown.edu/streil/papers/LADW/LADW.html" class="resource-link">Treil Advanced Treatment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Column & Row Spaces</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-4">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Understanding the fundamental subspaces of a matrix.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🏫 University Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" class="resource-link">MIT 18.06</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exam-section">
+                        <div class="exam-icon">⚡</div>
+                        <h4>Seedling Tier Exit Exam</h4>
+                        <p>Cumulative: All previous + Transformations + Determinants + Spaces</p>
+                        <div class="exam-requirements">
+                            <strong>Exam Resources:</strong>
+                            <ul>
+                                <li><a href="https://math.jhu.edu/mathcourses/201/Quizzes/">Johns Hopkins Quizzes</a></li>
+                                <li><a href="https://www.varsitytutors.com/linear_algebra-practice-tests">Varsity Tutors Advanced Tests</a></li>
+                                <li><strong>Pass Requirement:</strong> 75% to advance to Plant Tier</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLANT TIER -->
+                <div class="tier-section">
+                    <div class="tier-header" style="background: #16a085;">
+                        <h2>🪴 PLANT TIER - Eigenvalues & Advanced Matrix Theory</h2>
+                        <p>Master the most important concepts in linear algebra</p>
+                        <div class="tier-progress">
+                            <div class="tier-progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="topics-grid">
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Eigenvalues & Eigenvectors</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-5">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Understanding the most fundamental concept in linear algebra.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🎥 Essential Learning:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.3blue1brown.com/topics/linear-algebra" class="resource-link">3Blue1Brown - Eigenthings</a>
+                                        <a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" class="resource-link">MIT Strang Lectures</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Characteristic Polynomial</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-4">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Computing eigenvalues through polynomial equations.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://hefferon.net/linearalgebra/" class="resource-link">Hefferon Ch.5</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Diagonalization</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-5">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Transforming matrices to diagonal form using eigenvectors.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Advanced Study:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.math.brown.edu/streil/papers/LADW/LADW.html" class="resource-link">Treil Advanced</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Orthogonal Matrices</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-4">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Special matrices that preserve lengths and angles.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" class="resource-link">MIT Course</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Gram-Schmidt Process</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-4">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Creating orthogonal bases from arbitrary vectors.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://hefferon.net/linearalgebra/" class="resource-link">Hefferon Ch.6</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Inner Product Spaces</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-5">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Generalizing dot products to abstract vector spaces.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Advanced Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.math.brown.edu/streil/papers/LADW/LADW.html" class="resource-link">Treil Rigorous Treatment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exam-section">
+                        <div class="exam-icon">⚡</div>
+                        <h4>Plant Tier Exit Exam</h4>
+                        <p>Cumulative: All previous + Eigenvalues + Orthogonality + Inner Products</p>
+                        <div class="exam-requirements">
+                            <strong>Exam Resources:</strong>
+                            <ul>
+                                <li><a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/pages/exams/">MIT Comprehensive Exams</a></li>
+                                <li><a href="https://testbook.com/objective-questions/mcq-on-linear-algebra--5eea6a0a39140f30f369dc20">Advanced MCQ Tests</a></li>
+                                <li><strong>Pass Requirement:</strong> 78% to advance to Tree Tier</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TREE TIER -->
+                <div class="tier-section">
+                    <div class="tier-header" style="background: #8e44ad;">
+                        <h2>🌳 TREE TIER - Matrix Decompositions & Applications</h2>
+                        <p>Advanced techniques for matrix analysis and computation</p>
+                        <div class="tier-progress">
+                            <div class="tier-progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="topics-grid">
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Singular Value Decomposition (SVD)</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-6">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">The most important matrix factorization in applied mathematics.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🏫 University Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/" class="resource-link">MIT Matrix Methods</a>
+                                        <a href="https://people.duke.edu/~ccc14/sta-663-2017/13B_LinearAlgebra2.html" class="resource-link">Duke University Notes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">LU Decomposition</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-5">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Factoring matrices into lower and upper triangular parts.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📊 Computational Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://eigen.tuxfamily.org/dox/group__TutorialLinearAlgebra.html" class="resource-link">Eigen Library Docs</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">QR Decomposition</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-5">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Orthogonal-triangular matrix factorization.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://people.duke.edu/~ccc14/sta-663-2017/13B_LinearAlgebra2.html" class="resource-link">Duke Linear Algebra</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Cholesky Decomposition</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-5">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Special decomposition for positive definite matrices.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🔧 Tools:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.wolframalpha.com/examples/mathematics/algebra/matrices/matrix-decompositions" class="resource-link">Wolfram Examples</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Jordan Normal Form</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-6">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Canonical form for matrices that cannot be diagonalized.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Advanced Theory:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.math.brown.edu/streil/papers/LADW/LADW.html" class="resource-link">Treil Advanced Topics</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Least Squares</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-5">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Solving overdetermined systems and data fitting.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🏫 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" class="resource-link">MIT Applications</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exam-section">
+                        <div class="exam-icon">⚡</div>
+                        <h4>Tree Tier Exit Exam</h4>
+                        <p>Cumulative: All previous + Matrix Decompositions + Applications</p>
+                        <div class="exam-requirements">
+                            <strong>Exam Resources:</strong>
+                            <ul>
+                                <li><a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-18-counting-parameters-in-svd-lu-qr-saddle-points/">MIT Advanced Problems</a></li>
+                                <li><strong>Pass Requirement:</strong> 82% to advance to Flowering Tree Tier</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FLOWERING TREE TIER -->
+                <div class="tier-section">
+                    <div class="tier-header" style="background: #e74c3c;">
+                        <h2>🌸 FLOWERING TREE TIER - Multilinear Algebra & Geometry</h2>
+                        <p>Advanced topics bridging linear algebra and geometry</p>
+                        <div class="tier-progress">
+                            <div class="tier-progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="topics-grid">
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Tensor Algebra</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-7">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Generalizing vectors and matrices to higher-order tensors.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Advanced Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://math.mit.edu/classes/18.952/spring2013/docs/book.pdf" class="resource-link">MIT Multilinear Book</a>
+                                        <a href="https://oaktrust.library.tamu.edu/bitstream/handle/1969.1/2502/IntroductionToVectorsAndTensorsVol1.pdf" class="resource-link">Texas A&M Tensor Text</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Exterior Algebra</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-7">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Antisymmetric tensors and differential forms.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.numberanalytics.com/blog/ultimate-guide-multilinear-algebra" class="resource-link">Multilinear Guide</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Geometric Algebra</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-7">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Clifford algebras unifying vector algebra and geometry.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Specialized Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://math.mit.edu/~dunkel/Teach/18.S996_2022S/books/Hestenes-Sobczyk1984_Book_CliffordAlgebraToGeometricCalc.pdf" class="resource-link">Hestenes-Sobczyk</a>
+                                        <a href="https://link.springer.com/article/10.1007/s00006-020-1053-1" class="resource-link">Modern GA Computing</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Affine Spaces</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-6">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Geometric spaces without a fixed origin.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🎓 Academic Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.researchgate.net/publication/279528741_Projective_Affine_and_Euclidean_Geometric_Transformations_and_Mobility_in_Mechanisms" class="resource-link">Transformations Paper</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Affine Transformations</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-6">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Linear transformations that preserve parallelism.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>💻 Computational:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.graphicsmill.com/docs/gm5/Transformations.htm" class="resource-link">Graphics Implementation</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Bilinear Forms</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-6">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Functions linear in two variables, generalizing dot products.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Theory:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.math.brown.edu/streil/papers/LADW/LADW.html" class="resource-link">Treil Advanced</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exam-section">
+                        <div class="exam-icon">⚡</div>
+                        <h4>Flowering Tree Tier Exit Exam</h4>
+                        <p>Cumulative: All previous + Multilinear algebra + Geometric structures</p>
+                        <div class="exam-requirements">
+                            <strong>Exam Resources:</strong>
+                            <ul>
+                                <li>Research-level problem sets from graduate courses</li>
+                                <li><strong>Pass Requirement:</strong> 85% to advance to Fruit Tree Tier</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FRUIT TREE TIER -->
+                <div class="tier-section">
+                    <div class="tier-header" style="background: #2c3e50;">
+                        <h2>🍎 FRUIT TREE TIER - Projective Geometry & Research Topics</h2>
+                        <p>Master-level topics for research and applications</p>
+                        <div class="tier-progress">
+                            <div class="tier-progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="topics-grid">
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Projective Spaces</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-7">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Geometry where parallel lines meet at infinity.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Advanced Resources:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.cis.upenn.edu/~jean/gma-v2-chap5.pdf" class="resource-link">Penn Projective Geometry</a>
+                                        <a href="https://courses.cs.washington.edu/courses/cse557/97wi/notes/xforms/projective.html" class="resource-link">CS Perspective</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Projective Transformations</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-7">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Most general linear transformations preserving lines.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🎨 Applications:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://medium.com/@unifyai/part-ii-projective-transformations-in-2d-2e99ac9c7e9f" class="resource-link">Computer Vision Tutorial</a>
+                                        <a href="https://fzheng.me/2016/01/14/proj-transformation/" class="resource-link">2D Projective Transforms</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Homogeneous Coordinates</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-6">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Coordinate system for projective geometry.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>💻 Implementation:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://github.com/MehrshadHekmatara/Projective-coordinate-system-transformation" class="resource-link">GitHub Implementation</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Spectral Theorem</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-7">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Deep theory of symmetric and normal operators.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>📚 Research Level:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://www.math.brown.edu/streil/papers/LADW/LADW.html" class="resource-link">Treil Research Topics</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Perron-Frobenius Theorem</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-7">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Eigenvalue theory for non-negative matrices.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🔬 Applications:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/" class="resource-link">MIT Advanced Methods</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="topic-card">
+                            <div class="topic-header">
+                                <div class="topic-title">Advanced Matrix Decompositions</div>
+                                <div class="topic-difficulty">
+                                    <span class="chili difficulty-7">🌶️</span>
+                                </div>
+                            </div>
+                            <div class="topic-description">Schur, polar, and specialized decompositions.</div>
+                            <div class="resources">
+                                <div class="resource-category">
+                                    <h5>🎓 Graduate Level:</h5>
+                                    <div class="resource-links">
+                                        <a href="https://people.duke.edu/~ccc14/sta-663-2017/13B_LinearAlgebra2.html" class="resource-link">Advanced Computational LA</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exam-section">
+                        <div class="exam-icon">⚡</div>
+                        <h4>Master's Level Final Exam</h4>
+                        <p>Comprehensive: Entire linear algebra curriculum + Research applications</p>
+                        <div class="exam-requirements">
+                            <strong>Congratulations! You've completed the full journey!</strong>
+                            <ul>
+                                <li>You now have research-grade expertise in linear algebra</li>
+                                <li>Ready for graduate-level mathematics and advanced applications</li>
+                                <li>Continue learning through research papers and specialized courses</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--light); padding: 30px; border-radius: 15px; text-align: center; margin-top: 50px;">
+                <h3 style="color: var(--primary); margin-bottom: 20px;">🎉 Congratulations on Your Linear Algebra Journey! 🎉</h3>
+                <p>You've grown from a <strong>🌰 Seed</strong> to a <strong>🍎 Fruit Tree</strong> - from basic equations to research-level expertise!</p>
+                <p style="margin-top: 15px;"><em>All resources are free and open. Continue growing your mathematical knowledge!</em></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive elements
+        document.querySelectorAll('.topic-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.transform = card.style.transform === 'scale(1.02)' ? 'scale(1)' : 'scale(1.02)';
+            });
+        });
+
+        // Animate tier progress bars on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target.querySelector('.tier-progress-bar');
+                    if (progressBar) {
+                        // Simulate progress based on tier
+                        const tierIndex = Array.from(document.querySelectorAll('.tier-section')).indexOf(entry.target);
+                        const progress = Math.min(100, (tierIndex + 1) * 15);
+                        progressBar.style.width = progress + '%';
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.tier-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
