@@ -1,0 +1,2332 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Large Language Model Intelligence Ranking 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#1e3a8a',
+                        'secondary': '#059669',
+                        'accent': '#dc2626',
+                        'neutral': '#374151',
+                        'base': '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Prevent horizontal overflow on small screens */
+        body {
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 280px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            min-height: 60vh;
+        }
+        
+        .bento-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .toc-link {
+            display: block;
+            color: #e5e7eb;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+        
+        .toc-link:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            transform: translateX(4px);
+        }
+        
+        .toc-link.active {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            font-weight: 500;
+        }
+        
+        .citation {
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #dc2626;
+        }
+        
+        .citation:hover {
+            background: #fef2f2;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        
+        .pull-quote {
+            border-left: 4px solid #dc2626;
+            padding-left: 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.125rem;
+            color: #374151;
+        }
+        
+        .performance-bar {
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+        
+        .performance-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1e3a8a, #3730a3);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        .model-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #1e3a8a;
+        }
+        
+        .ranking-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: #1e3a8a;
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        
+        /* Mermaid diagram styles */
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            min-height: 300px;
+            max-height: 800px;
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mermaid-container .mermaid {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            cursor: grab;
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .mermaid-container .mermaid svg {
+            max-width: 100%;
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .mermaid-container .mermaid:active {
+            cursor: grabbing;
+        }
+        
+        .mermaid-container.zoomed .mermaid {
+            height: 100%;
+            width: 100%;
+            cursor: grab;
+        }
+        
+        .mermaid-controls {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mermaid-control-btn {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #374151;
+            font-size: 14px;
+            min-width: 36px;
+            height: 36px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mermaid-control-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+            transform: translateY(-1px);
+        }
+        
+        .mermaid-control-btn:active {
+            transform: scale(0.95);
+        }
+        
+        /* Mermaid theme customization for better contrast */
+        .mermaid .node rect,
+        .mermaid .node circle,
+        .mermaid .node ellipse,
+        .mermaid .node polygon {
+            fill: #ffffff;
+            stroke: #1e3a8a;
+            stroke-width: 2px;
+        }
+        
+        .mermaid .node .label {
+            color: #1f2937;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .mermaid .edgePath .path {
+            stroke: #6b7280;
+            stroke-width: 2px;
+        }
+        
+        .mermaid .edgeLabel {
+            background-color: #ffffff;
+            color: #374151;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Different node colors with proper contrast */
+        .mermaid .node:nth-child(4n+1) rect,
+        .mermaid .node:nth-child(4n+1) circle,
+        .mermaid .node:nth-child(4n+1) ellipse,
+        .mermaid .node:nth-child(4n+1) polygon {
+            fill: #eff6ff;
+            stroke: #1e3a8a;
+        }
+        
+        .mermaid .node:nth-child(4n+2) rect,
+        .mermaid .node:nth-child(4n+2) circle,
+        .mermaid .node:nth-child(4n+2) ellipse,
+        .mermaid .node:nth-child(4n+2) polygon {
+            fill: #f0fdf4;
+            stroke: #059669;
+        }
+        
+        .mermaid .node:nth-child(4n+3) rect,
+        .mermaid .node:nth-child(4n+3) circle,
+        .mermaid .node:nth-child(4n+3) ellipse,
+        .mermaid .node:nth-child(4n+3) polygon {
+            fill: #fef2f2;
+            stroke: #dc2626;
+        }
+        
+        .mermaid .node:nth-child(4n+4) rect,
+        .mermaid .node:nth-child(4n+4) circle,
+        .mermaid .node:nth-child(4n+4) ellipse,
+        .mermaid .node:nth-child(4n+4) polygon {
+            fill: #fffbeb;
+            stroke: #d97706;
+        }
+        
+    /* Responsive adjustments for mermaid controls */
+    @media (max-width: 1024px) {
+      .mermaid-control-btn:not(.reset-zoom) {
+        display: none;
+      }
+      .mermaid-controls {
+        top: auto;
+        bottom: 15px;
+        right: 15px;
+      }
+    }
+
+    /* New media query for small screens */
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .toc-fixed {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+      
+      .toc-fixed.mobile-open {
+        transform: translateX(0);
+      }
+      
+      .main-content {
+        margin-left: 0;
+      }
+    }
+  </style>
+  </head>
+
+  <body class="bg-base font-sans text-neutral leading-relaxed">
+
+    <!-- Fixed Table of Contents -->
+    <nav class="toc-fixed" id="toc">
+      <div class="text-white mb-6">
+        <h2 class="text-xl font-serif font-bold mb-2">Contents</h2>
+        <div class="w-12 h-1 bg-red-500 rounded"></div>
+      </div>
+
+      <a href="#hero" class="toc-link">
+        <i class="fas fa-home mr-2"></i>Overview
+      </a>
+      <a href="#methodology" class="toc-link">
+        <i class="fas fa-cogs mr-2"></i>Methodology
+      </a>
+      <a href="#leading-contenders" class="toc-link">
+        <i class="fas fa-trophy mr-2"></i>Leading Contenders
+      </a>
+      <a href="#strong-performers" class="toc-link">
+        <i class="fas fa-medal mr-2"></i>Strong Performers
+      </a>
+      <a href="#notable-capabilities" class="toc-link">
+        <i class="fas fa-star mr-2"></i>Notable Capabilities
+      </a>
+      <a href="#benchmark-analysis" class="toc-link">
+        <i class="fas fa-chart-bar mr-2"></i>Benchmark Analysis
+      </a>
+      <a href="#user-feedback" class="toc-link">
+        <i class="fas fa-users mr-2"></i>User Feedback
+      </a>
+      <a href="#integrated-ranking" class="toc-link">
+        <i class="fas fa-list-ol mr-2"></i>Integrated Ranking
+      </a>
+      <a href="#conclusion" class="toc-link">
+        <i class="fas fa-flag-checkered mr-2"></i>Conclusion
+      </a>
+    </nav>
+
+    <!-- Mobile TOC Toggle -->
+    <button id="toc-toggle" class="fixed top-4 left-4 z-50 bg-primary text-white p-3 rounded-full shadow-lg md:hidden">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section id="hero" class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 px-4 md:px-8 py-16">
+        <div class="max-w-7xl mx-auto">
+          <div class="hero-grid">
+            <!-- Left: Title and Overview -->
+            <div class="space-y-8">
+              <div class="space-y-4">
+                <div class="inline-block bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium">
+                  <i class="fas fa-chart-line mr-2"></i>Comprehensive Analysis 2025
+                </div>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-neutral leading-tight">
+                  Ranking Large Language Models by
+                  <span class="italic text-primary">Overall Intelligence</span>
+                </h1>
+                <p class="text-xl text-gray-600 leading-relaxed">
+                  A comprehensive evaluation weighing both benchmark performance and user reviews to determine the most intelligent and powerful LLMs available today.
+                </p>
+              </div>
+
+              <!-- Key Highlights -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bento-card">
+                  <div class="flex items-center mb-3">
+                    <i class="fas fa-crown text-yellow-500 text-xl mr-3"></i>
+                    <h3 class="font-semibold">Top Performer</h3>
+                  </div>
+                  <p class="text-sm text-gray-600">Grok 4 Heavy leads with 73 Intelligence Index score</p>
+                </div>
+                <div class="bento-card">
+                  <div class="flex items-center mb-3">
+                    <i class="fas fa-users text-blue-500 text-xl mr-3"></i>
+                    <h3 class="font-semibold">User-Centric</h3>
+                  </div>
+                  <p class="text-sm text-gray-600">Balanced methodology combining benchmarks and reviews</p>
+                </div>
+                <div class="bento-card">
+                  <div class="flex items-center mb-3">
+                    <i class="fas fa-code-branch text-green-500 text-xl mr-3"></i>
+                    <h3 class="font-semibold">Open Source Rise</h3>
+                  </div>
+                  <p class="text-sm text-gray-600">DeepSeek R1 0528 challenges proprietary models</p>
+                </div>
+                <div class="bento-card">
+                  <div class="flex items-center mb-3">
+                    <i class="fas fa-brain text-purple-500 text-xl mr-3"></i>
+                    <h3 class="font-semibold">Advanced Reasoning</h3>
+                  </div>
+                  <p class="text-sm text-gray-600">HLE benchmark shows rapid progress in complex problem-solving</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Visual Element -->
+            <div class="relative">
+              <img src="https://kimi-web-img.moonshot.cn/img/miro.medium.com/81eeab522b835766aba8328abc68aa7fc3a2d50b.jpeg" alt="Abstract neural network with glowing nodes" class="w-full h-auto md:h-96 object-cover rounded-2xl shadow-2xl" size="large" aspect="wide" color="blue" style="photo" query="abstract neural network visualization" referrerpolicy="no-referrer" data-modified="1" data-score="11579.00"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl"></div>
+              <div class="absolute bottom-6 left-6 text-white">
+                <h3 class="text-xl font-serif font-bold mb-2">The Intelligence Frontier</h3>
+                <p class="text-sm opacity-90">Where benchmarks meet real-world performance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section id="methodology" class="px-4 md:px-8 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-4xl font-serif font-bold text-center mb-12 text-neutral">Evaluation Methodology</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <div>
+              <h3 class="text-2xl font-serif font-semibold mb-6 text-primary">Defining Intelligence</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                Overall intelligence in Large Language Models encompasses a model&#39;s aggregate ability to understand, reason, learn, and interact effectively across a wide spectrum of tasks and domains. This includes <strong>language comprehension, logical reasoning, problem-solving, coding proficiency, mathematical aptitude, and knowledge recall</strong>.
+              </p>
+              <div class="pull-quote">
+                &#34;It is not merely about achieving high scores on specific benchmarks but also about demonstrating versatility, robustness, and an ability to generalize learning to novel situations.&#34;
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-serif font-semibold mb-6 text-primary">Balanced Approach</h3>
+              <p class="text-lg mb-6 leading-relaxed">
+                Our methodology emphasizes a <strong>dual approach, giving equal weight to standardized benchmark performances and aggregated user reviews</strong>. This balanced perspective provides a more holistic understanding of each model&#39;s capabilities.
+              </p>
+
+              <div class="space-y-4">
+                <div class="model-card">
+                  <h4 class="font-semibold text-lg mb-2">Artificial Analysis Intelligence Index</h4>
+                  <p class="text-sm text-gray-600 mb-3">Composite score from seven rigorous evaluations:</p>
+                  <div class="grid grid-cols-2 gap-2 text-xs">
+                    <div class="bg-blue-50 p-2 rounded">MMLU-Pro</div>
+                    <div class="bg-blue-50 p-2 rounded">GPQA Diamond</div>
+                    <div class="bg-blue-50 p-2 rounded">HLE</div>
+                    <div class="bg-blue-50 p-2 rounded">LiveCodeBench</div>
+                    <div class="bg-blue-50 p-2 rounded">SciCode</div>
+                    <div class="bg-blue-50 p-2 rounded">AIME</div>
+                    <div class="bg-blue-50 p-2 rounded">MATH-500</div>
+                  </div>
+                </div>
+
+                <div class="model-card">
+                  <h4 class="font-semibold text-lg mb-2">User Reviews &amp; Community Feedback</h4>
+                  <p class="text-sm text-gray-600">Synthesized from technical forums, AI review platforms, and social media discussions.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Methodology Diagram -->
+          <div class="bg-gray-50 rounded-2xl p-8">
+            <h3 class="text-2xl font-serif font-semibold mb-8 text-center text-primary">Methodology Framework</h3>
+            <div class="mermaid-container">
+              <div class="mermaid-controls">
+                <button class="mermaid-control-btn zoom-in" title="放大">
+                  <i class="fas fa-search-plus"></i>
+                </button>
+                <button class="mermaid-control-btn zoom-out" title="缩小">
+                  <i class="fas fa-search-minus"></i>
+                </button>
+                <button class="mermaid-control-btn reset-zoom" title="重置">
+                  <i class="fas fa-expand-arrows-alt"></i>
+                </button>
+                <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+              <div class="mermaid">
+                graph TD
+                A[&#34;LLM Evaluation&#34;] --&gt; B[&#34;Benchmark Performance&#34;]
+                A --&gt; C[&#34;User Reviews&#34;]
+                B --&gt; D[&#34;MMLU-Pro
+                <br/>Advanced Knowledge&#34;]
+                B --&gt; E[&#34;GPQA Diamond
+                <br/>Graduate Reasoning&#34;]
+                B --&gt; F[&#34;HLE
+                <br/>Complex Problem-Solving&#34;]
+                B --&gt; G[&#34;LiveCodeBench
+                <br/>Coding Proficiency&#34;]
+                B --&gt; H[&#34;AIME/MATH-500
+                <br/>Mathematical Aptitude&#34;]
+                C --&gt; I[&#34;Technical Forums&#34;]
+                C --&gt; J[&#34;Review Platforms&#34;]
+                C --&gt; K[&#34;Social Media&#34;]
+                D --&gt; L[&#34;Integrated Intelligence Score&#34;]
+                E --&gt; L
+                F --&gt; L
+                G --&gt; L
+                H --&gt; L
+                I --&gt; M[&#34;User Sentiment Analysis&#34;]
+                J --&gt; M
+                K --&gt; M
+                M --&gt; L
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leading Contenders Section -->
+      <section id="leading-contenders" class="px-4 md:px-8 py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-4xl font-serif font-bold text-center mb-4 text-neutral">Leading Contenders</h2>
+          <p class="text-xl text-center text-gray-600 mb-12">The most intelligent and powerful LLMs based on comprehensive analysis</p>
+
+          <!-- Grok 4 Heavy -->
+          <div class="model-card mb-8">
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <div class="ranking-badge mr-4">1</div>
+                <h3 class="text-3xl font-serif font-bold text-primary inline">Grok 4 Heavy</h3>
+                <span class="ml-4 inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <i class="fas fa-crown mr-1"></i>Top Performer
+                </span>
+              </div>
+              <div class="text-right">
+                <div class="text-3xl font-bold text-primary">73</div>
+                <div class="text-sm text-gray-600">Intelligence Index</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div>
+                <h4 class="text-xl font-semibold mb-4">Performance Highlights</h4>
+                <ul class="space-y-3 text-gray-700">
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                    <span><strong>88% on GPQA Diamond</strong> - surpassing previous record holder <a href="#ref-236" class="citation">[236]</a></span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                    <span><strong>50.7% on HLE with tools</strong> - more than doubling previous best scores <a href="#ref-261" class="citation">[261]</a></span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                    <span><strong>15.9-16.2% on ARC-AGI-2</strong> - nearly double next-best commercial model <a href="#ref-262" class="citation">[262]</a></span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold mb-4">Key Features</h4>
+                <ul class="space-y-3 text-gray-700">
+                  <li class="flex items-start">
+                    <i class="fas fa-cogs text-blue-500 mr-3 mt-1"></i>
+                    <span>Multi-agent architecture with parallel reasoning agents</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-brain text-purple-500 mr-3 mt-1"></i>
+                    <span>&#34;Reasoning-first&#34; model design for deliberate processing</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-graduation-cap text-indigo-500 mr-3 mt-1"></i>
+                    <span>PhD-level intelligence claims with advanced analytical capabilities</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+              <p class="text-sm text-yellow-800">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                <strong>User Considerations:</strong> High computational cost for &#34;Heavy&#34; tier, potential safety concerns, slower output speed compared to some competitors <a href="#ref-269" class="citation">[269]</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Grok 4 -->
+          <div class="model-card mb-8">
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <div class="ranking-badge mr-4">2</div>
+                <h3 class="text-3xl font-serif font-bold text-primary inline">Grok 4</h3>
+              </div>
+              <div class="text-right">
+                <div class="text-3xl font-bold text-primary">73</div>
+                <div class="text-sm text-gray-600">Intelligence Index</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div>
+                <h4 class="text-xl font-semibold mb-4">Benchmark Excellence</h4>
+                <ul class="space-y-3 text-gray-700">
+                  <li class="flex items-start">
+                    <i class="fas fa-star text-yellow-500 mr-3 mt-1"></i>
+                    <span><strong>87% on MMLU-Pro</strong> - comprehensive knowledge assessment</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-star text-yellow-500 mr-3 mt-1"></i>
+                    <span><strong>100% on AIME 2024</strong> - perfect mathematical reasoning <a href="#ref-262" class="citation">[262]</a></span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-star text-yellow-500 mr-3 mt-1"></i>
+                    <span><strong>25.4% on HLE without tools</strong> - leading single-agent performance <a href="#ref-264" class="citation">[264]</a></span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold mb-4">Technical Specifications</h4>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="metric-card">
+                    <div class="text-2xl font-bold text-primary">256K</div>
+                    <div class="text-xs text-gray-600">Context Window</div>
+                  </div>
+                  <div class="metric-card">
+                    <div class="text-2xl font-bold text-primary">75</div>
+                    <div class="text-xs text-gray-600">Tokens/sec</div>
+                  </div>
+                  <div class="metric-card">
+                    <div class="text-2xl font-bold text-primary">$2.22</div>
+                    <div class="text-xs text-gray-600">Input/1M tokens</div>
+                  </div>
+                  <div class="metric-card">
+                    <div class="text-2xl font-bold text-primary">$11.10</div>
+                    <div class="text-xs text-gray-600">Output/1M tokens</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- o4-mini high -->
+          <div class="model-card mb-8">
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <div class="ranking-badge mr-4">3</div>
+                <h3 class="text-3xl font-serif font-bold text-primary inline">OpenAI o4-mini (high)</h3>
+                <span class="ml-4 inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <i class="fas fa-dollar-sign mr-1"></i>Cost-Effective
+                </span>
+              </div>
+              <div class="text-right">
+                <div class="text-3xl font-bold text-primary">70</div>
+                <div class="text-sm text-gray-600">Intelligence Index</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div>
+                <h4 class="font-semibold mb-3">Performance</h4>
+                <ul class="space-y-2 text-sm text-gray-700">
+                  <li>• MMLU score: 0.832 <a href="#ref-242" class="citation">[242]</a>
+                  </li>
+                  <li>• ~69% on Aider-Polyglot coding</li>
+                  <li>• Best-performing on AIME 2025 with tools</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-3">Efficiency</h4>
+                <ul class="space-y-2 text-sm text-gray-700">
+                  <li>• Blended price: $1.93/1M tokens</li>
+                  <li>• 200K context window</li>
+                  <li>• 99.6 tokens/sec output speed</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-3">Considerations</h4>
+                <ul class="space-y-2 text-sm text-gray-700">
+                  <li>• Higher latency: 51.91s TTFT</li>
+                  <li>• Slower output speed</li>
+                  <li>• &#34;High&#34; mode computational cost</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gemini 2.5 Pro -->
+          <div class="model-card mb-8">
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <div class="ranking-badge mr-4">4</div>
+                <h3 class="text-3xl font-serif font-bold text-primary inline">Gemini 2.5 Pro</h3>
+                <span class="ml-4 inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <i class="fas fa-expand mr-1"></i>Long Context
+                </span>
+              </div>
+              <div class="text-right">
+                <div class="text-3xl font-bold text-primary">70</div>
+                <div class="text-sm text-gray-600">Intelligence Index</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div>
+                <h4 class="text-xl font-semibold mb-4">Strengths</h4>
+                <ul class="space-y-3 text-gray-700">
+                  <li class="flex items-start">
+                    <i class="fas fa-trophy text-yellow-500 mr-3 mt-1"></i>
+                    <span><strong>2M token context window</strong> - processes entire books/large codebases <a href="#ref-239" class="citation">[239]</a></span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-search text-green-500 mr-3 mt-1"></i>
+                    <span>Strong factual grounding with Google Search integration</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-puzzle-piece text-blue-500 mr-3 mt-1"></i>
+                    <span>Excellent Google Workspace integration (Sheets analysis)</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold mb-4">Performance Metrics</h4>
+                <div class="space-y-4">
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-sm font-medium">MMLU Score</span>
+                      <span class="text-sm font-bold">0.862</span>
+                    </div>
+                    <div class="performance-bar">
+                      <div class="performance-fill" style="width: 86.2%"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-sm font-medium">Output Speed</span>
+                      <span class="text-sm font-bold">145.3 tokens/sec</span>
+                    </div>
+                    <div class="performance-bar">
+                      <div class="performance-fill" style="width: 72%"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-sm font-medium">Cost Efficiency</span>
+                      <span class="text-sm font-bold">$3.44/1M tokens</span>
+                    </div>
+                    <div class="performance-bar">
+                      <div class="performance-fill" style="width: 65%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DeepSeek R1 0528 -->
+          <div class="model-card">
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <div class="ranking-badge mr-4">5</div>
+                <h3 class="text-3xl font-serif font-bold text-primary inline">DeepSeek R1 0528</h3>
+                <span class="ml-4 inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <i class="fas fa-code-branch mr-1"></i>Open Source
+                </span>
+              </div>
+              <div class="text-right">
+                <div class="text-3xl font-bold text-primary">68</div>
+                <div class="text-sm text-gray-600">Intelligence Index</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div>
+                <h4 class="text-xl font-semibold mb-4">Open Source Excellence</h4>
+                <p class="text-gray-700 mb-4">
+                  DeepSeek R1 0528 represents a significant achievement in open-source AI, demonstrating that community-driven models can compete with proprietary giants. With 671B parameters (37B active), it offers exceptional performance while remaining accessible <a href="#ref-257" class="citation">[257]</a>.
+                </p>
+                <ul class="space-y-2 text-gray-700">
+                  <li>• 93.3% on AIME 2025 (nearly matching Grok 4&#39;s 94%)</li>
+                  <li>• 81% on GPQA Diamond (graduate-level reasoning)</li>
+                  <li>• 73.3% on LiveCodeBench (strong coding capabilities)</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold mb-4">Community Impact</h4>
+                <div class="pull-quote text-base">
+                  &#34;DeepSeek R1 0528 is often cited as one of the most intelligent open-source models available, with its strong showing in coding benchmarks solidifying its reputation among developers.&#34;
+                </div>
+                <div class="mt-4 p-4 bg-green-50 border-l-4 border-green-400 rounded">
+                  <p class="text-sm text-green-800">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <strong>Key Advantages:</strong> Open-weight transparency, customization potential, cost-effectiveness, strong reasoning and coding performance <a href="#ref-308" class="citation">[308]</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Strong Performers Section -->
+      <section id="strong-performers" class="px-4 md:px-8 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-4xl font-serif font-bold text-center mb-4 text-neutral">Strong Performers</h2>
+          <p class="text-xl text-center text-gray-600 mb-12">Models with specialized strengths and competitive capabilities</p>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Claude Sonnet 4 -->
+            <div class="model-card">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-2xl font-serif font-bold text-primary">Claude Sonnet 4</h3>
+                <div class="text-right">
+                  <div class="text-2xl font-bold text-primary">61</div>
+                  <div class="text-xs text-gray-600">Intelligence Index</div>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <i class="fas fa-shield-alt text-green-500 mr-3"></i>
+                  <span class="text-sm">Strong emphasis on safety and reliability</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-code text-blue-500 mr-3"></i>
+                  <span class="text-sm">Excellent coding capabilities (SWE-Bench)</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-clock text-orange-500 mr-3"></i>
+                  <span class="text-sm">200K context window, low latency (1.38s TTFT)</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-dollar-sign text-red-500 mr-3"></i>
+                  <span class="text-sm">Higher cost: $6.00 per 1M tokens</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doubao 1.6 Thinking -->
+            <div class="model-card">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-2xl font-serif font-bold text-primary">Doubao 1.6 Thinking</h3>
+                <div class="text-right">
+                  <div class="text-2xl font-bold text-primary">~65</div>
+                  <div class="text-xs text-gray-600">Estimated Score</div>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <i class="fas fa-brain text-purple-500 mr-3"></i>
+                  <span class="text-sm">81.5% on GPQA Diamond (reasoning focus)</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-search text-blue-500 mr-3"></i>
+                  <span class="text-sm">&#34;Think while searching&#34; and DeepResearch capabilities</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-expand text-green-500 mr-3"></i>
+                  <span class="text-sm">256K context window support</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-chart-line text-yellow-500 mr-3"></i>
+                  <span class="text-sm">Cost-effective pricing structure</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Seed Thinking v1.5 -->
+            <div class="model-card">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-2xl font-serif font-bold text-primary">Seed Thinking v1.5</h3>
+                <div class="text-right">
+                  <div class="text-2xl font-bold text-primary">62</div>
+                  <div class="text-xs text-gray-600">Intelligence Index</div>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <i class="fas fa-cogs text-blue-500 mr-3"></i>
+                  <span class="text-sm">MoE architecture (20B active / 200B total)</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-lightbulb text-yellow-500 mr-3"></i>
+                  <span class="text-sm">&#34;Think before responding&#34; approach</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-trophy text-green-500 mr-3"></i>
+                  <span class="text-sm">87.0% on MMLU-PRO (surpassing DeepSeek R1)</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-puzzle-piece text-purple-500 mr-3"></i>
+                  <span class="text-sm">Strong logic reasoning: 39.9% on ARC-AGI</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Qwen3 235B A22B -->
+            <div class="model-card">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-2xl font-serif font-bold text-primary">Qwen3 235B A22B</h3>
+                <div class="text-right">
+                  <div class="text-2xl font-bold text-primary">58</div>
+                  <div class="text-xs text-gray-600">RBench-T Score</div>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <i class="fas fa-code-branch text-green-500 mr-3"></i>
+                  <span class="text-sm">Competitive open-source performance</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-tachometer-alt text-red-500 mr-3"></i>
+                  <span class="text-sm">High latency on coding tasks (~10 minutes/completion)</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-chart-bar text-blue-500 mr-3"></i>
+                  <span class="text-sm">Strong RBench-T showing (58.0)</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-cog text-purple-500 mr-3"></i>
+                  <span class="text-sm">Alibaba&#39;s flagship open model</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Notable Capabilities Section -->
+      <section id="notable-capabilities" class="px-4 md:px-8 py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-4xl font-serif font-bold text-center mb-4 text-neutral">Notable Capabilities</h2>
+          <p class="text-xl text-center text-gray-600 mb-12">Specialized models and emerging capabilities</p>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Seed 1.5 VL -->
+            <div class="model-card">
+              <div class="text-center mb-6">
+                <i class="fas fa-eye text-4xl text-purple-500 mb-4"></i>
+                <h3 class="text-2xl font-serif font-bold text-primary">Seed 1.5 VL</h3>
+                <p class="text-sm text-gray-600">Multimodal Focus</p>
+              </div>
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Vision-Language Excellence</h4>
+                  <p class="text-sm text-gray-700">20B activated parameters in MoE architecture, pretrained on 3T tokens of multimodal data <a href="#ref-219" class="citation">[219]</a>.</p>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">State-of-the-Art Results</h4>
+                  <p class="text-sm text-gray-700">SOTA in 38/60 public evaluation benchmarks, including 14/19 video understanding tasks <a href="#ref-220" class="citation">[220]</a>.</p>
+                </div>
+                <div class="bg-purple-50 p-3 rounded">
+                  <p class="text-xs text-purple-800"><strong>Capabilities:</strong> Visual reasoning, GUI interaction, video analysis, OCR, open-vocabulary detection</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ERNIE X1 -->
+            <div class="model-card">
+              <div class="text-center mb-6">
+                <i class="fas fa-brain text-4xl text-blue-500 mb-4"></i>
+                <h3 class="text-2xl font-serif font-bold text-primary">ERNIE X1</h3>
+                <p class="text-sm text-gray-600">Cost-Effective Reasoner</p>
+              </div>
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Specialized Reasoning</h4>
+                  <p class="text-sm text-gray-700">Highlighted as &#34;Best Reasoner LLM&#34; with Intelligence score of 60* in China AI report <a href="#ref-225" class="citation">[225]</a>.</p>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Cost Optimization</h4>
+                  <p class="text-sm text-gray-700">Starting at $0.28/1M tokens, with Turbo version at $0.14/1M tokens <a href="#ref-222" class="citation">[222]</a>.</p>
+                </div>
+                <div class="bg-blue-50 p-3 rounded">
+                  <p class="text-xs text-blue-800"><strong>Target Users:</strong> Developers, AI researchers, and businesses seeking cost-effective deep reasoning</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- DeepSeek V3 0324 -->
+            <div class="model-card">
+              <div class="text-center mb-6">
+                <i class="fas fa-rocket text-4xl text-green-500 mb-4"></i>
+                <h3 class="text-2xl font-serif font-bold text-primary">DeepSeek V3 0324</h3>
+                <p class="text-sm text-gray-600">Capable Predecessor</p>
+              </div>
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-semibold mb-2">Solid Performance</h4>
+                  <p class="text-sm text-gray-700">Intelligence Index of 53, with 59.6 on RBench-T benchmark <a href="#ref-267" class="citation">[267]</a>.</p>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Balanced Capabilities</h4>
+                  <p class="text-sm text-gray-700">Good balance for certain tasks, faster inference than R1 in some cases.</p>
+                </div>
+                <div class="bg-green-50 p-3 rounded">
+                  <p class="text-xs text-green-800"><strong>Positioning:</strong> Competent model offering good performance balance, though surpassed by R1 0528</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Benchmark Analysis Section -->
+      <section id="benchmark-analysis" class="px-4 md:px-8 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-4xl font-serif font-bold text-center mb-4 text-neutral">Benchmark Analysis</h2>
+          <p class="text-xl text-center text-gray-600 mb-12">Performance across key evaluation metrics</p>
+
+          <!-- Key Benchmarks Overview -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div class="metric-card border-l-4 border-blue-500">
+              <i class="fas fa-graduation-cap text-2xl text-blue-500 mb-3"></i>
+              <h3 class="font-semibold">MMLU-Pro</h3>
+              <p class="text-xs text-gray-600">Advanced knowledge across diverse academic subjects</p>
+            </div>
+            <div class="metric-card border-l-4 border-purple-500">
+              <i class="fas fa-microscope text-2xl text-purple-500 mb-3"></i>
+              <h3 class="font-semibold">GPQA Diamond</h3>
+              <p class="text-xs text-gray-600">Graduate-level reasoning in STEM fields</p>
+            </div>
+            <div class="metric-card border-l-4 border-red-500">
+              <i class="fas fa-fire text-2xl text-red-500 mb-3"></i>
+              <h3 class="font-semibold">HLE</h3>
+              <p class="text-xs text-gray-600">Humanity&#39;s Last Exam - extreme complexity</p>
+            </div>
+            <div class="metric-card border-l-4 border-green-500">
+              <i class="fas fa-code text-2xl text-green-500 mb-3"></i>
+              <h3 class="font-semibold">LiveCodeBench</h3>
+              <p class="text-xs text-gray-600">Code generation and programming proficiency</p>
+            </div>
+          </div>
+
+          <!-- HLE Performance Chart -->
+          <div class="bg-gray-50 rounded-2xl p-8 mb-12">
+            <h3 class="text-2xl font-serif font-semibold mb-6 text-center text-primary">HLE Performance Evolution</h3>
+            <p class="text-center text-gray-600 mb-8">Humanity&#39;s Last Exam scores show rapid advancement in complex problem-solving capabilities</p>
+
+            <!-- Chart container with responsive sizing -->
+            <div class="h-96">
+              <canvas id="hleChart"></canvas>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="model-card">
+                <h4 class="font-semibold mb-3">Key Insights</h4>
+                <ul class="space-y-2 text-sm text-gray-700">
+                  <li>• Grok 4 Heavy achieves 50.7% with tools - more than double previous best scores <a href="#ref-172" class="citation">[172]</a>
+                  </li>
+                  <li>• Grok 4 reaches 25.4% without tools, surpassing Gemini 2.5 Pro&#39;s 21.6% <a href="#ref-169" class="citation">[169]</a>
+                  </li>
+                  <li>• HLE creators predicted 50% accuracy by end of 2025 - achieved 6 months early</li>
+                </ul>
+              </div>
+              <div class="model-card">
+                <h4 class="font-semibold mb-3">About HLE</h4>
+                <p class="text-sm text-gray-700 mb-3">
+                  Humanity&#39;s Last Exam comprises over 2,500 challenging questions from more than 100 subjects curated by experts, testing advanced reasoning and technical knowledge.
+                </p>
+                <div class="text-xs text-gray-600">
+                  <i class="fas fa-info-circle mr-1"></i>
+                  Extreme difficulty makes even 25% scores impressive achievements
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coding and Math Performance -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-blue-50 rounded-2xl p-6">
+              <h3 class="text-xl font-serif font-semibold mb-4 text-primary">
+                <i class="fas fa-code mr-2"></i>Coding Performance
+              </h3>
+              <div class="space-y-4">
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">o4-Mini (High)</span>
+                  <div class="flex items-center">
+                    <div class="w-24 h-2 bg-gray-200 rounded mr-2">
+                      <div class="h-full bg-blue-500 rounded" style="width: 80%"></div>
+                    </div>
+                    <span class="text-sm font-bold">80.2</span>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">Grok 4</span>
+                  <div class="flex items-center">
+                    <div class="w-24 h-2 bg-gray-200 rounded mr-2">
+                      <div class="h-full bg-blue-500 rounded" style="width: 79%"></div>
+                    </div>
+                    <span class="text-sm font-bold">79.4</span>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">Gemini 2.5 Pro</span>
+                  <div class="flex items-center">
+                    <div class="w-24 h-2 bg-gray-200 rounded mr-2">
+                      <div class="h-full bg-blue-500 rounded" style="width: 74%"></div>
+                    </div>
+                    <span class="text-sm font-bold">73.6</span>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">DeepSeek R1</span>
+                  <div class="flex items-center">
+                    <div class="w-24 h-2 bg-gray-200 rounded mr-2">
+                      <div class="h-full bg-blue-500 rounded" style="width: 73%"></div>
+                    </div>
+                    <span class="text-sm font-bold">73.3</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-xs text-gray-600 mt-4">
+                LiveCodeBench scores showing coding proficiency across leading models <a href="#ref-322" class="citation">[322]</a>
+              </p>
+            </div>
+
+            <div class="bg-green-50 rounded-2xl p-6">
+              <h3 class="text-xl font-serif font-semibold mb-4 text-primary">
+                <i class="fas fa-calculator mr-2"></i>Mathematical Reasoning
+              </h3>
+              <div class="space-y-4">
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">Grok 4</span>
+                  <div class="flex items-center">
+                    <div class="w-24 h-2 bg-gray-200 rounded mr-2">
+                      <div class="h-full bg-green-500 rounded" style="width: 100%"></div>
+                    </div>
+                    <span class="text-sm font-bold">100%</span>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">DeepSeek R1</span>
+                  <div class="flex items-center">
+                    <div class="w-24 h-2 bg-gray-200 rounded mr-2">
+                      <div class="h-full bg-green-500 rounded" style="width: 93%"></div>
+                    </div>
+                    <span class="text-sm font-bold">93.3%</span>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">Gemini 2.5 Pro</span>
+                  <div class="flex items-center">
+                    <div class="w-24 h-2 bg-gray-200 rounded mr-2">
+                      <div class="h-full bg-green-500 rounded" style="width: 87%"></div>
+                    </div>
+                    <span class="text-sm font-bold">86.7%</span>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">Doubao 1.6</span>
+                  <div class="flex items-center">
+                    <div class="w-24 h-2 bg-gray-200 rounded mr-2">
+                      <div class="h-full bg-green-500 rounded" style="width: 86%"></div>
+                    </div>
+                    <span class="text-sm font-bold">86.3%</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-xs text-gray-600 mt-4">
+                AIME 2025 scores demonstrating advanced mathematical problem-solving <a href="#ref-303" class="citation">[303]</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- User Feedback Section -->
+      <section id="user-feedback" class="px-4 md:px-8 py-16 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-4xl font-serif font-bold text-center mb-4 text-neutral">User Feedback Synthesis</h2>
+          <p class="text-xl text-center text-gray-600 mb-12">Community insights and real-world experiences</p>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <!-- Strengths -->
+            <div class="model-card">
+              <h3 class="text-xl font-semibold mb-6 text-green-600">
+                <i class="fas fa-thumbs-up mr-2"></i>Common Strengths
+              </h3>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <i class="fas fa-brain text-green-500 mr-3 mt-1"></i>
+                  <div>
+                    <strong>Improved Reasoning</strong>
+                    <p class="text-sm text-gray-600">Better complex instruction handling and multi-step problem-solving</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-code text-blue-500 mr-3 mt-1"></i>
+                  <div>
+                    <strong>Coding Proficiency</strong>
+                    <p class="text-sm text-gray-600">Successful code generation, debugging, and architectural design</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-expand text-purple-500 mr-3 mt-1"></i>
+                  <div>
+                    <strong>Long Context</strong>
+                    <p class="text-sm text-gray-600">Gemini 2.5 Pro&#39;s 2M tokens enable extensive document processing</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-code-branch text-orange-500 mr-3 mt-1"></i>
+                  <div>
+                    <strong>Open Source Value</strong>
+                    <p class="text-sm text-gray-600">Accessibility, cost-effectiveness, and customization potential</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Weaknesses -->
+            <div class="model-card">
+              <h3 class="text-xl font-semibold mb-6 text-red-600">
+                <i class="fas fa-exclamation-triangle mr-2"></i>Common Weaknesses
+              </h3>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <i class="fas fa-random text-red-500 mr-3 mt-1"></i>
+                  <div>
+                    <strong>Hallucinations</strong>
+                    <p class="text-sm text-gray-600">Factual inaccuracies remain a persistent challenge</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-clock text-orange-500 mr-3 mt-1"></i>
+                  <div>
+                    <strong>Latency Issues</strong>
+                    <p class="text-sm text-gray-600">Slow response times for complex &#34;thinking&#34; processes</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-dollar-sign text-yellow-500 mr-3 mt-1"></i>
+                  <div>
+                    <strong>High Costs</strong>
+                    <p class="text-sm text-gray-600">Premium tiers can be prohibitively expensive for high-volume use</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-chart-line text-purple-500 mr-3 mt-1"></i>
+                  <div>
+                    <strong>Inconsistent Performance</strong>
+                    <p class="text-sm text-gray-600">Variability across different tasks and domains</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Use Cases -->
+            <div class="model-card">
+              <h3 class="text-xl font-semibold mb-6 text-blue-600">
+                <i class="fas fa-lightbulb mr-2"></i>Primary Use Cases
+              </h3>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <i class="fas fa-laptop-code text-blue-500 mr-3 mt-1"></i>
+                  <div>
+                    <strong>Software Development</strong>
+                    <p class="text-sm text-gray-600">Code generation, review, debugging, and architectural design</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-search text-green-500 mr-3 mt-1"></i>
+                  <div>
+                    <strong>Research &amp; Analysis</strong>
+                    <p class="text-sm text-gray-600">Information synthesis, summarization, complex queries</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-edit text-purple-500 mr-3 mt-1"></i>
+                  <div>
+                    <strong>Content Creation</strong>
+                    <p class="text-sm text-gray-600">Writing, editing, brainstorming, and creative tasks</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-graduation-cap text-orange-500 mr-3 mt-1"></i>
+                  <div>
+                    <strong>Educational Purposes</strong>
+                    <p class="text-sm text-gray-600">Tutoring, problem-solving, and learning assistance</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- User Perception Chart -->
+          <div class="bg-white rounded-2xl p-8">
+            <h3 class="text-2xl font-serif font-semibold mb-6 text-center text-primary">Perceived Reliability &amp; Real-World Applicability</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h4 class="font-semibold mb-4">Reliability Factors</h4>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm">Consistency in Performance</span>
+                    <div class="flex">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-gray-300"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm">Low Hallucination Rates</span>
+                    <div class="flex">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-gray-300"></i>
+                      <i class="fas fa-star text-gray-300"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm">Safety Features</span>
+                    <div class="flex">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-gray-300"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm">Transparent Reasoning</span>
+                    <div class="flex">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-gray-300"></i>
+                      <i class="fas fa-star text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-4">Applicability Factors</h4>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm">Ease of Integration</span>
+                    <div class="flex">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-gray-300"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm">API Stability</span>
+                    <div class="flex">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-gray-300"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm">Response Times</span>
+                    <div class="flex">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-gray-300"></i>
+                      <i class="fas fa-star text-gray-300"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm">Documentation Quality</span>
+                    <div class="flex">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-gray-300"></i>
+                      <i class="fas fa-star text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Integrated Ranking Section -->
+      <section id="integrated-ranking" class="px-4 md:px-8 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-4xl font-serif font-bold text-center mb-4 text-neutral">Integrated Intelligence Ranking</h2>
+          <p class="text-xl text-center text-gray-600 mb-12">Combining benchmark scores and user review sentiment for holistic assessment</p>
+
+          <!-- Ranking Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full bg-white rounded-2xl shadow-lg overflow-hidden">
+              <thead class="bg-gradient-to-r from-primary to-indigo-600 text-white">
+                <tr>
+                  <th class="px-6 py-4 text-left">Rank</th>
+                  <th class="px-6 py-4 text-left">LLM Name</th>
+                  <th class="px-6 py-4 text-center">Intelligence Index</th>
+                  <th class="px-6 py-4 text-left">Key Strengths</th>
+                  <th class="px-6 py-4 text-left">Considerations</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4">
+                    <div class="ranking-badge bg-yellow-500">1</div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="font-semibold text-lg">Grok 4 Heavy</div>
+                    <div class="text-sm text-gray-600">xAI</div>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <div class="text-2xl font-bold text-primary">73</div>
+                  </td>
+                  <td class="px-6 py-4 text-sm">
+                    Top benchmark scores, multi-agent reasoning, strong coding &amp; math
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-600">
+                    High cost, potential safety concerns, slower output
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4">
+                    <div class="ranking-badge bg-gray-400">2</div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="font-semibold text-lg">Grok 4</div>
+                    <div class="text-sm text-gray-600">xAI</div>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <div class="text-2xl font-bold text-primary">73</div>
+                  </td>
+                  <td class="px-6 py-4 text-sm">
+                    Leading benchmark scores, strong reasoning, coding, and math
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-600">
+                    Safety concerns, benchmark contamination questions
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4">
+                    <div class="ranking-badge bg-orange-500">3</div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="font-semibold text-lg">OpenAI o4-mini (high)</div>
+                    <div class="text-sm text-gray-600">OpenAI</div>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <div class="text-2xl font-bold text-primary">70</div>
+                  </td>
+                  <td class="px-6 py-4 text-sm">
+                    High intelligence, strong in math and coding, cost-effective
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-600">
+                    Slower output, higher latency, computational cost
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4">
+                    <div class="ranking-badge">4</div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="font-semibold text-lg">Gemini 2.5 Pro</div>
+                    <div class="text-sm text-gray-600">Google</div>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <div class="text-2xl font-bold text-primary">70</div>
+                  </td>
+                  <td class="px-6 py-4 text-sm">
+                    Excellent long-context, strong reasoning &amp; coding, good integration
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-600">
+                    Occasional hallucinations, high TTFT latency
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4">
+                    <div class="ranking-badge">5</div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="font-semibold text-lg">DeepSeek R1 0528</div>
+                    <div class="text-sm text-gray-600">DeepSeek (Open Source)</div>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <div class="text-2xl font-bold text-primary">68</div>
+                  </td>
+                  <td class="px-6 py-4 text-sm">
+                    Exceptional open-source performance, strong math &amp; coding
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-600">
+                    Smaller context window, increased compute demands
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4">
+                    <div class="ranking-badge">6</div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="font-semibold text-lg">Doubao 1.6 Thinking</div>
+                    <div class="text-sm text-gray-600">ByteDance</div>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <div class="text-2xl font-bold text-primary">~65</div>
+                  </td>
+                  <td class="px-6 py-4 text-sm">
+                    Strong reasoning, competitive pricing, DeepResearch capabilities
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-600">
+                    Newer model, limited global feedback
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4">
+                    <div class="ranking-badge">7</div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="font-semibold text-lg">Seed Thinking v1.5</div>
+                    <div class="text-sm text-gray-600">ByteDance</div>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <div class="text-2xl font-bold text-primary">62</div>
+                  </td>
+                  <td class="px-6 py-4 text-sm">
+                    Strong reasoning, efficient MoE architecture, competitive coding
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-600">
+                    Variable benchmark performance, newer to global scene
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4">
+                    <div class="ranking-badge">8</div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="font-semibold text-lg">Claude Sonnet 4</div>
+                    <div class="text-sm text-gray-600">Anthropic</div>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <div class="text-2xl font-bold text-primary">61</div>
+                  </td>
+                  <td class="px-6 py-4 text-sm">
+                    Strong coding, safety focus, good math, 200K context
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-600">
+                    More expensive, slower output, not top coding leader
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Close Competition Analysis -->
+          <div class="mt-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
+            <h3 class="text-2xl font-serif font-semibold mb-6 text-center text-primary">Analysis of Close Competitors</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div>
+                <h4 class="font-semibold mb-4">Key Observations</h4>
+                <ul class="space-y-3 text-gray-700">
+                  <li class="flex items-start">
+                    <i class="fas fa-chart-line text-blue-500 mr-3 mt-1"></i>
+                    <span><strong>Grok models lead in raw performance</strong> but face questions about safety and cost-effectiveness</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-balance-scale text-green-500 mr-3 mt-1"></i>
+                    <span><strong>o4-mini and Gemini 2.5 Pro</strong> offer better balance of intelligence, versatility, and integration</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-code-branch text-purple-500 mr-3 mt-1"></i>
+                    <span><strong>DeepSeek R1 0528</strong> demonstrates open-source can compete with proprietary leaders</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-trophy text-yellow-500 mr-3 mt-1"></i>
+                    <span><strong>Specialized models</strong> like Doubao and Seed Thinking show strong reasoning capabilities</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-4">Areas for Development</h4>
+                <ul class="space-y-3 text-gray-700">
+                  <li class="flex items-start">
+                    <i class="fas fa-shield-alt text-red-500 mr-3 mt-1"></i>
+                    <span><strong>Reducing hallucinations</strong> and improving factual accuracy remain critical</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-brain text-purple-500 mr-3 mt-1"></i>
+                    <span><strong>Consistent logical reasoning</strong> in novel or ambiguous situations</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-eye text-blue-500 mr-3 mt-1"></i>
+                    <span><strong>Multimodal understanding</strong> integration across text, image, video</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-robot text-green-500 mr-3 mt-1"></i>
+                    <span><strong>Agentic capabilities</strong> for autonomous task planning and execution</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conclusion Section -->
+      <section id="conclusion" class="px-4 md:px-8 py-16 bg-gradient-to-br from-slate-900 to-blue-900 text-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-4xl font-serif font-bold text-center mb-4">Conclusion and Future Outlook</h2>
+          <p class="text-xl text-center text-gray-300 mb-12">Key findings and anticipated advancements in LLM intelligence</p>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+            <div>
+              <h3 class="text-2xl font-serif font-semibold mb-6 text-yellow-400">Key Findings</h3>
+              <div class="space-y-6">
+                <div class="bg-white/10 rounded-lg p-6">
+                  <h4 class="font-semibold mb-3">Performance Leadership</h4>
+                  <p class="text-gray-300 text-sm">
+                    <strong>Grok 4 Heavy and Grok 4</strong> currently set the benchmark for raw performance on highly challenging tasks, particularly in reasoning and complex problem-solving.
+                  </p>
+                </div>
+                <div class="bg-white/10 rounded-lg p-6">
+                  <h4 class="font-semibold mb-3">Open Source Challenge</h4>
+                  <p class="text-gray-300 text-sm">
+                    <strong>DeepSeek R1 0528</strong> demonstrates that community-driven efforts can achieve performance levels comparable to proprietary giants.
+                  </p>
+                </div>
+                <div class="bg-white/10 rounded-lg p-6">
+                  <h4 class="font-semibold mb-3">Balanced Excellence</h4>
+                  <p class="text-gray-300 text-sm">
+                    <strong>o4-mini and Gemini 2.5 Pro</strong> offer the best balance of intelligence, versatility, and practical usability.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-serif font-semibold mb-6 text-yellow-400">Evolving Landscape</h3>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <i class="fas fa-rocket text-blue-400 mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold mb-2">Rapid Evolution</h4>
+                    <p class="text-sm text-gray-300">Continuous advancement with new models emerging at unprecedented pace</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-expand text-green-400 mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold mb-2">Context Expansion</h4>
+                    <p class="text-sm text-gray-300">Drive towards larger context windows enabling more coherent interactions</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-eye text-purple-400 mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold mb-2">Multimodality Standard</h4>
+                    <p class="text-sm text-gray-300">Processing text, image, audio, and video becoming standard capability</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-code-branch text-orange-400 mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold mb-2">Open Source Impact</h4>
+                    <p class="text-sm text-gray-300">Community models challenging proprietary dominance and fostering innovation</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Future Advancements -->
+          <div class="bg-white/10 rounded-2xl p-8">
+            <h3 class="text-2xl font-serif font-semibold mb-6 text-center text-yellow-400">Anticipated Advancements</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div class="text-center">
+                <i class="fas fa-brain text-3xl text-blue-400 mb-4"></i>
+                <h4 class="font-semibold mb-2">Enhanced Reasoning</h4>
+                <p class="text-sm text-gray-300">Improved memory and learning capabilities for better interaction retention</p>
+              </div>
+              <div class="text-center">
+                <i class="fas fa-robot text-3xl text-green-400 mb-4"></i>
+                <h4 class="font-semibold mb-2">Advanced Agentic Abilities</h4>
+                <p class="text-sm text-gray-300">Autonomous task planning and execution with sophisticated tool use</p>
+              </div>
+              <div class="text-center">
+                <i class="fas fa-shield-alt text-3xl text-red-400 mb-4"></i>
+                <h4 class="font-semibold mb-2">Improved Safety</h4>
+                <p class="text-sm text-gray-300">Reduced hallucination rates and better factual accuracy</p>
+              </div>
+              <div class="text-center">
+                <i class="fas fa-leaf text-3xl text-purple-400 mb-4"></i>
+                <h4 class="font-semibold mb-2">Efficient Architectures</h4>
+                <p class="text-sm text-gray-300">More accessible and environmentally sustainable training methods</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Final Summary -->
+          <div class="mt-12 text-center">
+            <div class="inline-block bg-white/20 rounded-full px-8 py-4">
+              <p class="text-lg font-medium">
+                &#34;The future of LLMs lies not just in raw performance, but in the harmonious integration of intelligence, safety, and practical utility.&#34;
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- References Section -->
+      <section class="px-4 md:px-8 py-12 bg-gray-900 text-white">
+        <div class="max-w-6xl mx-auto">
+          <h3 class="text-2xl font-serif font-bold mb-8 text-center">References</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+            <div id="ref-169" class="bg-gray-800 p-4 rounded">
+              <strong>[169]</strong> getbind.co - Grok 4 vs Claude 4 Sonnet Comparison
+            </div>
+            <div id="ref-172" class="bg-gray-800 p-4 rounded">
+              <strong>[172]</strong> DataCamp - Grok 4 Performance Analysis
+            </div>
+            <div id="ref-219" class="bg-gray-800 p-4 rounded">
+              <strong>[219]</strong> ByteDance Seed 1.5-VL Announcement
+            </div>
+            <div id="ref-220" class="bg-gray-800 p-4 rounded">
+              <strong>[220]</strong> Zhihu - Seed 1.5-VL Technical Details
+            </div>
+            <div id="ref-222" class="bg-gray-800 p-4 rounded">
+              <strong>[222]</strong> SourceForge - ERNIE X1 Pricing
+            </div>
+            <div id="ref-225" class="bg-gray-800 p-4 rounded">
+              <strong>[225]</strong> Artificial Analysis - State of AI: China Q2 2025
+            </div>
+            <div id="ref-236" class="bg-gray-800 p-4 rounded">
+              <strong>[236]</strong> Fisher Daddy - xAI Grok 4 Introduction
+            </div>
+            <div id="ref-239" class="bg-gray-800 p-4 rounded">
+              <strong>[239]</strong> Champaign Magazine - Top 5 LLMs July 2025
+            </div>
+            <div id="ref-242" class="bg-gray-800 p-4 rounded">
+              <strong>[242]</strong> Artificial Analysis - o4-mini Model Analysis
+            </div>
+            <div id="ref-245" class="bg-gray-800 p-4 rounded">
+              <strong>[245]</strong> Zhidx - Doubao 1.6 Thinking Analysis
+            </div>
+            <div id="ref-248" class="bg-gray-800 p-4 rounded">
+              <strong>[248]</strong> Sina Finance - Doubao 1.6 Thinking Performance
+            </div>
+            <div id="ref-257" class="bg-gray-800 p-4 rounded">
+              <strong>[257]</strong> 36Kr - DeepSeek R1 0528 European Analysis
+            </div>
+            <div id="ref-261" class="bg-gray-800 p-4 rounded">
+              <strong>[261]</strong> HackerNoon - Grok 4 PhD-Level Intelligence
+            </div>
+            <div id="ref-262" class="bg-gray-800 p-4 rounded">
+              <strong>[262]</strong> Medium - Grok 4 Deep Dive Analysis
+            </div>
+            <div id="ref-263" class="bg-gray-800 p-4 rounded">
+              <strong>[263]</strong> McNeece - Grok 4 vs ChatGPT 4 Comparison
+            </div>
+            <div id="ref-264" class="bg-gray-800 p-4 rounded">
+              <strong>[264]</strong> TS2 Tech - Grok 4 Performance Benchmarks
+            </div>
+            <div id="ref-267" class="bg-gray-800 p-4 rounded">
+              <strong>[267]</strong> Artificial Analysis - DeepSeek V3 0324
+            </div>
+            <div id="ref-269" class="bg-gray-800 p-4 rounded">
+              <strong>[269]</strong> Chatbase - Grok 4 Capabilities Review
+            </div>
+            <div id="ref-274" class="bg-gray-800 p-4 rounded">
+              <strong>[274]</strong> Medium - DeepSeek R1 0528 Benchmark Comparisons
+            </div>
+            <div id="ref-275" class="bg-gray-800 p-4 rounded">
+              <strong>[275]</strong> Artificial Analysis - DeepSeek R1 Intelligence Index
+            </div>
+            <div id="ref-277" class="bg-gray-800 p-4 rounded">
+              <strong>[277]</strong> Artificial Analysis - China AI Report Highlights
+            </div>
+            <div id="ref-281" class="bg-gray-800 p-4 rounded">
+              <strong>[281]</strong> The Neuron - Claude 4 Sonnet Analysis
+            </div>
+            <div id="ref-300" class="bg-gray-800 p-4 rounded">
+              <strong>[300]</strong> Artificial Analysis - Gemini 2.5 Pro Metrics
+            </div>
+            <div id="ref-303" class="bg-gray-800 p-4 rounded">
+              <strong>[303]</strong> CSDN - DeepSeek R1 0528 Performance Analysis
+            </div>
+            <div id="ref-308" class="bg-gray-800 p-4 rounded">
+              <strong>[308]</strong> AI ToolBook - DeepSeek R1 0528 Review
+            </div>
+            <div id="ref-322" class="bg-gray-800 p-4 rounded">
+              <strong>[322]</strong> LiveCodeBench Leaderboard
+            </div>
+            <div id="ref-331" class="bg-gray-800 p-4 rounded">
+              <strong>[331]</strong> xbench.org AGI Leaderboard
+            </div>
+            <div id="ref-332" class="bg-gray-800 p-4 rounded">
+              <strong>[332]</strong> OpenReview - RBench-T Benchmark Results
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+        // Initialize Mermaid with custom configuration for better contrast and styling
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'base',
+            themeVariables: {
+                // Primary nodes - blue theme with white text
+                primaryColor: '#1e3a8a',
+                primaryTextColor: '#ffffff',
+                primaryBorderColor: '#3730a3',
+                
+                // Secondary nodes - green theme with dark text
+                secondaryColor: '#059669',
+                secondaryTextColor: '#ffffff',
+                secondaryBorderColor: '#047857',
+                
+                // Tertiary nodes - purple theme with white text
+                tertiaryColor: '#7c3aed',
+                tertiaryTextColor: '#ffffff',
+                tertiaryBorderColor: '#6d28d9',
+                
+                // Additional colors for variety with proper contrast
+                primaryColorLight: '#eff6ff',
+                primaryColorDark: '#1e40af',
+                
+                // Background colors
+                background: '#ffffff',
+                mainBkg: '#ffffff',
+                secondaryBkg: '#f8fafc',
+                tertiaryBkg: '#f1f5f9',
+                
+                // Text colors for better readability
+                primaryTextColor: '#1f2937',
+                secondaryTextColor: '#374151',
+                tertiaryTextColor: '#4b5563',
+                
+                // Line and edge colors
+                lineColor: '#6b7280',
+                edgeLabelBackground: '#ffffff',
+                
+                // Node border colors
+                nodeBorder: '#374151',
+                clusterBkg: '#f8fafc',
+                clusterBorder: '#d1d5db',
+                
+                // Contrast improvements
+                contrast: '#000000',
+                darkTextColor: '#111827',
+                textColor: '#1f2937'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20
+            },
+            sequence: {
+                useMaxWidth: true,
+                wrap: true
+            },
+            gantt: {
+                useMaxWidth: true
+            }
+        });
+
+        // Initialize Mermaid Controls for zoom and pan
+        function initializeMermaidControls() {
+            const containers = document.querySelectorAll('.mermaid-container');
+
+            containers.forEach(container => {
+            const mermaidElement = container.querySelector('.mermaid');
+            let scale = 1;
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+
+            // 触摸相关状态
+            let isTouch = false;
+            let touchStartTime = 0;
+            let initialDistance = 0;
+            let initialScale = 1;
+            let isPinching = false;
+
+            // Zoom controls
+            const zoomInBtn = container.querySelector('.zoom-in');
+            const zoomOutBtn = container.querySelector('.zoom-out');
+            const resetBtn = container.querySelector('.reset-zoom');
+            const fullscreenBtn = container.querySelector('.fullscreen');
+
+            function updateTransform() {
+                mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+                if (scale > 1) {
+                container.classList.add('zoomed');
+                } else {
+                container.classList.remove('zoomed');
+                }
+
+                mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
+            }
+
+            if (zoomInBtn) {
+                zoomInBtn.addEventListener('click', () => {
+                scale = Math.min(scale * 1.25, 4);
+                updateTransform();
+                });
+            }
+
+            if (zoomOutBtn) {
+                zoomOutBtn.addEventListener('click', () => {
+                scale = Math.max(scale / 1.25, 0.3);
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+                updateTransform();
+                });
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                scale = 1;
+                translateX = 0;
+                translateY = 0;
+                updateTransform();
+                });
+            }
+
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', () => {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+                });
+            }
+
+            // Mouse Events
+            mermaidElement.addEventListener('mousedown', (e) => {
+                if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
+
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                mermaidElement.style.cursor = 'grabbing';
+                updateTransform();
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging && !isTouch) {
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseleave', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            // 获取两点之间的距离
+            function getTouchDistance(touch1, touch2) {
+                return Math.hypot(
+                touch2.clientX - touch1.clientX,
+                touch2.clientY - touch1.clientY
+                );
+            }
+
+            // Touch Events - 触摸事件处理
+            mermaidElement.addEventListener('touchstart', (e) => {
+                isTouch = true;
+                touchStartTime = Date.now();
+
+                if (e.touches.length === 1) {
+                // 单指拖动
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+
+                } else if (e.touches.length === 2) {
+                // 双指缩放
+                isPinching = true;
+                isDragging = false;
+
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                initialDistance = getTouchDistance(touch1, touch2);
+                initialScale = scale;
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1 && isDragging && !isPinching) {
+                // 单指拖动
+                const touch = e.touches[0];
+                translateX = touch.clientX - startX;
+                translateY = touch.clientY - startY;
+                updateTransform();
+
+                } else if (e.touches.length === 2 && isPinching) {
+                // 双指缩放
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                const currentDistance = getTouchDistance(touch1, touch2);
+
+                if (initialDistance > 0) {
+                    const newScale = Math.min(Math.max(
+                    initialScale * (currentDistance / initialDistance),
+                    0.3
+                    ), 4);
+                    scale = newScale;
+                    updateTransform();
+                }
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchend', (e) => {
+                // 重置状态
+                if (e.touches.length === 0) {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                // 延迟重置isTouch，避免鼠标事件立即触发
+                setTimeout(() => {
+                    isTouch = false;
+                }, 100);
+                } else if (e.touches.length === 1 && isPinching) {
+                // 从双指变为单指，切换为拖动模式
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+                }
+
+                updateTransform();
+            });
+
+            mermaidElement.addEventListener('touchcancel', (e) => {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                setTimeout(() => {
+                isTouch = false;
+                }, 100);
+
+                updateTransform();
+            });
+
+            // Enhanced wheel zoom with better center point handling
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const rect = container.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
+
+                // Adjust translation to zoom towards center
+                if (newScale !== scale) {
+                const scaleDiff = newScale / scale;
+                translateX = translateX * scaleDiff;
+                translateY = translateY * scaleDiff;
+                scale = newScale;
+
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+
+                updateTransform();
+                }
+            });
+
+            // Initialize display
+            updateTransform();
+            });
+        }
+
+        // Initialize Mermaid controls when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Mermaid controls
+            initializeMermaidControls();
+            
+            // Initialize the HLE Chart
+            initializeHLEChart();
+            
+            // Initialize TOC functionality
+            initializeTOC();
+        });
+
+        // Initialize HLE Chart
+        function initializeHLEChart() {
+            // Chart will be initialized when DOM is loaded
+            const ctx = document.getElementById('hleChart');
+            if (!ctx) return;
+            
+            const hleChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Grok 4 Heavy (Tools)', 'Grok 4 (Tools)', 'Grok 4', 'Gemini 2.5 Pro', 'OpenAI o3'],
+                    datasets: [{
+                        label: 'HLE Score (%)',
+                        data: [50.7, 41.0, 25.4, 21.6, 21.0],
+                        backgroundColor: [
+                            'rgba(30, 58, 138, 0.8)',
+                            'rgba(37, 48, 163, 0.8)',
+                            'rgba(55, 65, 81, 0.8)',
+                            'rgba(79, 70, 229, 0.8)',
+                            'rgba(99, 102, 241, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgb(30, 58, 138)',
+                            'rgb(37, 48, 163)',
+                            'rgb(55, 65, 81)',
+                            'rgb(79, 70, 229)',
+                            'rgb(99, 102, 241)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: {
+                                family: 'Inter, sans-serif',
+                                size: 14
+                            },
+                            bodyFont: {
+                                family: 'Inter, sans-serif',
+                                size: 13
+                            },
+                            callbacks: {
+                                label: function(context) {
+                                    return `Score: ${context.parsed.y}%`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 60,
+                            title: {
+                                display: true,
+                                text: 'Score (%)',
+                                font: {
+                                    family: 'Inter, sans-serif',
+                                    size: 14
+                                }
+                            },
+                            ticks: {
+                                font: {
+                                    family: 'Inter, sans-serif'
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Model Configuration',
+                                font: {
+                                    family: 'Inter, sans-serif',
+                                    size: 14
+                                }
+                            },
+                            ticks: {
+                                font: {
+                                    family: 'Inter, sans-serif',
+                                    size: 12
+                                }
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize Table of Contents
+        function initializeTOC() {
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const sections = document.querySelectorAll('section[id]');
+            const tocToggle = document.getElementById('toc-toggle');
+            const toc = document.getElementById('toc');
+            
+            // Mobile TOC toggle
+            function toggleMobileTOC() {
+                toc.classList.toggle('mobile-open');
+            }
+            
+            // Close mobile TOC when clicking outside
+            function closeMobileTOC(event) {
+                if (toc.classList.contains('mobile-open') && 
+                    !toc.contains(event.target) && 
+                    event.target !== tocToggle) {
+                    toc.classList.remove('mobile-open');
+                }
+            }
+            
+            // Smooth scrolling and active state
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                    
+                    // Close mobile TOC
+                    if (window.innerWidth <= 768) {
+                        toc.classList.remove('mobile-open');
+                    }
+                });
+            });
+            
+            // Update active state on scroll
+            function updateActiveSection() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Event listeners
+            if (tocToggle) {
+                tocToggle.addEventListener('click', toggleMobileTOC);
+            }
+            document.addEventListener('click', closeMobileTOC);
+            window.addEventListener('scroll', updateActiveSection);
+            
+            // Initial setup
+            updateActiveSection();
+        }
+    </script>
+  
+
+</body></html>
