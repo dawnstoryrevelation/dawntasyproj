@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exams With Solutions on MIT OpenCourseWare</title>
+    <link>/resources/exams-with-solutions/</link>
+    <description>Recent content in Exams With Solutions on MIT OpenCourseWare</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="/resources/exams-with-solutions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exam 1 solutions</title>
+      <link>/resources/mit18_06s10_exam1_s10_sol/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_06s10_exam1_s10_sol/data.json</guid>
+      <description>&lt;p&gt;This resource contains solutions related to elimination changes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Exam 2 solutions</title>
+      <link>/resources/mit18_06s10_exam2_s10_soln/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_06s10_exam2_s10_soln/data.json</guid>
+      <description>&lt;p&gt;This resource contains solutions related to eigenvectors and their corresponding eigenvalues.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Exam 3 solutions</title>
+      <link>/resources/mit18_06s10_exam3_s10_soln/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_06s10_exam3_s10_soln/data.json</guid>
+      <description>&lt;p&gt;This resource contains solutions related to symmetric matrix.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Final exam with solutions</title>
+      <link>/resources/mit18_06s10_final_answers/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_06s10_final_answers/data.json</guid>
+      <description>&lt;p&gt;This resource contains information related to answers for final exam.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

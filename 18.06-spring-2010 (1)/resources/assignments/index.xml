@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Assignments on MIT OpenCourseWare</title>
+    <link>/resources/assignments/</link>
+    <description>Recent content in Assignments on MIT OpenCourseWare</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="/resources/assignments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Assignments</title>
+      <link>/pages/assignments/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/pages/assignments/data.json</guid>
+      <description>&lt;p&gt;The problem sets make up 15% of the course grade. Problems are assigned from the required text: Strang, Gilbert. &lt;em&gt;Introduction to Linear Algebra&lt;/em&gt;. 4th ed. &lt;a href=&#34;http://www.wellesleycambridge.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wellesley-Cambridge Press&lt;/a&gt;, 2009. ISBN: 9780980232714.&lt;/p&gt;&#xA;&lt;p&gt;&lt;table&gt;&#xA;&#xA;&lt;thead&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;th&gt;&#xA;&#xA;ASSn #&#xA;&lt;/th&gt;&#xA;&#xA;&lt;th&gt;&#xA;&#xA;ASSIGNMENTS&#xA;&lt;/th&gt;&#xA;&#xA;&lt;th&gt;&#xA;&#xA;SOLUTIONS&#xA;&lt;/th&gt;&#xA;&lt;/p&gt;&#xA;&lt;/tr&gt;&#xA;&#xA;&lt;p&gt;&lt;/thead&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;Problem set 1&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Do problems:&lt;/p&gt;&#xA;&lt;p&gt;23 and 28 from section 1.2&lt;/p&gt;&#xA;&lt;p&gt;4 and 13 from section 1.3&lt;/p&gt;&#xA;&lt;p&gt;29 and 30 from section 2.1&lt;/p&gt;&#xA;&lt;p&gt;20 and 32 from section 2.2&lt;/p&gt;&#xA;&lt;p&gt;22 and 29 from section 2.3&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -2,21 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Primary responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dawntasy Creative</title>
+
+    <!-- === Core SEO / Indexing === -->
+    <title>Dawntasy Creative — Jasper: author · musical artist · AI researcher</title>
+    <meta name="description" content="Jasper — 13 year old author, musical artist and AI researcher. Discover Dawntasy, music, and ProbSolSpace research exploring efficient paradigms for intelligence beyond straightforward scaling laws.">
+    <meta name="author" content="Jasper (Dawntasy Creative)">
+    <meta name="keywords" content="Jasper, Dawntasy, ProbSolSpace, AI research, LLMs, author, music, machine learning, deep learning">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://dawntasycreative.com/">
+
+    <!-- Hreflang (single language site; expand if you add translations) -->
+    <link rel="alternate" hreflang="en" href="https://dawntasycreative.com/">
+
+    <!-- Open Graph (rich sharing) -->
+    <meta property="og:site_name" content="Dawntasy Creative">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dawntasy Creative — Jasper: author · musical artist · AI researcher">
+    <meta property="og:description" content="Explore Dawntasy, Jasper's music, books, and ProbSolSpace research into efficient AI that challenges scale-for-power assumptions.">
+    <meta property="og:url" content="https://dawntasycreative.com/">
+    <meta property="og:image" content="https://dawntasycreative.com/assets/og-image.png">
+    <meta property="og:image:alt" content="Dawntasy Creative — Jasper's creative & research work">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dawntasy Creative — Jasper">
+    <meta name="twitter:description" content="Author, musical artist and AI researcher — Dawntasy, music, and ProbSolSpace research.">
+    <meta name="twitter:image" content="https://dawntasycreative.com/assets/og-image.png">
+    <meta name="twitter:site" content="@DawntasyRevelate">
+
+    <!-- Favicons & touch icons (add real files) -->
     <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Performance hints: preload critical font + hero asset -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Sitemap hint -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+    <!-- Structured Data (JSON-LD) for rich SERP features & knowledge graph -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://dawntasycreative.com/#website",
+          "url": "https://dawntasycreative.com/",
+          "name": "Dawntasy Creative",
+          "description": "Creative works and research by Jasper — author, musical artist, and AI researcher.",
+          "publisher": {
+            "@id": "https://dawntasycreative.com/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://dawntasycreative.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://dawntasycreative.com/#person",
+          "name": "Jasper",
+          "description": "A 13 year old author, musical artist and AI researcher exploring literature, composition and machine learning innovations (ProbSolSpace).",
+          "url": "https://dawntasycreative.com/",
+          "sameAs": [
+            "https://github.com/dawnstoryrevelation/dawntasyproj",
+            "https://huggingface.co/Dawntasy",
+            "https://www.youtube.com/@DawntasyRevelate"
+          ]
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://dawntasycreative.com/#organization",
+          "name": "Dawntasy Creative",
+          "url": "https://dawntasycreative.com/",
+          "logo": "https://dawntasycreative.com/assets/extended_logo.png",
+          "sameAs": [
+            "https://github.com/dawnstoryrevelation/dawntasyproj",
+            "https://huggingface.co/Dawntasy",
+            "https://www.youtube.com/@DawntasyRevelate"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://dawntasycreative.com/#webpage",
+          "url": "https://dawntasycreative.com/",
+          "name": "Home — Dawntasy Creative",
+          "isPartOf": {
+            "@id": "https://dawntasycreative.com/#website"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://dawntasycreative.com/assets/og-image.png"
+          },
+          "breadcrumb": {
+            "@id": "https://dawntasycreative.com/#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://dawntasycreative.com/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://dawntasycreative.com/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <style>
         /*
         ==========================================================================
         I. MASTER BLUEPRINT & GLOBAL STYLES
         ==========================================================================
-        This section establishes the foundational aesthetic of the entire experience.
-        - CSS Variables for supreme control and consistency.
-        - A subtle, high-performance parallax foundation.
-        - Global typography and a clean reset.
+
+        [Original CSS preserved verbatim from your file. Only non-SEO changes were
+        limited to ARIA/landmark attributes in the body markup.]
         */
         :root {
             --color-white: #ffffff;
@@ -110,7 +224,7 @@
         /*
         ==========================================================================
         II. NAVIGATION: THE ELEGANT GUIDE
-        ==========================================================================
+        ========================================================================== 
         */
         .main-header {
             position: fixed;
@@ -193,7 +307,7 @@
         /*
         ==========================================================================
         III. HERO SECTION: THE GRAND OVERTURE
-        ==========================================================================
+        ========================================================================== 
         */
         .hero-section {
             min-height: 100vh;
@@ -268,7 +382,7 @@
         /*
         ==========================================================================
         IV. ABOUT ME: THE EXPOSITION
-        ==========================================================================
+        ========================================================================== 
         */
         .about-section .container {
             display: flex;
@@ -296,7 +410,7 @@
         /*
         ==========================================================================
         V. INNOVATIONS: THE CARD PROGRESSION
-        ==========================================================================
+        ========================================================================== 
         */
         .innovations-section {
             background-color: var(--color-off-white);
@@ -365,7 +479,7 @@
         /*
         ==========================================================================
         VI. RESEARCH PREVIEW: THE CLIMAX
-        ==========================================================================
+        ========================================================================== 
         */
         .research-section .container {
             display: flex;
@@ -416,7 +530,7 @@
         /*
         ==========================================================================
         VII. QUOTE INTERLUDE: A MOMENT OF PROPHUNDITY
-        ==========================================================================
+        ========================================================================== 
         */
         .quote-section {
             padding: 120px 5%;
@@ -437,7 +551,7 @@
         /*
         ==========================================================================
         VIII. CURRENT WORK: THE CLIFFHANGER
-        ==========================================================================
+        ========================================================================== 
         */
         .current-work-section .container {
             display: flex;
@@ -486,7 +600,7 @@
         /*
         ==========================================================================
         IX. FOOTER: THE GRAND FINALE & RESOLUTION
-        ==========================================================================
+        ========================================================================== 
         */
         .footer-transition-wrapper {
             position: relative;
@@ -645,13 +759,13 @@
 </head>
 <body>
 
-    <div id="scroll-progress-bar"></div>
+    <div id="scroll-progress-bar" aria-hidden="true"></div>
 
-    <header class="main-header">
-        <a href="index.html" class="logo-container">
+    <header class="main-header" role="banner" aria-label="Main header">
+        <a href="index.html" class="logo-container" aria-label="Dawntasy Creative home">
             <img src="assets/logo.png" alt="Jasper Logo">
         </a>
-        <nav class="main-nav">
+        <nav class="main-nav" role="navigation" aria-label="Primary navigation">
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="books.html">Books</a></li>
@@ -664,92 +778,92 @@
         </nav>
     </header>
 
-    <main id="parallax-container">
-        <section id="hero" class="hero-section">
+    <main id="parallax-container" role="main">
+        <section id="hero" class="hero-section" aria-labelledby="hero-heading">
             <div class="hero-content">
-                <h1 class="reveal-on-scroll">Hi, I'm Jasper.</h1>
+                <h1 id="hero-heading" class="reveal-on-scroll">Hi, I'm Jasper.</h1>
                 <p class="subtitle" id="typewriter"></p>
             </div>
         </section>
 
-        <section id="about" class="about-section">
+        <section id="about" class="about-section" aria-labelledby="about-heading">
             <div class="container reveal-on-scroll">
                 <div class="about-text">
-                    <h2>About Me</h2>
+                    <h2 id="about-heading">About Me</h2>
                     <p>
                         I'm Jasper, a 13 year old author, musical artist and data/ML researcher. My core innovations include my latest novel, Dawntasy, which features a fantasy-dystopian world where good and evil are synonyms and the hero is the villain. Besides literature, I have also exhibited interest in composition, especially for instrumental soundtracks, like my latest single, Constellations. My most powerful innovation, my work with machine learning, deep learning and artificial intelligence, involves training LLMs, neural networks and other kinds of models, and writing research papers with the goal in mind to stretch far beyond the Transformer.
                     </p>
                 </div>
-                <div class="about-graphic">
+                <div class="about-graphic" aria-hidden="true">
                     <img src="assets/tree.png" alt="A flourishing tree in a box, symbolizing growth and potential.">
                 </div>
             </div>
         </section>
 
-        <section class="innovations-section">
+        <section class="innovations-section" aria-labelledby="innovations-heading">
             <div class="container">
                 <div class="cards-container">
                     <div class="innovation-card reveal-on-scroll" style="transition-delay: 0.1s;">
                         <h3>Music</h3>
                         <p>Exploring the emotional landscapes of sound through instrumental composition, creating auditory worlds that tell stories without words.</p>
-                        <img src="assets/music.png" alt="Musical Note" class="card-graphic">
+                        <img src="assets/music.png" alt="Musical Note" class="card-graphic" aria-hidden="true">
                     </div>
                     <div class="innovation-card reveal-on-scroll" style="transition-delay: 0.3s;">
                         <h3>Writing</h3>
                         <p>Crafting intricate narratives and challenging conventions in literature, building worlds where moral ambiguity reigns supreme.</p>
-                        <img src="assets/books.png" alt="Stack of Books" class="card-graphic">
+                        <img src="assets/books.png" alt="Stack of Books" class="card-graphic" aria-hidden="true">
                     </div>
                     <div class="innovation-card reveal-on-scroll" style="transition-delay: 0.5s;">
                         <h3>Artificial Intelligence</h3>
                         <p>Pioneering new architectures and paradigms in machine learning to build more efficient, capable, and truly intelligent systems.</p>
-                        <img src="assets/machine.png" alt="AI Cog Symbol" class="card-graphic">
+                        <img src="assets/machine.png" alt="AI Cog Symbol" class="card-graphic" aria-hidden="true">
                     </div>
                 </div>
             </div>
         </section>
         
-        <section id="research" class="research-section">
+        <section id="research" class="research-section" aria-labelledby="research-heading">
             <div class="container reveal-on-scroll">
                 <div class="research-text">
-                    <h2>A Preview Into My Research</h2>
+                    <h2 id="research-heading">A Preview Into My Research</h2>
                     <p>
                         The current paradigm of AI models, in particular, LLMs, are slow and inefficient. The common rule of thumb is that scale = power. Scaling laws state that the more you spend, the more power you get - true in economics and in LLM training. My research proposals defy this principle entirely. This new paradigm, which I call "ProbSolSpace", tackles the many inefficiencies of Transformers and other architectures alike, such as the GPU communication cost, Amdahl's Law of Parallelism, information bottlenecks, hallucinations, catastrophic forgetting, immense cost for little power, etc.
                     </p>
                     <a href="research.html" class="cta-button">Learn More</a>
                 </div>
-                <div class="research-graphic">
+                <div class="research-graphic" aria-hidden="true">
                     <img src="assets/paper.png" alt="A stylized representation of a research paper.">
                 </div>
             </div>
         </section>
 
-        <section class="quote-section">
+        <section class="quote-section" aria-hidden="false">
             <blockquote class="reveal-on-scroll">
                 "Linear thinking will get you no where. Nor circular thinking. Now activate it with softmax. Now you are thinking in strategic probabilities, not numbers."
             </blockquote>
         </section>
 
-        <section id="current-work" class="current-work-section">
+        <section id="current-work" class="current-work-section" aria-labelledby="current-work-heading">
             <div class="container reveal-on-scroll">
                 <div class="current-work-card">
-                    <h2>What's happening?</h2>
+                    <h2 id="current-work-heading">What's happening?</h2>
                     <p>
                         I am currently working on deep learning research and projects. I am training a series of LLMs known as ProbSolSpace ranging from 1B parameters to 100B parameters, with the hopes of achieving SOTA intelligence through a grounded basis on my research proposals. Stay tuned!
                     </p>
                 </div>
-                <div class="current-work-graphic">
+                <div class="current-work-graphic" aria-hidden="true">
                     <img src="assets/question.png" alt="A stylized, floating question mark.">
                 </div>
             </div>
         </section>
         
-        <div class="footer-transition-wrapper">
+        <div class="footer-transition-wrapper" aria-hidden="true">
             <div class="footer-wave"></div>
         </div>
     </main>
     
     <!-- SVG for footer wave transition -->
-    <svg style="position: absolute; width: 0; height: 0;" xmlns="http://www.w3.org/2000/svg">
+    <svg style="position: absolute; width: 0; height: 0;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
             <clipPath id="wave-clip" clipPathUnits="objectBoundingBox">
                 <path d="M0,1 C0.33,0.33 0.67,0.33 1,1 V1 H0 Z" />
@@ -757,7 +871,7 @@
         </defs>
     </svg>
 
-    <footer class="main-footer">
+    <footer class="main-footer" role="contentinfo">
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="footer-logo-container">
@@ -765,7 +879,7 @@
                 </div>
                 <p>Pushing the frontiers of what is possible through creativity and code.</p>
             </div>
-            <div class="footer-section">
+            <div class="footer-section" aria-label="Main links">
                 <h4>Main</h4>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -773,7 +887,7 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-             <div class="footer-section">
+             <div class="footer-section" aria-label="Artificial Intelligence links">
                 <h4>Artificial Intelligence</h4>
                 <ul>
                     <li><a href="research.html">Research</a></li>
@@ -784,14 +898,14 @@
                     <li><a href="models.html">Models</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
+            <div class="footer-section" aria-label="Writing links">
                 <h4>Writing</h4>
                 <ul>
                     <li><a href="books.html">Books</a></li>
                     <li><a href="future_writing.html">Future Writing Prospects</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
+            <div class="footer-section" aria-label="Music links">
                 <h4>Music</h4>
                 <ul>
                     <li><a href="music.html">Songs</a></li>
@@ -801,15 +915,15 @@
         </div>
         <div class="footer-bottom">
             <p>© 2024 Jasper / Dawntasy Creative. All Rights Reserved.</p>
-            <div class="social-links">
-                <a href="https://github.com/dawnstoryrevelation/dawntasyproj" target="_blank" title="GitHub">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            <div class="social-links" aria-label="Social links">
+                <a href="https://github.com/dawnstoryrevelation/dawntasyproj" target="_blank" title="GitHub" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                 </a>
-                <a href="https://huggingface.co/Dawntasy" target="_blank" title="Hugging Face">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.283,9.444c-0.188-0.2-0.5-0.2-0.688,0l-1.333,1.354c-0.188,0.2-0.188,0.521,0,0.729l1.333,1.354 c0.188,0.2,0.5,0.2,0.688,0l1.458-1.479C21.948,11.2,22,10.885,22,10.552C22,10.219,21.948,9.9,21.74,9.688L20.283,9.444z M17.433,7.861c-0.188-0.2-0.5-0.2-0.688,0l-1.333,1.354c-0.188,0.2-0.188,0.521,0,0.729l1.333,1.354c0.188,0.2,0.5,0.2,0.688,0 l1.458-1.479c0.208-0.208,0.26-0.521,0.26-0.854c0-0.333-0.052-0.646-0.26-0.854L17.433,7.861z M6.567,7.861l-1.458,1.479 c-0.208,0.208-0.26,0.521-0.26,0.854c0,0.333,0.052,0.646,0.26,0.854l1.458,1.479c0.188,0.2,0.5,0.2,0.688,0l1.333-1.354 c0.188-0.2,0.188-0.521,0-0.729L7.254,8.581c-0.188-0.2-0.5-0.2-0.688,0L6.567,7.861z M3.717,9.444L2.26,10.861 c-0.208,0.208-0.26,0.521-0.26,0.854s0.052,0.646,0.26,0.854l1.458,1.479c0.188,0.2,0.5,0.2,0.688,0l1.333-1.354 c0.188-0.2,0.188-0.521,0-0.729L4.404,10.171c-0.188-0.2-0.5-0.2-0.688,0V9.444z M13.155,2.133c-0.25,0-0.458,0.219-0.458,0.479 v2.563c0,0.26,0.208,0.479,0.458,0.479h1.708c0.25,0,0.458-0.219,0.458-0.479V2.612c0-0.26-0.208-0.479-0.458-0.479H13.155z M9.138,2.133c-0.25,0-0.458,0.219-0.458,0.479v2.563c0,0.26,0.208,0.479,0.458,0.479h1.708c0.25,0,0.458-0.219,0.458-0.479V2.612 c0-0.26-0.208-0.479-0.458-0.479H9.138z M12,6.925c-2.823,0-5.125,2.365-5.125,5.271v3.292c0,0.917,0.74,1.667,1.646,1.667h7.021 c0.906,0,1.583-0.75,1.583-1.667v-3.292C17.125,9.289,14.823,6.925,12,6.925z M12,18.55c-0.969,0-1.75-0.792-1.75-1.771 c0-0.979,0.781-1.771,1.75-1.771c0.969,0,1.75,0.792,1.75,1.771C13.75,17.758,12.969,18.55,12,18.55z"/></svg>
+                <a href="https://huggingface.co/Dawntasy" target="_blank" title="Hugging Face" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true"><path d="M20.283,9.444c-0.188-0.2-0.5-0.2-0.688,0l-1.333,1.354c-0.188,0.2-0.188,0.521,0,0.729l1.333,1.354 c0.188,0.2,0.5,0.2,0.688,0l1.458-1.479C21.948,11.2,22,10.885,22,10.552C22,10.219,21.948,9.9,21.74,9.688L20.283,9.444z M17.433,7.861c-0.188-0.2-0.5-0.2-0.688,0l-1.333,1.354c-0.188,0.2-0.188,0.521,0,0.729l1.333,1.354c0.188,0.2,0.5,0.2,0.688,0 l1.458-1.479c0.208-0.208,0.26-0.521,0.26-0.854c0-0.333-0.052-0.646-0.26-0.854L17.433,7.861z M6.567,7.861l-1.458,1.479 c-0.208,0.208-0.26,0.521-0.26,0.854c0,0.333,0.052,0.646,0.26,0.854l1.458,1.479c0.188,0.2,0.5,0.2,0.688,0l1.333-1.354 c0.188-0.2,0.188-0.521,0-0.729L7.254,8.581c-0.188-0.2-0.5-0.2-0.688,0L6.567,7.861z M3.717,9.444L2.26,10.861 c-0.208,0.208-0.26,0.521-0.26,0.854s0.052,0.646,0.26,0.854l1.458,1.479c0.188,0.2,0.5,0.2,0.688,0l1.333-1.354 c0.188-0.2,0.188-0.521,0-0.729L4.404,10.171c-0.188-0.2-0.5-0.2-0.688,0V9.444z M13.155,2.133c-0.25,0-0.458,0.219-0.458,0.479 v2.563c0,0.26,0.208,0.479,0.458,0.479h1.708c0.25,0,0.458-0.219,0.458-0.479V2.612c0-0.26-0.208-0.479-0.458-0.479H13.155z M9.138,2.133c-0.25,0-0.458,0.219-0.458,0.479v2.563c0,0.26,0.208,0.479,0.458,0.479h1.708c0.25,0,0.458-0.219,0.458-0.479V2.612 c0-0.26-0.208-0.479-0.458-0.479H9.138z M12,6.925c-2.823,0-5.125,2.365-5.125,5.271v3.292c0,0.917,0.74,1.667,1.646,1.667h7.021 c0.906,0,1.583-0.75,1.583-1.667v-3.292C17.125,9.289,14.823,6.925,12,6.925z M12,18.55c-0.969,0-1.75-0.792-1.75-1.771 c0-0.979,0.781-1.771,1.75-1.771c0.969,0,1.75,0.792,1.75,1.771C13.75,17.758,12.969,18.55,12,18.55z"/></svg>
                 </a>
-                <a href="https://www.youtube.com/@DawntasyRevelate" target="_blank" title="YouTube">
-                     <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M21.582,6.186c-0.23-0.854-0.908-1.532-1.762-1.762C18.254,4,12,4,12,4S5.746,4,4.18,4.424 c-0.854,0.23-1.532,0.908-1.762,1.762C2,7.754,2,12,2,12s0,4.246,0.418,5.814c0.23,0.854,0.908,1.532,1.762,1.762 C5.746,20,12,20,12,20s6.254,0,7.82-0.424c0.854-0.23,1.532-0.908,1.762-1.762C22,16.246,22,12,22,12S22,7.754,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"/></svg>
+                <a href="https://www.youtube.com/@DawntasyRevelate" target="_blank" title="YouTube" rel="noopener noreferrer">
+                     <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true"><path d="M21.582,6.186c-0.23-0.854-0.908-1.532-1.762-1.762C18.254,4,12,4,12,4S5.746,4,4.18,4.424 c-0.854,0.23-1.532,0.908-1.762,1.762C2,7.754,2,12,2,12s0,4.246,0.418,5.814c0.23,0.854,0.908,1.532,1.762,1.762 C5.746,20,12,20,12,20s6.254,0,7.82-0.424c0.854-0.23,1.532-0.908,1.762-1.762C22,16.246,22,12,22,12S22,7.754,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"/></svg>
                 </a>
             </div>
         </div>

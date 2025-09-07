@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on MIT OpenCourseWare</title>
+    <link>/resources/tools/</link>
+    <description>Recent content in Tools on MIT OpenCourseWare</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="/resources/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tools</title>
+      <link>/pages/tools/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/pages/tools/data.json</guid>
+      <description>&lt;p&gt;The flash animations were developed by Jean-Michel Claus (with voiceover by Gilbert Strang). We are grateful! Funding was provided by a grant from the &lt;a href=&#34;http://web.mit.edu/newsoffice/2000/darbeloff-1025.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The d&amp;rsquo;Arbeloff Fund for Excellence in MIT Education&lt;/a&gt; as part of The d&amp;rsquo;Arbeloff Interactive Mathematics Project (d&amp;rsquo;A I M P).&lt;/p&gt;&#xA;&#xA;    &lt;h3 id=&#34;matrix-multiplication&#34;&gt;Matrix Multiplication&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;An &lt;a href=&#34;../../ans7870/18/18.06/tools/Applets_sound/uropmovie.html/index.html&#34;&gt;interactive demo&lt;/a&gt; (with voiceover explanation) on Matrix Multiplication, &lt;em&gt;A&lt;/em&gt; = &lt;em&gt;LU&lt;/em&gt;, and &lt;em&gt;PA&lt;/em&gt; = &lt;em&gt;LU&lt;/em&gt;&lt;/p&gt;&#xA;&#xA;    &lt;h3 id=&#34;eigenvalue-demonstrations&#34;&gt;Eigenvalue Demonstrations&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;The demonstrations below employ Java® applets with voice-over narration to show some Eigenvalue concepts.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

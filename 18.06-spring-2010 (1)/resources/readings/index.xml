@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Readings on MIT OpenCourseWare</title>
+    <link>/resources/readings/</link>
+    <description>Recent content in Readings on MIT OpenCourseWare</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="/resources/readings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Basis for 3 by 3 Symmetric Matrices</title>
+      <link>/resources/mit18_06s10_symmbases/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_06s10_symmbases/data.json</guid>
+      <description>&lt;p&gt;This resource contains information related to 3 by 3 matrices.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gram-Schmidt in 9 lines of MATLAB</title>
+      <link>/resources/mit18_06s10_gramschmidtmat/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_06s10_gramschmidtmat/data.json</guid>
+      <description>&lt;p&gt;This resource contains information related to Gram-Schmidt in 9 lines of MATLAB.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MATLAB Tutorial</title>
+      <link>/resources/mit18_06s10_matlab/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_06s10_matlab/data.json</guid>
+      <description>&lt;p&gt;This resource contains information related to MATLAb tutorial.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Pascal Matrices</title>
+      <link>/resources/mit18_06s10_pascal_work/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_06s10_pascal_work/data.json</guid>
+      <description>&lt;p&gt;This resource contains information related to Pascal matrices.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Readings</title>
+      <link>/pages/readings/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/pages/readings/data.json</guid>
+      <description>&lt;p&gt;The readings are assigned in: Strang, Gilbert. &lt;em&gt;Introduction to Linear Algebra&lt;/em&gt;. 4th ed. &lt;a href=&#34;http://www.wellesleycambridge.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wellesley-Cambridge Press&lt;/a&gt;, 2009. ISBN: 9780980232714.&lt;/p&gt;&#xA;&lt;p&gt;Reading assignments are also provided for the newer edition: Strang, Gilbert. &lt;em&gt;Introduction to Linear Algebra&lt;/em&gt;. 5th ed. &lt;a href=&#34;http://www.wellesleycambridge.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wellesley-Cambridge Press&lt;/a&gt;, 2016. ISBN: 9780980232776.&lt;/p&gt;&#xA;&lt;p&gt;&lt;table&gt;&#xA;&#xA;&lt;thead&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;th&gt;&#xA;&#xA;SES #&#xA;&lt;/th&gt;&#xA;&#xA;&lt;th&gt;&#xA;&#xA;TOPICS&#xA;&lt;/th&gt;&#xA;&#xA;&lt;th&gt;&#xA;&#xA;READINGS in 4th Edition&#xA;&lt;/th&gt;&#xA;&#xA;&lt;th&gt;&#xA;&#xA;READINGS IN 5TH EDITION&#xA;&lt;/th&gt;&#xA;&lt;/p&gt;&#xA;&lt;/tr&gt;&#xA;&#xA;&lt;p&gt;&lt;/thead&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;1&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;The geometry of linear equations&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;1.1-2.1&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;﻿1.1-2.1&#xA;&lt;/td&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/tr&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;2&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;Elimination with matrices&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;2.2-2.3&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;2.2-2.3&#xA;&lt;/td&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/tr&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;3&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;Matrix operations and inverses&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;2.4-2.5&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;﻿2.4-2.5&lt;br&gt;&#xA;&lt;/td&gt;&#xA;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ZoomNotes for Linear Algebra</title>
+      <link>/resources/mit18_06s10zoomnotes/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_06s10zoomnotes/data.json</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

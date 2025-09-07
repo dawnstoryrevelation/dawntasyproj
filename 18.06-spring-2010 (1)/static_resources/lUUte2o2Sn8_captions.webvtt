@@ -1,0 +1,3724 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.137 align:middle line:90%
+[SIDE CONVERSATIONS]
+
+00:00:02.137 --> 00:08:44.078 align:middle line:90%
+
+
+00:08:44.078 --> 00:08:44.870 align:middle line:90%
+GILBERT STRANG: OK.
+
+00:08:44.870 --> 00:08:48.715 align:middle line:90%
+[SIDE CONVERSATIONS]
+
+00:08:48.715 --> 00:08:57.880 align:middle line:90%
+
+
+00:08:57.880 --> 00:08:58.380 align:middle line:90%
+OK.
+
+00:08:58.380 --> 00:09:02.750 align:middle line:90%
+
+
+00:09:02.750 --> 00:09:05.096 align:middle line:90%
+Thank you for coming today.
+
+00:09:05.096 --> 00:09:09.620 align:middle line:84%
+It's sort of an overwhelming
+day, but a happy one.
+
+00:09:09.620 --> 00:09:14.630 align:middle line:84%
+So you know That there'll be
+a few people speaking as well
+
+00:09:14.630 --> 00:09:17.340 align:middle line:90%
+as the ordinary class.
+
+00:09:17.340 --> 00:09:21.290 align:middle line:84%
+So the first is Alan, Professor
+Edelman, Alan Edelman,
+
+00:09:21.290 --> 00:09:26.120 align:middle line:84%
+the creator of Julia, who
+had the idea for this event
+
+00:09:26.120 --> 00:09:30.760 align:middle line:84%
+but is out of the country,
+now at a conference.
+
+00:09:30.760 --> 00:09:37.730 align:middle line:84%
+So what I'm hoping to do now
+is to introduce him by Zoom.
+
+00:09:37.730 --> 00:09:42.770 align:middle line:84%
+And so, hopefully, he
+will come on the screen
+
+00:09:42.770 --> 00:09:43.760 align:middle line:90%
+for a few minutes.
+
+00:09:43.760 --> 00:09:46.220 align:middle line:84%
+Then I'll talk about
+linear algebra--
+
+00:09:46.220 --> 00:09:48.560 align:middle line:90%
+I hope that's OK--
+
+00:09:48.560 --> 00:09:50.660 align:middle line:90%
+for most of the hour.
+
+00:09:50.660 --> 00:09:54.620 align:middle line:84%
+And then at the end of the
+hour, one of my PhD students
+
+00:09:54.620 --> 00:09:59.480 align:middle line:84%
+and Pavel Grinfeld
+and then the chair
+
+00:09:59.480 --> 00:10:05.460 align:middle line:84%
+of the math department, Michel
+Goemans, will end the class.
+
+00:10:05.460 --> 00:10:11.780 align:middle line:84%
+So apologies to
+the 18.06 class who
+
+00:10:11.780 --> 00:10:14.840 align:middle line:84%
+wants preparation
+for the final exam,
+
+00:10:14.840 --> 00:10:18.050 align:middle line:84%
+but I'll do some of
+that in the middle.
+
+00:10:18.050 --> 00:10:20.810 align:middle line:84%
+So, first of all,
+if the system is
+
+00:10:20.810 --> 00:10:27.910 align:middle line:84%
+ready to send Alan's
+message, they could go ahead.
+
+00:10:27.910 --> 00:10:30.680 align:middle line:84%
+ALAN EDELMAN: Today this is a
+special moment in MIT history.
+
+00:10:30.680 --> 00:10:31.340 align:middle line:90%
+GILBERT STRANG: Oh, good.
+
+00:10:31.340 --> 00:10:33.440 align:middle line:84%
+ALAN EDELMAN: It is fitting
+that gathered together today
+
+00:10:33.440 --> 00:10:35.960 align:middle line:84%
+are young students completing
+their first linear algebra
+
+00:10:35.960 --> 00:10:37.730 align:middle line:84%
+class together
+with those who have
+
+00:10:37.730 --> 00:10:40.910 align:middle line:84%
+been inspired by Gil Strang for
+perhaps over half a century.
+
+00:10:40.910 --> 00:10:44.000 align:middle line:84%
+Gil, you recognize in everyone
+the thirst for knowledge.
+
+00:10:44.000 --> 00:10:46.250 align:middle line:84%
+You always bring out
+the best in everybody,
+
+00:10:46.250 --> 00:10:49.320 align:middle line:84%
+and you do so with
+dignity and humility.
+
+00:10:49.320 --> 00:10:52.310 align:middle line:84%
+I've watched Gil encourage
+everybody, no matter who.
+
+00:10:52.310 --> 00:10:55.880 align:middle line:84%
+Whether a student was struggling
+or at the top of the class,
+
+00:10:55.880 --> 00:10:58.670 align:middle line:84%
+Gil always knew
+just what to say.
+
+00:10:58.670 --> 00:11:00.230 align:middle line:84%
+Whether you were
+a colleague right
+
+00:11:00.230 --> 00:11:03.080 align:middle line:84%
+next door or a stranger
+that landed in the hallways,
+
+00:11:03.080 --> 00:11:06.680 align:middle line:84%
+one feels that Gil is your
+old or new best friend.
+
+00:11:06.680 --> 00:11:09.307 align:middle line:84%
+So what makes Gil's
+lecture so very special?
+
+00:11:09.307 --> 00:11:10.140 align:middle line:90%
+GILBERT STRANG: Ooh.
+
+00:11:10.140 --> 00:11:11.557 align:middle line:84%
+ALAN EDELMAN: I
+think we might all
+
+00:11:11.557 --> 00:11:12.890 align:middle line:90%
+agree that words fall short.
+
+00:11:12.890 --> 00:11:15.620 align:middle line:84%
+And yet, we all know
+how wonderful they are.
+
+00:11:15.620 --> 00:11:17.438 align:middle line:84%
+Gil was a YouTube
+star even before there
+
+00:11:17.438 --> 00:11:18.605 align:middle line:90%
+was such a thing as YouTube.
+
+00:11:18.605 --> 00:11:19.430 align:middle line:90%
+[LAUGHTER]
+
+00:11:19.430 --> 00:11:22.100 align:middle line:84%
+I love his words,
+his tone, his pace.
+
+00:11:22.100 --> 00:11:23.870 align:middle line:84%
+And the very way
+that the answer seems
+
+00:11:23.870 --> 00:11:26.300 align:middle line:84%
+like a surprise, when,
+of course, we all know he
+
+00:11:26.300 --> 00:11:28.200 align:middle line:90%
+rigged it from the beginning.
+
+00:11:28.200 --> 00:11:30.200 align:middle line:84%
+I'd like to say something
+particularly wonderful
+
+00:11:30.200 --> 00:11:31.880 align:middle line:90%
+about Gil's textbooks.
+
+00:11:31.880 --> 00:11:35.060 align:middle line:84%
+The simple examples lead
+to deep understanding.
+
+00:11:35.060 --> 00:11:37.340 align:middle line:84%
+The good abstractions
+from the deeper classes
+
+00:11:37.340 --> 00:11:39.260 align:middle line:84%
+are in Gil's text,
+but yet, they are made
+
+00:11:39.260 --> 00:11:41.330 align:middle line:90%
+accessible the Gil Strang way.
+
+00:11:41.330 --> 00:11:44.720 align:middle line:84%
+You can still find vector
+spaces, subspaces, dimensions,
+
+00:11:44.720 --> 00:11:47.750 align:middle line:84%
+the Perron-Frobenius theorem,
+and linear transformations.
+
+00:11:47.750 --> 00:11:49.730 align:middle line:84%
+All those goodies from
+pure linear algebra
+
+00:11:49.730 --> 00:11:52.340 align:middle line:84%
+are not lost, just
+made more relevant.
+
+00:11:52.340 --> 00:11:54.650 align:middle line:84%
+I love watching how he
+weaves those deeper ideas
+
+00:11:54.650 --> 00:11:56.090 align:middle line:90%
+into the flow of the class.
+
+00:11:56.090 --> 00:11:58.610 align:middle line:84%
+Gil sneaks in the real spirit
+of this beautiful mathematical
+
+00:11:58.610 --> 00:12:01.370 align:middle line:90%
+subject, and it's for everybody.
+
+00:12:01.370 --> 00:12:04.070 align:middle line:84%
+Speaking of the textbooks, I
+have a personal story to share.
+
+00:12:04.070 --> 00:12:05.960 align:middle line:84%
+Some years ago, Gil
+was going out of town
+
+00:12:05.960 --> 00:12:08.930 align:middle line:84%
+and had two tickets to an event
+he didn't want to go to waste.
+
+00:12:08.930 --> 00:12:11.570 align:middle line:84%
+He gave us the instructions
+on how to unlock his home.
+
+00:12:11.570 --> 00:12:13.820 align:middle line:84%
+But still, my wife, eight
+months pregnant at the time,
+
+00:12:13.820 --> 00:12:16.028 align:middle line:84%
+felt like the Wellesley
+police would surely arrest us
+
+00:12:16.028 --> 00:12:17.210 align:middle line:90%
+for breaking and entering.
+
+00:12:17.210 --> 00:12:19.070 align:middle line:84%
+But then we saw
+an amazing sight--
+
+00:12:19.070 --> 00:12:21.620 align:middle line:84%
+stacks and stacks of Gil's
+linear algebra texts,
+
+00:12:21.620 --> 00:12:22.760 align:middle line:90%
+floor to ceiling.
+
+00:12:22.760 --> 00:12:25.250 align:middle line:84%
+And somehow we, felt comforted
+that we were in a place
+
+00:12:25.250 --> 00:12:26.780 align:middle line:90%
+that we belonged.
+
+00:12:26.780 --> 00:12:29.900 align:middle line:84%
+Gil, we all love your books,
+your videos, your lectures.
+
+00:12:29.900 --> 00:12:31.640 align:middle line:90%
+You are a role model and friend.
+
+00:12:31.640 --> 00:12:34.460 align:middle line:84%
+So congratulations on so
+many fine class lectures.
+
+00:12:34.460 --> 00:12:36.890 align:middle line:84%
+And not wishing to
+see today as final,
+
+00:12:36.890 --> 00:12:38.570 align:middle line:84%
+I officially invite
+you to guest lecture
+
+00:12:38.570 --> 00:12:42.200 align:middle line:84%
+in any of my classes or seminars
+any time you might wish to.
+
+00:12:42.200 --> 00:12:44.210 align:middle line:84%
+Today is a milestone,
+and I am honored
+
+00:12:44.210 --> 00:12:46.046 align:middle line:90%
+to share this moment with you.
+
+00:12:46.046 --> 00:12:46.838 align:middle line:90%
+GILBERT STRANG: OK.
+
+00:12:46.838 --> 00:12:48.708 align:middle line:90%
+[APPLAUSE]
+
+00:12:48.708 --> 00:12:49.208 align:middle line:90%
+Wow.
+
+00:12:49.208 --> 00:12:54.910 align:middle line:90%
+
+
+00:12:54.910 --> 00:12:57.310 align:middle line:90%
+Oh, thank you.
+
+00:12:57.310 --> 00:13:00.010 align:middle line:84%
+Does that mean I have
+to give another lecture
+
+00:13:00.010 --> 00:13:00.910 align:middle line:90%
+from his invitation?
+
+00:13:00.910 --> 00:13:01.810 align:middle line:90%
+[LAUGHTER]
+
+00:13:01.810 --> 00:13:03.400 align:middle line:90%
+This is the final one.
+
+00:13:03.400 --> 00:13:05.380 align:middle line:90%
+[LAUGHTER]
+
+00:13:05.380 --> 00:13:09.100 align:middle line:84%
+And so let me say
+a little about--
+
+00:13:09.100 --> 00:13:11.380 align:middle line:84%
+first, the most important
+thing I have to say,
+
+00:13:11.380 --> 00:13:16.840 align:middle line:84%
+the most important, is to
+thank Andrew Horning, who
+
+00:13:16.840 --> 00:13:20.830 align:middle line:84%
+has co-taught this course,
+done far more than I have,
+
+00:13:20.830 --> 00:13:24.850 align:middle line:84%
+made it happen, got
+us to this point.
+
+00:13:24.850 --> 00:13:29.530 align:middle line:90%
+He's not feeling great today.
+
+00:13:29.530 --> 00:13:31.360 align:middle line:90%
+He did so much.
+
+00:13:31.360 --> 00:13:37.630 align:middle line:84%
+So I'm speaking to him and for
+him to thank you for coming
+
+00:13:37.630 --> 00:13:40.300 align:middle line:84%
+and to thank him
+for all he's done.
+
+00:13:40.300 --> 00:13:49.180 align:middle line:84%
+So he really made
+it possible to teach
+
+00:13:49.180 --> 00:13:54.110 align:middle line:90%
+this happy but large class.
+
+00:13:54.110 --> 00:13:55.390 align:middle line:90%
+So thank you, Andrew.
+
+00:13:55.390 --> 00:13:58.750 align:middle line:90%
+[APPLAUSE]
+
+00:13:58.750 --> 00:14:02.590 align:middle line:90%
+
+
+00:14:02.590 --> 00:14:06.030 align:middle line:90%
+So then I'm going to--
+
+00:14:06.030 --> 00:14:10.020 align:middle line:84%
+I feel a little responsible
+to do some linear algebra,
+
+00:14:10.020 --> 00:14:13.020 align:middle line:84%
+and part of my family
+is here, so I'm
+
+00:14:13.020 --> 00:14:15.420 align:middle line:84%
+taking this chance
+after all these years
+
+00:14:15.420 --> 00:14:17.175 align:middle line:84%
+to teach them some
+linear algebra.
+
+00:14:17.175 --> 00:14:18.720 align:middle line:90%
+[LAUGHTER]
+
+00:14:18.720 --> 00:14:20.100 align:middle line:90%
+
+
+00:14:20.100 --> 00:14:22.290 align:middle line:84%
+And you might be
+interested to know--
+
+00:14:22.290 --> 00:14:23.970 align:middle line:90%
+I don't know if you are--
+
+00:14:23.970 --> 00:14:26.610 align:middle line:90%
+how many years it's been.
+
+00:14:26.610 --> 00:14:29.430 align:middle line:84%
+So I'll do that over here
+and then maybe erase it
+
+00:14:29.430 --> 00:14:31.275 align:middle line:90%
+because it's a lot.
+
+00:14:31.275 --> 00:14:32.580 align:middle line:90%
+[LAUGHTER]
+
+00:14:32.580 --> 00:14:40.180 align:middle line:84%
+OK, so on the faculty,
+it's 61 years now today.
+
+00:14:40.180 --> 00:14:40.680 align:middle line:90%
+Yeah.
+
+00:14:40.680 --> 00:14:41.636 align:middle line:90%
+[CHEERING, APPLAUSE]
+
+00:14:41.636 --> 00:14:43.526 align:middle line:90%
+Yeah.
+
+00:14:43.526 --> 00:14:44.026 align:middle line:90%
+Yeah.
+
+00:14:44.026 --> 00:14:47.380 align:middle line:90%
+
+
+00:14:47.380 --> 00:14:51.070 align:middle line:84%
+And then prior to that, I was
+an instructor for 2 years.
+
+00:14:51.070 --> 00:14:53.840 align:middle line:90%
+You see, I remember all these.
+
+00:14:53.840 --> 00:15:00.790 align:middle line:84%
+And then I was an MIT student
+before this room existed,
+
+00:15:00.790 --> 00:15:02.890 align:middle line:90%
+but I was a math major.
+
+00:15:02.890 --> 00:15:05.200 align:middle line:84%
+There were about eight
+math majors then,
+
+00:15:05.200 --> 00:15:08.230 align:middle line:90%
+and now there are hundreds.
+
+00:15:08.230 --> 00:15:10.540 align:middle line:90%
+It's just been fantastic.
+
+00:15:10.540 --> 00:15:12.470 align:middle line:90%
+So that was 3 years.
+
+00:15:12.470 --> 00:15:17.470 align:middle line:90%
+So that's 66, and I'm--
+
+00:15:17.470 --> 00:15:20.470 align:middle line:84%
+you too will be happy
+to know that it's
+
+00:15:20.470 --> 00:15:25.130 align:middle line:90%
+66 out of my 88 years.
+
+00:15:25.130 --> 00:15:26.440 align:middle line:90%
+So what a nice fraction.
+
+00:15:26.440 --> 00:15:29.260 align:middle line:90%
+
+
+00:15:29.260 --> 00:15:34.850 align:middle line:90%
+So 3/4 of my life at MIT.
+
+00:15:34.850 --> 00:15:35.350 align:middle line:90%
+Yeah.
+
+00:15:35.350 --> 00:15:38.640 align:middle line:90%
+[CHEERING, APPLAUSE]
+
+00:15:38.640 --> 00:15:42.870 align:middle line:90%
+
+
+00:15:42.870 --> 00:15:44.520 align:middle line:90%
+OK.
+
+00:15:44.520 --> 00:15:49.050 align:middle line:84%
+OK, so I'm going to begin by
+solving some linear equations.
+
+00:15:49.050 --> 00:15:50.190 align:middle line:90%
+Those are linear--
+
+00:15:50.190 --> 00:15:54.210 align:middle line:90%
+I'm now speaking to family and--
+
+00:15:54.210 --> 00:15:58.680 align:middle line:84%
+but speaking to you
+all, just only the class
+
+00:15:58.680 --> 00:16:01.290 align:middle line:90%
+certainly will know this.
+
+00:16:01.290 --> 00:16:04.680 align:middle line:90%
+So that's three equations.
+
+00:16:04.680 --> 00:16:08.040 align:middle line:84%
+And there are three
+unknowns, x, y, and z,
+
+00:16:08.040 --> 00:16:12.210 align:middle line:84%
+and the goal is to find those
+three numbers, x, y, and z.
+
+00:16:12.210 --> 00:16:15.300 align:middle line:84%
+So this is maybe the
+most standard problem
+
+00:16:15.300 --> 00:16:18.030 align:middle line:90%
+in linear algebra--
+
+00:16:18.030 --> 00:16:20.520 align:middle line:90%
+n equations and n unknowns.
+
+00:16:20.520 --> 00:16:23.070 align:middle line:90%
+In this example, n equals 3.
+
+00:16:23.070 --> 00:16:25.530 align:middle line:90%
+So how do we proceed?
+
+00:16:25.530 --> 00:16:27.960 align:middle line:90%
+How do we find x, y, and z?
+
+00:16:27.960 --> 00:16:33.990 align:middle line:84%
+Well, the idea comes thousands
+of years ago in China,
+
+00:16:33.990 --> 00:16:37.680 align:middle line:90%
+and the key word is elimination.
+
+00:16:37.680 --> 00:16:40.890 align:middle line:90%
+We don't any 0's there.
+
+00:16:40.890 --> 00:16:47.280 align:middle line:84%
+It's 0's that make
+calculations easier.
+
+00:16:47.280 --> 00:16:51.240 align:middle line:90%
+And so let me show you how--
+
+00:16:51.240 --> 00:16:51.945 align:middle line:90%
+the steps.
+
+00:16:51.945 --> 00:16:57.240 align:middle line:90%
+
+
+00:16:57.240 --> 00:17:00.420 align:middle line:84%
+For those who know it well--
+so the first equation,
+
+00:17:00.420 --> 00:17:02.460 align:middle line:90%
+I won't change--
+
+00:17:02.460 --> 00:17:08.670 align:middle line:90%
+2x plus 3y plus 4z equal 19.
+
+00:17:08.670 --> 00:17:11.500 align:middle line:90%
+
+
+00:17:11.500 --> 00:17:13.599 align:middle line:84%
+What I want to get
+is some 0's here.
+
+00:17:13.599 --> 00:17:17.410 align:middle line:84%
+I want the second
+equation to start with 0.
+
+00:17:17.410 --> 00:17:19.210 align:middle line:90%
+So how do I do--
+
+00:17:19.210 --> 00:17:22.690 align:middle line:84%
+where I now have
+a 4, I want a 0.
+
+00:17:22.690 --> 00:17:25.190 align:middle line:90%
+So I have that equation set.
+
+00:17:25.190 --> 00:17:28.870 align:middle line:84%
+And I subtract 2 times that
+equation from this one.
+
+00:17:28.870 --> 00:17:34.660 align:middle line:84%
+I choose that number, 2, so
+the 2 times 2x will be 4x.
+
+00:17:34.660 --> 00:17:37.030 align:middle line:84%
+And when I subtract,
+I'll have a 0.
+
+00:17:37.030 --> 00:17:39.580 align:middle line:90%
+So that, I multiply that by 2.
+
+00:17:39.580 --> 00:17:43.280 align:middle line:90%
+So 2 times 3y is 6y, leaving 5y.
+
+00:17:43.280 --> 00:17:46.170 align:middle line:90%
+
+
+00:17:46.170 --> 00:17:53.520 align:middle line:84%
+And 2 times 4z is 8z
+from 14, leaving 60.
+
+00:17:53.520 --> 00:17:59.200 align:middle line:84%
+And 2 times 19 is 38
+from 55, leaving 17.
+
+00:17:59.200 --> 00:17:59.970 align:middle line:90%
+OK.
+
+00:17:59.970 --> 00:18:02.730 align:middle line:84%
+So we've got an
+easier equation now,
+
+00:18:02.730 --> 00:18:05.280 align:middle line:84%
+and I'll do the same
+for the third equation.
+
+00:18:05.280 --> 00:18:08.910 align:middle line:84%
+This time, I have a 2x
+there and a 2x there,
+
+00:18:08.910 --> 00:18:12.750 align:middle line:84%
+so I just want to subtract
+that equation from this one
+
+00:18:12.750 --> 00:18:21.460 align:middle line:84%
+to make this 0x plus 3y
+taken away from 8y leaves 5y.
+
+00:18:21.460 --> 00:18:26.440 align:middle line:90%
+And 4z from 17z is 13z.
+
+00:18:26.440 --> 00:18:30.640 align:middle line:90%
+And 19 from 50 is 31.
+
+00:18:30.640 --> 00:18:34.310 align:middle line:84%
+OK, so we've taken
+the first step.
+
+00:18:34.310 --> 00:18:40.130 align:middle line:84%
+We've got 0's in the first
+column below the pivot,
+
+00:18:40.130 --> 00:18:44.590 align:middle line:84%
+the number that we
+used to get those 0's.
+
+00:18:44.590 --> 00:18:51.330 align:middle line:84%
+OK, so I'm partway along, and
+then the idea is to continue.
+
+00:18:51.330 --> 00:18:59.870 align:middle line:84%
+And I now look at the
+second and third equations.
+
+00:18:59.870 --> 00:19:03.890 align:middle line:84%
+I have two equations here,
+and they just involve y and z.
+
+00:19:03.890 --> 00:19:05.340 align:middle line:90%
+So I'm making progress.
+
+00:19:05.340 --> 00:19:07.950 align:middle line:84%
+I had three equations
+with three unknowns.
+
+00:19:07.950 --> 00:19:10.730 align:middle line:84%
+Now I have two equations
+with two unknowns.
+
+00:19:10.730 --> 00:19:16.370 align:middle line:84%
+And let's go to one
+equation with one unknown.
+
+00:19:16.370 --> 00:19:21.170 align:middle line:84%
+So I want to get
+a 0 there, right,
+
+00:19:21.170 --> 00:19:24.840 align:middle line:84%
+so that I'll just have
+z's and a right-hand side.
+
+00:19:24.840 --> 00:19:28.220 align:middle line:84%
+So if I subtract,
+everybody sees--
+
+00:19:28.220 --> 00:19:30.380 align:middle line:90%
+is sort of getting in the swim.
+
+00:19:30.380 --> 00:19:36.440 align:middle line:84%
+If I subtract that equation from
+this one, it'll be 0x 0y and--
+
+00:19:36.440 --> 00:19:37.280 align:middle line:90%
+what is it?
+
+00:19:37.280 --> 00:19:45.160 align:middle line:90%
+7z equal 17 from 31 is 14.
+
+00:19:45.160 --> 00:19:48.110 align:middle line:90%
+OK, so now I have--
+
+00:19:48.110 --> 00:19:55.970 align:middle line:84%
+and so now I have an equation
+for z all alone and equation
+
+00:19:55.970 --> 00:20:01.460 align:middle line:84%
+for y and z together and the
+starting equation for x, y,
+
+00:20:01.460 --> 00:20:02.940 align:middle line:90%
+and z all together.
+
+00:20:02.940 --> 00:20:04.520 align:middle line:90%
+So what's next?
+
+00:20:04.520 --> 00:20:06.110 align:middle line:90%
+Go backwards.
+
+00:20:06.110 --> 00:20:11.420 align:middle line:84%
+Solve this equation for z
+then back to this one for y
+
+00:20:11.420 --> 00:20:13.940 align:middle line:90%
+and then back to this one for x.
+
+00:20:13.940 --> 00:20:22.130 align:middle line:84%
+So this is called elimination,
+and it was invented in China
+
+00:20:22.130 --> 00:20:24.240 align:middle line:90%
+3 or 4,000 years ago.
+
+00:20:24.240 --> 00:20:25.440 align:middle line:90%
+So I'm sorry.
+
+00:20:25.440 --> 00:20:28.700 align:middle line:84%
+This is a little
+bit old mathematics,
+
+00:20:28.700 --> 00:20:33.170 align:middle line:84%
+but it's the basic
+step that simplifies,
+
+00:20:33.170 --> 00:20:36.180 align:middle line:84%
+and then I'll show
+you a little more.
+
+00:20:36.180 --> 00:20:38.930 align:middle line:90%
+So let's go backwards.
+
+00:20:38.930 --> 00:20:41.900 align:middle line:84%
+Maybe you could all
+do it as I do it.
+
+00:20:41.900 --> 00:20:48.330 align:middle line:84%
+If we solve that equation for
+z, I get z equal to 2, right?
+
+00:20:48.330 --> 00:20:54.370 align:middle line:84%
+Divide by 7, and now if z
+is 2, then 13z here is 26.
+
+00:20:54.370 --> 00:20:58.160 align:middle line:90%
+So I have 5y and 26 and 31.
+
+00:20:58.160 --> 00:21:01.110 align:middle line:84%
+Well, if I subtract
+the 26 from the 31,
+
+00:21:01.110 --> 00:21:05.620 align:middle line:84%
+I'm moving the 26 over with
+31 because it's just a number.
+
+00:21:05.620 --> 00:21:09.600 align:middle line:84%
+So I'm subtracting
+this 26 leaves
+
+00:21:09.600 --> 00:21:13.530 align:middle line:90%
+me 5, so I have 5y equal 5.
+
+00:21:13.530 --> 00:21:18.720 align:middle line:84%
+So 5y equal 5 is what that
+equation has become, and told
+
+00:21:18.720 --> 00:21:21.370 align:middle line:90%
+me that y is 1.
+
+00:21:21.370 --> 00:21:27.730 align:middle line:84%
+And finally, I come
+back to the top equation
+
+00:21:27.730 --> 00:21:30.220 align:middle line:90%
+because I now know y and z.
+
+00:21:30.220 --> 00:21:34.000 align:middle line:90%
+So if z is 2, that's 8.
+
+00:21:34.000 --> 00:21:36.760 align:middle line:90%
+If y is 1, that's 3.
+
+00:21:36.760 --> 00:21:40.720 align:middle line:84%
+So I have 3 and 8
+and 19 there, so I
+
+00:21:40.720 --> 00:21:42.430 align:middle line:90%
+should be able to figure out x.
+
+00:21:42.430 --> 00:21:45.520 align:middle line:90%
+
+
+00:21:45.520 --> 00:21:47.650 align:middle line:90%
+Do you see what x is?
+
+00:21:47.650 --> 00:21:50.380 align:middle line:84%
+Yeah, let me-- this
+is for the class, now.
+
+00:21:50.380 --> 00:21:53.380 align:middle line:84%
+I got you this far
+by elimination.
+
+00:21:53.380 --> 00:21:57.310 align:middle line:84%
+So I have this equation
+to solve for x,
+
+00:21:57.310 --> 00:21:58.540 align:middle line:90%
+and then I've got the answer.
+
+00:21:58.540 --> 00:22:02.320 align:middle line:90%
+I've got all of x, y, and z.
+
+00:22:02.320 --> 00:22:03.820 align:middle line:90%
+So what do I have?
+
+00:22:03.820 --> 00:22:06.310 align:middle line:90%
+The 4z is 8.
+
+00:22:06.310 --> 00:22:08.560 align:middle line:90%
+3y, this is 3.
+
+00:22:08.560 --> 00:22:10.135 align:middle line:90%
+And 2x is what?
+
+00:22:10.135 --> 00:22:12.670 align:middle line:90%
+
+
+00:22:12.670 --> 00:22:13.170 align:middle line:90%
+AUDIENCE: 8.
+
+00:22:13.170 --> 00:22:13.410 align:middle line:90%
+AUDIENCE: 8.
+
+00:22:13.410 --> 00:22:14.410 align:middle line:90%
+GILBERT STRANG: 2x is 8?
+
+00:22:14.410 --> 00:22:15.570 align:middle line:90%
+Thanks.
+
+00:22:15.570 --> 00:22:19.180 align:middle line:84%
+Professors need help,
+especially at this point.
+
+00:22:19.180 --> 00:22:21.460 align:middle line:90%
+2x is 8, so x is--
+
+00:22:21.460 --> 00:22:21.960 align:middle line:90%
+AUDIENCE: 4.
+
+00:22:21.960 --> 00:22:23.460 align:middle line:90%
+GILBERT STRANG: 4, Well done.
+
+00:22:23.460 --> 00:22:27.300 align:middle line:90%
+100%, A for the whole class.
+
+00:22:27.300 --> 00:22:29.810 align:middle line:90%
+[CHEERING, APPLAUSE]
+
+00:22:29.810 --> 00:22:33.010 align:middle line:90%
+OK, right.
+
+00:22:33.010 --> 00:22:34.450 align:middle line:90%
+OK.
+
+00:22:34.450 --> 00:22:40.450 align:middle line:84%
+So let me just say that,
+if we were doing this
+
+00:22:40.450 --> 00:22:45.550 align:middle line:84%
+on the computer,
+we wouldn't keep
+
+00:22:45.550 --> 00:22:48.460 align:middle line:84%
+repeating all these
+letters, x and y and z,
+
+00:22:48.460 --> 00:22:51.910 align:middle line:84%
+and all the plus signs
+and all the equal signs.
+
+00:22:51.910 --> 00:22:54.100 align:middle line:90%
+I would write those equations--
+
+00:22:54.100 --> 00:22:57.460 align:middle line:84%
+or the original equations,
+I would write as--
+
+00:22:57.460 --> 00:23:00.090 align:middle line:90%
+oh dear, that's out of sight.
+
+00:23:00.090 --> 00:23:02.500 align:middle line:90%
+OK.
+
+00:23:02.500 --> 00:23:04.690 align:middle line:84%
+So I would write the
+original equations
+
+00:23:04.690 --> 00:23:18.350 align:middle line:84%
+as 2, 3, and 4, 4, 11,
+and 14, 2, 8, and 17.
+
+00:23:18.350 --> 00:23:21.490 align:middle line:84%
+So that's the--
+there is the matrix,
+
+00:23:21.490 --> 00:23:26.440 align:middle line:84%
+the matrix of coefficients, the
+matrix of the right-hand side--
+
+00:23:26.440 --> 00:23:28.570 align:middle line:84%
+of the numbers on
+the right-hand side.
+
+00:23:28.570 --> 00:23:34.570 align:middle line:84%
+And they multiply if we define
+multiplication suitably.
+
+00:23:34.570 --> 00:23:37.600 align:middle line:84%
+There, there's the
+x, y, z unknown.
+
+00:23:37.600 --> 00:23:39.000 align:middle line:90%
+So this is the matrix.
+
+00:23:39.000 --> 00:23:42.530 align:middle line:90%
+
+
+00:23:42.530 --> 00:23:46.340 align:middle line:90%
+This is the unknown to find.
+
+00:23:46.340 --> 00:23:48.570 align:middle line:90%
+This is the part to find.
+
+00:23:48.570 --> 00:23:54.170 align:middle line:84%
+And then the right-hand
+side is 19, 55, 50.
+
+00:23:54.170 --> 00:23:59.210 align:middle line:90%
+
+
+00:23:59.210 --> 00:24:08.400 align:middle line:84%
+OK, so that's the way you would
+write the equations in a matrix
+
+00:24:08.400 --> 00:24:08.900 align:middle line:90%
+form.
+
+00:24:08.900 --> 00:24:13.120 align:middle line:84%
+So I've introduced you
+to the idea of a matrix.
+
+00:24:13.120 --> 00:24:16.990 align:middle line:84%
+This happens to be a square
+matrix, three rows and three
+
+00:24:16.990 --> 00:24:17.980 align:middle line:90%
+columns.
+
+00:24:17.980 --> 00:24:22.960 align:middle line:84%
+And that's because I have
+three equations up there.
+
+00:24:22.960 --> 00:24:23.560 align:middle line:90%
+Yeah.
+
+00:24:23.560 --> 00:24:29.650 align:middle line:84%
+So all the operations that I
+did would be done just directly
+
+00:24:29.650 --> 00:24:30.670 align:middle line:90%
+on the matrix--
+
+00:24:30.670 --> 00:24:33.700 align:middle line:84%
+subtract 2 of this
+row away from this,
+
+00:24:33.700 --> 00:24:37.160 align:middle line:84%
+subtract that row away
+from that, and so on.
+
+00:24:37.160 --> 00:24:42.250 align:middle line:84%
+So this is the short-- you
+could say the shorthand--
+
+00:24:42.250 --> 00:24:44.530 align:middle line:84%
+the idea of matrix
+multiplication.
+
+00:24:44.530 --> 00:24:48.980 align:middle line:84%
+You begin to get an idea
+of how matrices multiply.
+
+00:24:48.980 --> 00:24:53.230 align:middle line:84%
+When you realize
+that first equation
+
+00:24:53.230 --> 00:24:57.320 align:middle line:84%
+comes from this along
+with that and that.
+
+00:24:57.320 --> 00:25:01.990 align:middle line:84%
+So the first equation
+comes from the first row
+
+00:25:01.990 --> 00:25:08.020 align:middle line:84%
+times the unknowns equaling the
+first number, 19, and so, yeah.
+
+00:25:08.020 --> 00:25:11.860 align:middle line:90%
+So it would simplify to this.
+
+00:25:11.860 --> 00:25:16.790 align:middle line:84%
+So this-- I'll
+just repeat again.
+
+00:25:16.790 --> 00:25:20.990 align:middle line:90%
+So 2, 3, 4-- we didn't change.
+
+00:25:20.990 --> 00:25:25.190 align:middle line:90%
+This changed to 2, 5, 6.
+
+00:25:25.190 --> 00:25:31.280 align:middle line:84%
+And this ultimately changed
+to 0, 0, 7, I think.
+
+00:25:31.280 --> 00:25:32.930 align:middle line:90%
+6 from 13.
+
+00:25:32.930 --> 00:25:34.790 align:middle line:90%
+6 from 13 left 7.
+
+00:25:34.790 --> 00:25:43.010 align:middle line:84%
+So the reduced
+equation was this one.
+
+00:25:43.010 --> 00:25:50.930 align:middle line:84%
+We had a 14 here, we had a 17
+here, and we had a 19 here.
+
+00:25:50.930 --> 00:25:55.390 align:middle line:90%
+So this is the original problem.
+
+00:25:55.390 --> 00:25:58.120 align:middle line:90%
+This is the simplified problem.
+
+00:25:58.120 --> 00:26:01.870 align:middle line:84%
+You see, we produced
+a triangular matrix.
+
+00:26:01.870 --> 00:26:04.100 align:middle line:90%
+And the unknowns are still safe.
+
+00:26:04.100 --> 00:26:05.860 align:middle line:84%
+So we've written
+that-- we've written
+
+00:26:05.860 --> 00:26:09.940 align:middle line:84%
+the-- using matrix notations
+so that we didn't have to keep
+
+00:26:09.940 --> 00:26:12.320 align:middle line:90%
+writing pluses and so on.
+
+00:26:12.320 --> 00:26:12.820 align:middle line:90%
+Yeah.
+
+00:26:12.820 --> 00:26:15.160 align:middle line:84%
+So this is exactly
+the same as that.
+
+00:26:15.160 --> 00:26:17.840 align:middle line:90%
+And now how do we solve it?
+
+00:26:17.840 --> 00:26:22.160 align:middle line:84%
+Just thinking,
+again, how solve it--
+
+00:26:22.160 --> 00:26:27.330 align:middle line:84%
+we came from top to
+bottom as we went here.
+
+00:26:27.330 --> 00:26:34.200 align:middle line:84%
+And now to solve, to find the
+answer, we went bottom to top.
+
+00:26:34.200 --> 00:26:37.320 align:middle line:90%
+We found z equal to 2.
+
+00:26:37.320 --> 00:26:41.850 align:middle line:84%
+By the time we knew z, then the
+next equation told us y was 1,
+
+00:26:41.850 --> 00:26:44.370 align:middle line:90%
+and finally, x was 4.
+
+00:26:44.370 --> 00:26:51.190 align:middle line:84%
+So this led to the
+answer, 4, 1, 2.
+
+00:26:51.190 --> 00:26:54.290 align:middle line:90%
+OK, good.
+
+00:26:54.290 --> 00:26:59.120 align:middle line:84%
+So that was three equations
+and three unknowns.
+
+00:26:59.120 --> 00:27:05.550 align:middle line:84%
+And linear algebra-- so
+maybe the most common problem
+
+00:27:05.550 --> 00:27:11.070 align:middle line:84%
+in numerical computation is
+solving a system of equations.
+
+00:27:11.070 --> 00:27:16.530 align:middle line:84%
+And again, this equation had
+the same number of equations,
+
+00:27:16.530 --> 00:27:19.890 align:middle line:90%
+three, as unknowns, three.
+
+00:27:19.890 --> 00:27:24.670 align:middle line:84%
+So there was-- we expect one
+solution, not always the case
+
+00:27:24.670 --> 00:27:26.130 align:middle line:90%
+but here, it worked.
+
+00:27:26.130 --> 00:27:31.680 align:middle line:90%
+OK, so that's lesson 1.
+
+00:27:31.680 --> 00:27:41.850 align:middle line:84%
+Let me do something similar
+for a different problem.
+
+00:27:41.850 --> 00:27:45.020 align:middle line:84%
+It won't be a square
+matrix this time.
+
+00:27:45.020 --> 00:27:46.940 align:middle line:90%
+The matrix will be rectangular.
+
+00:27:46.940 --> 00:27:49.850 align:middle line:90%
+So we may have many solutions.
+
+00:27:49.850 --> 00:27:52.790 align:middle line:84%
+We may have no
+solutions, all depending
+
+00:27:52.790 --> 00:27:54.720 align:middle line:90%
+on what the numbers are.
+
+00:27:54.720 --> 00:27:57.440 align:middle line:90%
+So let me just write down--
+
+00:27:57.440 --> 00:28:04.900 align:middle line:84%
+so this is my second and
+last example for the guests
+
+00:28:04.900 --> 00:28:07.960 align:middle line:90%
+and also for 18.06.
+
+00:28:07.960 --> 00:28:11.020 align:middle line:84%
+OK, so now I'm
+going to write down
+
+00:28:11.020 --> 00:28:16.750 align:middle line:84%
+the matrix A in the next
+problem, new problem.
+
+00:28:16.750 --> 00:28:18.760 align:middle line:84%
+Now, what's different
+about this problem
+
+00:28:18.760 --> 00:28:22.000 align:middle line:84%
+is there are still going
+to be three equations,
+
+00:28:22.000 --> 00:28:24.980 align:middle line:90%
+but there will be four unknowns.
+
+00:28:24.980 --> 00:28:28.900 align:middle line:90%
+So now I'm-- that extra unknown.
+
+00:28:28.900 --> 00:28:31.750 align:middle line:84%
+Well, I don't even
+necessarily have
+
+00:28:31.750 --> 00:28:34.270 align:middle line:90%
+to give the letters for it.
+
+00:28:34.270 --> 00:28:37.480 align:middle line:90%
+I'm going to use this shorthand.
+
+00:28:37.480 --> 00:28:44.100 align:middle line:84%
+So I now have a matrix
+A. Matrices are always
+
+00:28:44.100 --> 00:28:47.670 align:middle line:84%
+A. There's not much
+imagination required.
+
+00:28:47.670 --> 00:29:01.330 align:middle line:90%
+11 and 37, I think, 3, 7, 37--
+
+00:29:01.330 --> 00:29:04.320 align:middle line:90%
+I think maybe that's 17.
+
+00:29:04.320 --> 00:29:06.630 align:middle line:90%
+Sorry.
+
+00:29:06.630 --> 00:29:08.190 align:middle line:90%
+Whoopsie.
+
+00:29:08.190 --> 00:29:18.430 align:middle line:90%
+37 and 57 and 4, 8, 48, and 74.
+
+00:29:18.430 --> 00:29:22.530 align:middle line:90%
+
+
+00:29:22.530 --> 00:29:24.420 align:middle line:90%
+OK.
+
+00:29:24.420 --> 00:29:28.110 align:middle line:84%
+So again, I'm using
+this matrix shorthand,
+
+00:29:28.110 --> 00:29:31.990 align:middle line:84%
+so I'm not writing the equations
+out, but I could this way.
+
+00:29:31.990 --> 00:29:35.460 align:middle line:84%
+So there would be
+three equations again,
+
+00:29:35.460 --> 00:29:38.820 align:middle line:84%
+and I need three
+right-hand sides.
+
+00:29:38.820 --> 00:29:41.250 align:middle line:84%
+Oh, I'm going to take the
+right-hand sides to be 0.
+
+00:29:41.250 --> 00:29:44.480 align:middle line:90%
+
+
+00:29:44.480 --> 00:29:48.490 align:middle line:90%
+So all I need is that matrix.
+
+00:29:48.490 --> 00:29:53.420 align:middle line:84%
+So I'm calling this
+matrix again a and I want
+
+00:29:53.420 --> 00:29:56.060 align:middle line:90%
+to multiply it by--
+
+00:29:56.060 --> 00:29:59.420 align:middle line:84%
+maybe I'd better number
+of these x1, x2, x3, x4.
+
+00:29:59.420 --> 00:30:02.230 align:middle line:90%
+
+
+00:30:02.230 --> 00:30:04.780 align:middle line:90%
+So that's a shorthand.
+
+00:30:04.780 --> 00:30:08.050 align:middle line:84%
+A shorthand for that
+would be x, a vector.
+
+00:30:08.050 --> 00:30:11.370 align:middle line:84%
+And on the right-hand side,
+I'm going to have 0's.
+
+00:30:11.370 --> 00:30:16.620 align:middle line:90%
+
+
+00:30:16.620 --> 00:30:19.170 align:middle line:90%
+Ax equals to 0 vector.
+
+00:30:19.170 --> 00:30:26.720 align:middle line:84%
+You see that I'm moving you
+toward matrix vector notation
+
+00:30:26.720 --> 00:30:29.720 align:middle line:84%
+and beginning to
+think more generally.
+
+00:30:29.720 --> 00:30:35.500 align:middle line:84%
+So now we have a vector that's
+in four-dimensional space.
+
+00:30:35.500 --> 00:30:37.500 align:middle line:90%
+So we have to get used to that.
+
+00:30:37.500 --> 00:30:42.300 align:middle line:84%
+All it means is that there are
+four components to our vector.
+
+00:30:42.300 --> 00:30:45.480 align:middle line:84%
+We can try to visualize
+four-dimensional space,
+
+00:30:45.480 --> 00:30:48.030 align:middle line:90%
+but we don't have to.
+
+00:30:48.030 --> 00:30:50.670 align:middle line:84%
+At this point, we're doing
+algebra and not geometry,
+
+00:30:50.670 --> 00:30:53.290 align:middle line:90%
+and we can just go ahead.
+
+00:30:53.290 --> 00:30:55.570 align:middle line:90%
+So what do you think?
+
+00:30:55.570 --> 00:30:57.600 align:middle line:84%
+Are there solutions
+to this equation,
+
+00:30:57.600 --> 00:31:02.140 align:middle line:84%
+to these three
+equations, I should say?
+
+00:31:02.140 --> 00:31:03.130 align:middle line:90%
+Are there any?
+
+00:31:03.130 --> 00:31:09.990 align:middle line:84%
+Can you think of any x1, x2,
+x3, x4 that solve for equations?
+
+00:31:09.990 --> 00:31:12.010 align:middle line:90%
+Yes, I think you can.
+
+00:31:12.010 --> 00:31:15.516 align:middle line:84%
+So what's one solution
+that's sure to be here?
+
+00:31:15.516 --> 00:31:16.450 align:middle line:90%
+AUDIENCE: All 0's.
+
+00:31:16.450 --> 00:31:17.450 align:middle line:90%
+GILBERT STRANG: All 0's.
+
+00:31:17.450 --> 00:31:18.960 align:middle line:90%
+Yeah, yeah, yeah.
+
+00:31:18.960 --> 00:31:26.310 align:middle line:84%
+So this equation stands for x1
+plus 2 x2 plus 11 x3 plus 17 x4
+
+00:31:26.310 --> 00:31:27.360 align:middle line:90%
+equals 0.
+
+00:31:27.360 --> 00:31:29.010 align:middle line:90%
+Something else equals 0.
+
+00:31:29.010 --> 00:31:30.480 align:middle line:90%
+Something else equals 0.
+
+00:31:30.480 --> 00:31:36.210 align:middle line:84%
+So I have three equations
+and four unknowns.
+
+00:31:36.210 --> 00:31:37.860 align:middle line:90%
+Yeah, so this is different.
+
+00:31:37.860 --> 00:31:46.280 align:middle line:84%
+I have m equals 3 equations,
+n equal 4 unknowns.
+
+00:31:46.280 --> 00:31:52.720 align:middle line:90%
+And the right-hand side is 0.
+
+00:31:52.720 --> 00:31:55.010 align:middle line:90%
+It's all 0's.
+
+00:31:55.010 --> 00:31:57.650 align:middle line:90%
+So I do have solutions.
+
+00:31:57.650 --> 00:32:00.620 align:middle line:84%
+The question is, do I have
+any nonzero solutions,
+
+00:32:00.620 --> 00:32:02.930 align:middle line:90%
+any solutions that are not 0?
+
+00:32:02.930 --> 00:32:05.390 align:middle line:84%
+So how are we going to
+discover the solutions?
+
+00:32:05.390 --> 00:32:07.040 align:middle line:90%
+And do we think in advance--
+
+00:32:07.040 --> 00:32:11.300 align:middle line:84%
+let's just make a guess
+before I use these numbers.
+
+00:32:11.300 --> 00:32:16.280 align:middle line:84%
+Do we think that there are
+solutions other than all 0's?
+
+00:32:16.280 --> 00:32:19.430 align:middle line:90%
+Everybody sees that if--
+
+00:32:19.430 --> 00:32:24.450 align:middle line:84%
+are you visualizing this
+also in the form of this?
+
+00:32:24.450 --> 00:32:30.620 align:middle line:84%
+This is saying, again, that x1
+plus 2 x2 plus 11 x3 plus 17 x4
+
+00:32:30.620 --> 00:32:31.940 align:middle line:90%
+equals 0.
+
+00:32:31.940 --> 00:32:35.840 align:middle line:84%
+And, of course, all
+0's will be a solution.
+
+00:32:35.840 --> 00:32:40.950 align:middle line:84%
+But we have only
+three equations,
+
+00:32:40.950 --> 00:32:43.360 align:middle line:90%
+and we have four unknowns.
+
+00:32:43.360 --> 00:32:46.311 align:middle line:90%
+So what do we know about the--
+
+00:32:46.311 --> 00:32:52.290 align:middle line:84%
+there will be a solution,
+then, and especially
+
+00:32:52.290 --> 00:32:53.860 align:middle line:90%
+with the 0's on the right side.
+
+00:32:53.860 --> 00:32:55.590 align:middle line:90%
+So we have m equals 3.
+
+00:32:55.590 --> 00:33:07.170 align:middle line:84%
+So one solution is x equal y
+equal z equal 0 if all of these
+
+00:33:07.170 --> 00:33:09.180 align:middle line:90%
+multiply 0--
+
+00:33:09.180 --> 00:33:12.660 align:middle line:90%
+oh, sorry, x--
+
+00:33:12.660 --> 00:33:16.200 align:middle line:84%
+I have new names for them
+because now I've got four.
+
+00:33:16.200 --> 00:33:19.380 align:middle line:90%
+I kind of ran out of letters.
+
+00:33:19.380 --> 00:33:24.360 align:middle line:84%
+So it's x1 equal x2 equal
+x3 equal x4 equal 0.
+
+00:33:24.360 --> 00:33:26.280 align:middle line:90%
+But we look for more.
+
+00:33:26.280 --> 00:33:29.340 align:middle line:90%
+
+
+00:33:29.340 --> 00:33:34.630 align:middle line:84%
+Three equations, four unknowns,
+we've got freedom here.
+
+00:33:34.630 --> 00:33:40.810 align:middle line:84%
+We can expect to find
+some nonzero x's.
+
+00:33:40.810 --> 00:33:43.210 align:middle line:90%
+And the question is, how many?
+
+00:33:43.210 --> 00:33:46.030 align:middle line:84%
+And the question is-- and
+we can only answer that
+
+00:33:46.030 --> 00:33:48.790 align:middle line:90%
+by simplifying the matrix.
+
+00:33:48.790 --> 00:33:51.430 align:middle line:84%
+Just as we did there,
+we'll simplify this
+
+00:33:51.430 --> 00:33:55.730 align:middle line:84%
+by subtracting equations
+from other equations.
+
+00:33:55.730 --> 00:33:58.350 align:middle line:84%
+OK so let me start
+on that process.
+
+00:33:58.350 --> 00:34:03.800 align:middle line:84%
+So one solution, but I'm
+looking for more solutions.
+
+00:34:03.800 --> 00:34:06.310 align:middle line:90%
+
+
+00:34:06.310 --> 00:34:06.810 align:middle line:90%
+OK.
+
+00:34:06.810 --> 00:34:09.590 align:middle line:90%
+
+
+00:34:09.590 --> 00:34:15.690 align:middle line:84%
+So everybody in 18.06 now,
+I'll speak to you guys first.
+
+00:34:15.690 --> 00:34:19.310 align:middle line:84%
+So you know that we'll
+do elimination again.
+
+00:34:19.310 --> 00:34:22.489 align:middle line:84%
+That elimination process
+will produce 0's here,
+
+00:34:22.489 --> 00:34:26.639 align:middle line:84%
+and we'll get to
+see what's going on.
+
+00:34:26.639 --> 00:34:30.120 align:middle line:84%
+So right now, we have three
+equations, four unknowns.
+
+00:34:30.120 --> 00:34:35.449 align:middle line:84%
+So we would sort of expect
+maybe one family of solutions
+
+00:34:35.449 --> 00:34:37.400 align:middle line:84%
+because we've got
+an extra unknown.
+
+00:34:37.400 --> 00:34:41.820 align:middle line:84%
+But you can't tell until
+you get into the numbers.
+
+00:34:41.820 --> 00:34:43.290 align:middle line:90%
+OK.
+
+00:34:43.290 --> 00:34:46.710 align:middle line:84%
+So now again, what
+does elimination mean?
+
+00:34:46.710 --> 00:34:51.480 align:middle line:84%
+Elimination is take combinations
+of the columns that produce
+
+00:34:51.480 --> 00:34:54.179 align:middle line:90%
+some 0's.
+
+00:34:54.179 --> 00:34:57.450 align:middle line:84%
+And I see one combination
+of a column that produces,
+
+00:34:57.450 --> 00:35:00.600 align:middle line:84%
+one produces-- combinations of
+the rows, I should have said--
+
+00:35:00.600 --> 00:35:04.050 align:middle line:84%
+combinations of the rows
+that produce some 0's.
+
+00:35:04.050 --> 00:35:07.560 align:middle line:84%
+And I see one
+combination right away--
+
+00:35:07.560 --> 00:35:12.120 align:middle line:84%
+well, I built it in
+there, so not surprising.
+
+00:35:12.120 --> 00:35:14.310 align:middle line:84%
+I can see it, but
+can you see it--
+
+00:35:14.310 --> 00:35:17.490 align:middle line:90%
+that will produce a lot of 0's.
+
+00:35:17.490 --> 00:35:20.310 align:middle line:90%
+I think that the 3--
+
+00:35:20.310 --> 00:35:22.890 align:middle line:84%
+there, that row and
+that row and that row--
+
+00:35:22.890 --> 00:35:28.630 align:middle line:84%
+there's a connection between
+them, and do you see it?
+
+00:35:28.630 --> 00:35:33.370 align:middle line:84%
+Do you see what's special about
+the three rows of the matrix?
+
+00:35:33.370 --> 00:35:35.980 align:middle line:84%
+Those rows have four
+components, so they're
+
+00:35:35.980 --> 00:35:39.550 align:middle line:84%
+popping off somewhere in
+four-dimensional space,
+
+00:35:39.550 --> 00:35:42.670 align:middle line:90%
+but they're a bit special.
+
+00:35:42.670 --> 00:35:44.995 align:middle line:84%
+And what's special there,
+somebody could say?
+
+00:35:44.995 --> 00:35:48.860 align:middle line:90%
+
+
+00:35:48.860 --> 00:35:52.270 align:middle line:90%
+Look at rows 1, 2, and 3 there.
+
+00:35:52.270 --> 00:35:55.720 align:middle line:84%
+Do you see anything
+connected there?
+
+00:35:55.720 --> 00:35:57.903 align:middle line:84%
+AUDIENCE: The first two
+rows down to the third.
+
+00:35:57.903 --> 00:35:59.320 align:middle line:84%
+GILBERT STRANG:
+The first two rows
+
+00:35:59.320 --> 00:36:01.150 align:middle line:90%
+add to the third row, right.
+
+00:36:01.150 --> 00:36:03.280 align:middle line:90%
+Row 1 plus row 2 is row 3.
+
+00:36:03.280 --> 00:36:07.024 align:middle line:90%
+So row 3 is unnecessary.
+
+00:36:07.024 --> 00:36:09.760 align:middle line:90%
+
+
+00:36:09.760 --> 00:36:15.070 align:middle line:84%
+I can subtract row 1 from
+row 3 and row 2 from row 3,
+
+00:36:15.070 --> 00:36:16.990 align:middle line:90%
+and what will I then get?
+
+00:36:16.990 --> 00:36:18.940 align:middle line:90%
+I'll save myself writing.
+
+00:36:18.940 --> 00:36:24.010 align:middle line:84%
+What will I get if I subtract
+rows 1 and 2 from row 3?
+
+00:36:24.010 --> 00:36:24.740 align:middle line:90%
+AUDIENCE: 0.
+
+00:36:24.740 --> 00:36:27.110 align:middle line:90%
+GILBERT STRANG: All 0's, yes.
+
+00:36:27.110 --> 00:36:32.400 align:middle line:84%
+So, suddenly, I'm in a
+different situation here.
+
+00:36:32.400 --> 00:36:33.640 align:middle line:90%
+I still have a--
+
+00:36:33.640 --> 00:36:36.400 align:middle line:90%
+
+
+00:36:36.400 --> 00:36:39.780 align:middle line:84%
+you all saw that the
+numbers there were just--
+
+00:36:39.780 --> 00:36:41.100 align:middle line:90%
+it was a 74.
+
+00:36:41.100 --> 00:36:42.270 align:middle line:90%
+This was a 48.
+
+00:36:42.270 --> 00:36:44.280 align:middle line:84%
+This was the 9,
+and that was a 4.
+
+00:36:44.280 --> 00:36:48.900 align:middle line:84%
+And so now when I subtract the
+first equation and the second
+
+00:36:48.900 --> 00:36:53.880 align:middle line:84%
+equation from the third, I've
+got 0 equals 0, which I've--
+
+00:36:53.880 --> 00:36:55.830 align:middle line:90%
+that's perfect.
+
+00:36:55.830 --> 00:36:57.610 align:middle line:90%
+No problem.
+
+00:36:57.610 --> 00:37:00.120 align:middle line:84%
+It automatically
+is going to give
+
+00:37:00.120 --> 00:37:02.140 align:middle line:90%
+the 0 on the right-hand side.
+
+00:37:02.140 --> 00:37:07.470 align:middle line:84%
+So really, now, I have two
+equations and four unknowns.
+
+00:37:07.470 --> 00:37:11.790 align:middle line:84%
+Two equations and four unknowns,
+so I'm expecting maybe--
+
+00:37:11.790 --> 00:37:14.790 align:middle line:84%
+4 minus 2 would
+be two solutions.
+
+00:37:14.790 --> 00:37:17.910 align:middle line:84%
+I'm expecting two
+nonzero solutions.
+
+00:37:17.910 --> 00:37:20.360 align:middle line:90%
+OK.
+
+00:37:20.360 --> 00:37:23.490 align:middle line:90%
+So how do I get there?
+
+00:37:23.490 --> 00:37:28.300 align:middle line:84%
+I think I get more
+0's in the matrix.
+
+00:37:28.300 --> 00:37:28.800 align:middle line:90%
+OK.
+
+00:37:28.800 --> 00:37:31.500 align:middle line:90%
+
+
+00:37:31.500 --> 00:37:40.770 align:middle line:84%
+So again, we're ready to work on
+the problem, the given problem,
+
+00:37:40.770 --> 00:37:45.750 align:middle line:84%
+by subtracting suitable
+multiples of a row
+
+00:37:45.750 --> 00:37:49.470 align:middle line:84%
+from another row because
+I'm subtracting an equation
+
+00:37:49.470 --> 00:37:50.770 align:middle line:90%
+from an equation.
+
+00:37:50.770 --> 00:37:53.730 align:middle line:84%
+So it leaves me with
+a correct equation.
+
+00:37:53.730 --> 00:37:57.380 align:middle line:90%
+OK, let me do that.
+
+00:37:57.380 --> 00:37:59.740 align:middle line:90%
+So let me subtract--
+
+00:37:59.740 --> 00:38:03.170 align:middle line:90%
+I would like to get--
+
+00:38:03.170 --> 00:38:04.760 align:middle line:90%
+now you could help me.
+
+00:38:04.760 --> 00:38:07.670 align:middle line:84%
+I'd like to get a 0 in
+that position just the way
+
+00:38:07.670 --> 00:38:09.300 align:middle line:90%
+I did in the first problem.
+
+00:38:09.300 --> 00:38:12.605 align:middle line:84%
+So how shall I get a
+0 where I have a 3?
+
+00:38:12.605 --> 00:38:14.210 align:middle line:90%
+
+
+00:38:14.210 --> 00:38:20.730 align:middle line:84%
+GILBERT STRANG: I'll subtract
+3 times row 1 from row 2.
+
+00:38:20.730 --> 00:38:22.410 align:middle line:90%
+So I'll keep row 1.
+
+00:38:22.410 --> 00:38:25.680 align:middle line:84%
+And I won't keep writing
+all the 0's and the x's.
+
+00:38:25.680 --> 00:38:26.880 align:middle line:90%
+We understand that.
+
+00:38:26.880 --> 00:38:29.380 align:middle line:84%
+It's only the numbers
+here that matter.
+
+00:38:29.380 --> 00:38:34.660 align:middle line:90%
+So I have 1, 2, 11, and 17.
+
+00:38:34.660 --> 00:38:37.490 align:middle line:84%
+And I'm subtracting
+3 times that.
+
+00:38:37.490 --> 00:38:41.560 align:middle line:84%
+So 3 1's-- that made
+the 0 that I want.
+
+00:38:41.560 --> 00:38:43.330 align:middle line:90%
+3 2's is 6.
+
+00:38:43.330 --> 00:38:45.580 align:middle line:90%
+Taken away from 7 is a 1.
+
+00:38:45.580 --> 00:38:49.000 align:middle line:90%
+3 11's is 33.
+
+00:38:49.000 --> 00:38:51.850 align:middle line:90%
+Take away from 37 just leaves 4.
+
+00:38:51.850 --> 00:38:55.690 align:middle line:90%
+And 3 17's is 51 leaves 6.
+
+00:38:55.690 --> 00:38:57.880 align:middle line:90%
+Do you agree with that?
+
+00:38:57.880 --> 00:39:00.460 align:middle line:84%
+And this row of all
+0's is still here.
+
+00:39:00.460 --> 00:39:03.202 align:middle line:90%
+
+
+00:39:03.202 --> 00:39:05.030 align:middle line:90%
+OK?
+
+00:39:05.030 --> 00:39:06.140 align:middle line:90%
+Good.
+
+00:39:06.140 --> 00:39:08.170 align:middle line:90%
+Progress.
+
+00:39:08.170 --> 00:39:09.250 align:middle line:90%
+What else can I do?
+
+00:39:09.250 --> 00:39:11.830 align:middle line:90%
+So this is elimination.
+
+00:39:11.830 --> 00:39:14.380 align:middle line:84%
+And now I'm going
+to-- because I'm
+
+00:39:14.380 --> 00:39:16.600 align:middle line:84%
+dealing with a more
+general problem,
+
+00:39:16.600 --> 00:39:19.870 align:middle line:84%
+I'm going to allow
+elimination upwards.
+
+00:39:19.870 --> 00:39:20.890 align:middle line:90%
+I want to get--
+
+00:39:20.890 --> 00:39:24.970 align:middle line:84%
+I want to subtract a multiple
+of equation 2 from equation 1
+
+00:39:24.970 --> 00:39:28.910 align:middle line:90%
+and make it still simpler, OK?
+
+00:39:28.910 --> 00:39:31.100 align:middle line:90%
+So my 0--
+
+00:39:31.100 --> 00:39:35.400 align:middle line:90%
+0 equals 0 is no problem.
+
+00:39:35.400 --> 00:39:40.880 align:middle line:84%
+This one, I'm keeping now
+because it has that 0 that I
+
+00:39:40.880 --> 00:39:43.640 align:middle line:90%
+paid for with some computing.
+
+00:39:43.640 --> 00:39:45.980 align:middle line:90%
+But now what do I want to do?
+
+00:39:45.980 --> 00:39:50.580 align:middle line:84%
+I want to subtract a multiple
+of this from the top equation.
+
+00:39:50.580 --> 00:39:52.520 align:middle line:84%
+So I'm working
+upwards this time.
+
+00:39:52.520 --> 00:39:55.910 align:middle line:84%
+Well, when I subtract this,
+that'll still leave the 1,
+
+00:39:55.910 --> 00:39:58.470 align:middle line:84%
+but I would like
+to get a 0 there.
+
+00:39:58.470 --> 00:40:03.030 align:middle line:84%
+I want to get 0's because
+then I can write out
+
+00:40:03.030 --> 00:40:04.570 align:middle line:90%
+the solution easily.
+
+00:40:04.570 --> 00:40:05.950 align:middle line:90%
+So what do I do?
+
+00:40:05.950 --> 00:40:09.090 align:middle line:90%
+What do I multiply row 2 by?
+
+00:40:09.090 --> 00:40:10.740 align:middle line:90%
+Everybody here is with me.
+
+00:40:10.740 --> 00:40:15.510 align:middle line:84%
+I want to multiply row 2 by some
+number and subtract from row 1
+
+00:40:15.510 --> 00:40:17.310 align:middle line:90%
+and get that 0.
+
+00:40:17.310 --> 00:40:19.590 align:middle line:90%
+So what do I multiply row 2 by?
+
+00:40:19.590 --> 00:40:20.130 align:middle line:90%
+AUDIENCE: 2.
+
+00:40:20.130 --> 00:40:22.140 align:middle line:90%
+GILBERT STRANG: 2, thank you.
+
+00:40:22.140 --> 00:40:24.750 align:middle line:84%
+Everybody in this class
+is going to have an A.
+
+00:40:24.750 --> 00:40:26.662 align:middle line:90%
+[APPLAUSE]
+
+00:40:26.662 --> 00:40:29.530 align:middle line:90%
+[CHEERING, APPLAUSE]
+
+00:40:29.530 --> 00:40:32.880 align:middle line:90%
+
+
+00:40:32.880 --> 00:40:38.550 align:middle line:84%
+I'm sorry to think that this
+class is recorded, because I
+
+00:40:38.550 --> 00:40:40.050 align:middle line:90%
+didn't really mean it.
+
+00:40:40.050 --> 00:40:42.816 align:middle line:90%
+[LAUGHTER]
+
+00:40:42.816 --> 00:40:44.200 align:middle line:90%
+
+
+00:40:44.200 --> 00:40:47.220 align:middle line:84%
+I'll just say, you all
+deserve an A. How's that?
+
+00:40:47.220 --> 00:40:48.720 align:middle line:90%
+That's a nice note.
+
+00:40:48.720 --> 00:40:51.360 align:middle line:84%
+Yes, at least based
+on so far today,
+
+00:40:51.360 --> 00:40:53.950 align:middle line:84%
+but there's more questions
+on this final exam.
+
+00:40:53.950 --> 00:40:57.220 align:middle line:90%
+So you have A so far.
+
+00:40:57.220 --> 00:40:57.720 align:middle line:90%
+OK.
+
+00:40:57.720 --> 00:41:02.130 align:middle line:84%
+So I want to subtract this from
+the row above to get that 0.
+
+00:41:02.130 --> 00:41:04.470 align:middle line:90%
+What do I multiply this by?
+
+00:41:04.470 --> 00:41:05.280 align:middle line:90%
+2.
+
+00:41:05.280 --> 00:41:08.040 align:middle line:84%
+Subtract from this,
+so 2 1's is 2,
+
+00:41:08.040 --> 00:41:09.780 align:middle line:90%
+and the subtraction gives the 0.
+
+00:41:09.780 --> 00:41:13.710 align:middle line:90%
+2 4's is 8, leaving 3.
+
+00:41:13.710 --> 00:41:17.760 align:middle line:90%
+And 2 6's is 12, leaving 5.
+
+00:41:17.760 --> 00:41:19.890 align:middle line:90%
+OK.
+
+00:41:19.890 --> 00:41:23.920 align:middle line:90%
+So my equation is now--
+
+00:41:23.920 --> 00:41:26.220 align:middle line:90%
+my three equations are--
+
+00:41:26.220 --> 00:41:28.840 align:middle line:84%
+well, this is a
+0-equals-0 equation.
+
+00:41:28.840 --> 00:41:37.840 align:middle line:84%
+My equations are x1 from
+the 1, no x2s, three x3's,
+
+00:41:37.840 --> 00:41:42.840 align:middle line:90%
+and five x4s equaling 0.
+
+00:41:42.840 --> 00:41:45.840 align:middle line:84%
+The right side stayed 0
+because it was always there.
+
+00:41:45.840 --> 00:41:52.300 align:middle line:84%
+And the other equation
+here is no x1's, 1 x2,
+
+00:41:52.300 --> 00:41:56.920 align:middle line:90%
+4 x3's, and 6 x4's.
+
+00:41:56.920 --> 00:41:59.860 align:middle line:90%
+
+
+00:41:59.860 --> 00:42:02.110 align:middle line:90%
+OK.
+
+00:42:02.110 --> 00:42:07.450 align:middle line:84%
+So those equations are
+equivalent to the first ones.
+
+00:42:07.450 --> 00:42:11.110 align:middle line:84%
+I just did subtraction of
+equation from equation.
+
+00:42:11.110 --> 00:42:14.560 align:middle line:84%
+That's totally safe,
+and it's reversible.
+
+00:42:14.560 --> 00:42:18.100 align:middle line:84%
+I could get from that back
+to that by doing adding back.
+
+00:42:18.100 --> 00:42:23.920 align:middle line:84%
+So that's just as good and, in
+fact, better than the original.
+
+00:42:23.920 --> 00:42:26.800 align:middle line:84%
+We ought to be
+able to write down
+
+00:42:26.800 --> 00:42:28.960 align:middle line:90%
+the solutions for this one.
+
+00:42:28.960 --> 00:42:31.810 align:middle line:84%
+And let me count--
+what are we expecting?
+
+00:42:31.810 --> 00:42:34.600 align:middle line:84%
+Let's get a little
+geometry in this.
+
+00:42:34.600 --> 00:42:39.690 align:middle line:84%
+So I have-- I'm in
+four-dimensional space.
+
+00:42:39.690 --> 00:42:42.530 align:middle line:84%
+That's a challenge
+right away to visualize
+
+00:42:42.530 --> 00:42:44.270 align:middle line:90%
+four-dimensional space.
+
+00:42:44.270 --> 00:42:47.210 align:middle line:90%
+But I have an x1, x2, x3, x4.
+
+00:42:47.210 --> 00:42:52.120 align:middle line:84%
+So my solution vector
+has four components.
+
+00:42:52.120 --> 00:42:58.600 align:middle line:90%
+And so what are some solutions?
+
+00:42:58.600 --> 00:43:01.840 align:middle line:84%
+What are all the solutions
+I'd like to know?
+
+00:43:01.840 --> 00:43:05.590 align:middle line:84%
+And notice one point,
+that there's 0's
+
+00:43:05.590 --> 00:43:07.850 align:middle line:90%
+on the right-hand side.
+
+00:43:07.850 --> 00:43:12.900 align:middle line:84%
+So that tells me if I find one
+set of x's that works, then
+
+00:43:12.900 --> 00:43:15.660 align:middle line:84%
+2 times that set
+of x's will work.
+
+00:43:15.660 --> 00:43:20.790 align:middle line:84%
+5 times that set of x's
+will work because it'll just
+
+00:43:20.790 --> 00:43:23.400 align:middle line:90%
+multiply all--
+
+00:43:23.400 --> 00:43:27.870 align:middle line:84%
+because I'll have 0 equals 0,
+and I can safely multiply by 5.
+
+00:43:27.870 --> 00:43:35.050 align:middle line:84%
+So I'm expecting two solutions,
+two separate solutions.
+
+00:43:35.050 --> 00:43:38.920 align:middle line:84%
+And I'll write those
+maybe up above.
+
+00:43:38.920 --> 00:43:42.070 align:middle line:90%
+x1, x2, x3, x4.
+
+00:43:42.070 --> 00:43:46.250 align:middle line:90%
+
+
+00:43:46.250 --> 00:43:48.620 align:middle line:90%
+Yeah, so give me a--
+
+00:43:48.620 --> 00:43:53.210 align:middle line:84%
+so I have two equations,
+and for these four unknowns,
+
+00:43:53.210 --> 00:44:04.330 align:middle line:84%
+let me start out with a x3 equal
+to a 1 and x4 equal to a 0.
+
+00:44:04.330 --> 00:44:10.630 align:middle line:84%
+So I'm just sort of freely
+setting x3 and x4 as 1 and 0.
+
+00:44:10.630 --> 00:44:12.700 align:middle line:84%
+And then I'll figure
+out or you'll figure out
+
+00:44:12.700 --> 00:44:15.310 align:middle line:90%
+what x1 and x2 have to be.
+
+00:44:15.310 --> 00:44:17.830 align:middle line:90%
+So what's the answer, then?
+
+00:44:17.830 --> 00:44:25.550 align:middle line:84%
+If x3 is 1 and x4
+is 0, what is x1?
+
+00:44:25.550 --> 00:44:27.560 align:middle line:90%
+And this is obviously 0.
+
+00:44:27.560 --> 00:44:29.210 align:middle line:90%
+So what is x1?
+
+00:44:29.210 --> 00:44:32.375 align:middle line:90%
+That leads to x1 equal--
+
+00:44:32.375 --> 00:44:35.550 align:middle line:90%
+
+
+00:44:35.550 --> 00:44:36.660 align:middle line:90%
+what x1?
+
+00:44:36.660 --> 00:44:38.100 align:middle line:90%
+AUDIENCE: Negative 3.
+
+00:44:38.100 --> 00:44:40.050 align:middle line:84%
+GILBERT STRANG:
+Negative 3, thank you.
+
+00:44:40.050 --> 00:44:40.920 align:middle line:90%
+And what's x2?
+
+00:44:40.920 --> 00:44:43.460 align:middle line:90%
+
+
+00:44:43.460 --> 00:44:45.590 align:middle line:84%
+That will come
+from this equation.
+
+00:44:45.590 --> 00:44:47.270 align:middle line:90%
+What will x2 be?
+
+00:44:47.270 --> 00:44:48.420 align:middle line:90%
+AUDIENCE: Negative 4.
+
+00:44:48.420 --> 00:44:49.545 align:middle line:90%
+GILBERT STRANG: Negative 4.
+
+00:44:49.545 --> 00:44:51.800 align:middle line:90%
+
+
+00:44:51.800 --> 00:44:54.980 align:middle line:90%
+So that's a solution.
+
+00:44:54.980 --> 00:44:58.292 align:middle line:84%
+We've solved this original
+problem-- aw, I erased it.
+
+00:44:58.292 --> 00:45:01.490 align:middle line:84%
+It was much worse
+at the beginning,
+
+00:45:01.490 --> 00:45:04.170 align:middle line:90%
+but we found a solution.
+
+00:45:04.170 --> 00:45:08.610 align:middle line:84%
+But again, we have
+four unknowns and we
+
+00:45:08.610 --> 00:45:14.310 align:middle line:84%
+have only two real equations,
+two independent equations,
+
+00:45:14.310 --> 00:45:17.650 align:middle line:84%
+because this third equation
+turned out to be a fraud.
+
+00:45:17.650 --> 00:45:20.580 align:middle line:84%
+It was just a
+combination of 1 and 2.
+
+00:45:20.580 --> 00:45:24.100 align:middle line:84%
+So we really have only two
+equations, four unknowns.
+
+00:45:24.100 --> 00:45:27.000 align:middle line:84%
+So we would expect
+two solutions,
+
+00:45:27.000 --> 00:45:29.050 align:middle line:90%
+and I found one of them.
+
+00:45:29.050 --> 00:45:32.360 align:middle line:90%
+OK, so that's good.
+
+00:45:32.360 --> 00:45:36.020 align:middle line:84%
+So let me find the
+other one, and then
+
+00:45:36.020 --> 00:45:38.820 align:middle line:84%
+this problem is solved,
+and we can go on.
+
+00:45:38.820 --> 00:45:45.320 align:middle line:84%
+So another solution-- I want
+to find another x1, x2, x3,
+
+00:45:45.320 --> 00:45:52.190 align:middle line:84%
+and x4, and tell me
+what it-- so this time,
+
+00:45:52.190 --> 00:45:55.600 align:middle line:84%
+I'll start with 0
+and 1 for these guys.
+
+00:45:55.600 --> 00:45:58.420 align:middle line:84%
+I'll let that be
+0 and that be 1.
+
+00:45:58.420 --> 00:46:02.770 align:middle line:84%
+And then I'll use the
+equations to tell me x1 and x2,
+
+00:46:02.770 --> 00:46:04.890 align:middle line:90%
+or you will.
+
+00:46:04.890 --> 00:46:08.205 align:middle line:84%
+So now what is x1
+from this equation?
+
+00:46:08.205 --> 00:46:09.450 align:middle line:90%
+AUDIENCE: Minus 5.
+
+00:46:09.450 --> 00:46:11.760 align:middle line:90%
+GILBERT STRANG: Minus 5, thanks.
+
+00:46:11.760 --> 00:46:13.890 align:middle line:90%
+This is minus 5.
+
+00:46:13.890 --> 00:46:17.724 align:middle line:84%
+And what is x2
+from this equation?
+
+00:46:17.724 --> 00:46:20.088 align:middle line:90%
+AUDIENCE: Negative--
+
+00:46:20.088 --> 00:46:21.130 align:middle line:90%
+GILBERT STRANG: Negative?
+
+00:46:21.130 --> 00:46:21.545 align:middle line:90%
+AUDIENCE: 6.
+
+00:46:21.545 --> 00:46:21.960 align:middle line:90%
+AUDIENCE: Negative 6.
+
+00:46:21.960 --> 00:46:23.220 align:middle line:90%
+GILBERT STRANG: Negative 6.
+
+00:46:23.220 --> 00:46:28.350 align:middle line:84%
+OK, we found two solutions,
+clearly independent-- minus 3,
+
+00:46:28.350 --> 00:46:30.450 align:middle line:90%
+minus 4, 1, 0.
+
+00:46:30.450 --> 00:46:32.430 align:middle line:84%
+That's a vector in
+four dimensions.
+
+00:46:32.430 --> 00:46:33.720 align:middle line:90%
+We're in four dimensions.
+
+00:46:33.720 --> 00:46:36.810 align:middle line:90%
+
+
+00:46:36.810 --> 00:46:40.290 align:middle line:84%
+Linear algebra has no problem
+to go up in dimension.
+
+00:46:40.290 --> 00:46:41.700 align:middle line:90%
+It stays linear.
+
+00:46:41.700 --> 00:46:43.470 align:middle line:90%
+That's what keeps things simple.
+
+00:46:43.470 --> 00:46:46.350 align:middle line:84%
+And then it goes up to
+any number of dimensions.
+
+00:46:46.350 --> 00:46:49.680 align:middle line:84%
+And so these would
+be typical problems
+
+00:46:49.680 --> 00:46:56.420 align:middle line:84%
+coming from some
+engineering system, some--
+
+00:46:56.420 --> 00:46:59.280 align:middle line:90%
+
+
+00:46:59.280 --> 00:47:03.430 align:middle line:84%
+yeah, so we have two solutions,
+and that's somehow right.
+
+00:47:03.430 --> 00:47:07.100 align:middle line:84%
+And any combination of
+those is a solution.
+
+00:47:07.100 --> 00:47:08.860 align:middle line:90%
+So I have actually--
+
+00:47:08.860 --> 00:47:13.420 align:middle line:84%
+if I combine one of this
+solution plus 6 of that
+
+00:47:13.420 --> 00:47:16.930 align:middle line:84%
+solution, I'd have another
+solution because, on the right
+
+00:47:16.930 --> 00:47:20.230 align:middle line:84%
+side, I would just
+have still all 0's.
+
+00:47:20.230 --> 00:47:26.350 align:middle line:84%
+OK, so that problem is solved,
+that for, and that, as we
+
+00:47:26.350 --> 00:47:27.340 align:middle line:90%
+expected.
+
+00:47:27.340 --> 00:47:29.720 align:middle line:90%
+And let's just review.
+
+00:47:29.720 --> 00:47:38.510 align:middle line:84%
+So I have-- I started with
+three rows and four columns.
+
+00:47:38.510 --> 00:47:42.470 align:middle line:84%
+But the three rows
+were not independent.
+
+00:47:42.470 --> 00:47:45.380 align:middle line:84%
+The three equations-- a
+combination of the three
+
+00:47:45.380 --> 00:47:47.060 align:middle line:90%
+equations gave me a 0.
+
+00:47:47.060 --> 00:47:51.170 align:middle line:84%
+So I really had the
+rank of the matrix is 2.
+
+00:47:51.170 --> 00:48:00.530 align:middle line:84%
+So this is a matrix with m
+equal 3 rows, n equal 4 columns,
+
+00:48:00.530 --> 00:48:06.890 align:middle line:84%
+but the rank of
+the matrix is what?
+
+00:48:06.890 --> 00:48:11.420 align:middle line:84%
+Now, everybody, if you don't
+know what the word "rank" is,
+
+00:48:11.420 --> 00:48:13.820 align:middle line:90%
+let the 18.06 tell you.
+
+00:48:13.820 --> 00:48:15.900 align:middle line:90%
+What's the rank of my matrix?
+
+00:48:15.900 --> 00:48:16.400 align:middle line:90%
+AUDIENCE: 2.
+
+00:48:16.400 --> 00:48:17.930 align:middle line:84%
+GILBERT STRANG: 2,
+oh, you do know.
+
+00:48:17.930 --> 00:48:18.680 align:middle line:90%
+Yeah, OK.
+
+00:48:18.680 --> 00:48:19.970 align:middle line:90%
+AUDIENCE: [LAUGHS]
+
+00:48:19.970 --> 00:48:22.240 align:middle line:84%
+GILBERT STRANG:
+So its rank is 2.
+
+00:48:22.240 --> 00:48:24.880 align:middle line:90%
+So its row rank is 2.
+
+00:48:24.880 --> 00:48:28.593 align:middle line:84%
+Now the most wonderful
+theorem in linear algebra--
+
+00:48:28.593 --> 00:48:30.260 align:middle line:84%
+and the most wonderful
+theorem, at least
+
+00:48:30.260 --> 00:48:32.180 align:middle line:84%
+at the beginning
+of linear algebra,
+
+00:48:32.180 --> 00:48:36.950 align:middle line:84%
+is that if I have two
+independent rows--
+
+00:48:36.950 --> 00:48:39.500 align:middle line:84%
+and that's what I have,
+two independent rows.
+
+00:48:39.500 --> 00:48:42.620 align:middle line:84%
+The third row was a
+combination, didn't count.
+
+00:48:42.620 --> 00:48:46.340 align:middle line:84%
+So I had two independent
+rows, so the row rank is 2.
+
+00:48:46.340 --> 00:48:48.720 align:middle line:90%
+And now look at the columns.
+
+00:48:48.720 --> 00:48:51.140 align:middle line:84%
+So I had originally
+four columns.
+
+00:48:51.140 --> 00:48:52.940 align:middle line:90%
+I still have four columns.
+
+00:48:52.940 --> 00:48:55.640 align:middle line:90%
+I didn't mess with combinations.
+
+00:48:55.640 --> 00:49:00.710 align:middle line:84%
+How many independent
+columns do I have?
+
+00:49:00.710 --> 00:49:04.700 align:middle line:84%
+How many-- yeah,
+look at this matrix.
+
+00:49:04.700 --> 00:49:06.490 align:middle line:84%
+Look at this matrix,
+because nothing--
+
+00:49:06.490 --> 00:49:08.600 align:middle line:90%
+these numbers didn't change.
+
+00:49:08.600 --> 00:49:09.650 align:middle line:90%
+Look at that matrix.
+
+00:49:09.650 --> 00:49:16.340 align:middle line:84%
+So that has 1, 2, 3, 4 columns,
+but they're not independent.
+
+00:49:16.340 --> 00:49:20.970 align:middle line:84%
+Some of those columns are
+combinations of other columns.
+
+00:49:20.970 --> 00:49:24.180 align:middle line:84%
+That's what the beginning
+of linear algebra is about.
+
+00:49:24.180 --> 00:49:28.770 align:middle line:84%
+And what's the answer
+to the column rank?
+
+00:49:28.770 --> 00:49:33.050 align:middle line:84%
+So the column rank is the
+number of independent columns.
+
+00:49:33.050 --> 00:49:35.390 align:middle line:90%
+And what do I get for that?
+
+00:49:35.390 --> 00:49:36.590 align:middle line:90%
+AUDIENCE: 2.
+
+00:49:36.590 --> 00:49:38.000 align:middle line:90%
+GILBERT STRANG: 2, thank you.
+
+00:49:38.000 --> 00:49:41.090 align:middle line:84%
+That's a great,
+first, wonderful,
+
+00:49:41.090 --> 00:49:43.880 align:middle line:90%
+not-at-all-clear fact.
+
+00:49:43.880 --> 00:49:46.880 align:middle line:84%
+If I went back to
+the original matrix
+
+00:49:46.880 --> 00:49:49.670 align:middle line:84%
+and said there are
+two independent rows,
+
+00:49:49.670 --> 00:49:55.550 align:middle line:84%
+and then math told me that there
+were two independent columns,
+
+00:49:55.550 --> 00:49:59.810 align:middle line:84%
+well, I would believe it
+because it gets proved in 18.06,
+
+00:49:59.810 --> 00:50:06.050 align:middle line:84%
+but this is a great fact, that
+the number of independent rows
+
+00:50:06.050 --> 00:50:09.160 align:middle line:84%
+matches the number of
+independent columns.
+
+00:50:09.160 --> 00:50:12.200 align:middle line:90%
+OK, I think it's--
+
+00:50:12.200 --> 00:50:18.260 align:middle line:84%
+I thought there'd be time for
+some more review of old finals.
+
+00:50:18.260 --> 00:50:22.030 align:middle line:84%
+This could have been
+on a final, and--
+
+00:50:22.030 --> 00:50:23.957 align:middle line:90%
+
+
+00:50:23.957 --> 00:50:25.040 align:middle line:90%
+GILBERT STRANG: Let's see.
+
+00:50:25.040 --> 00:50:28.400 align:middle line:84%
+Do you want to answer
+me one question?
+
+00:50:28.400 --> 00:50:29.990 align:middle line:90%
+Oh, no, you don't.
+
+00:50:29.990 --> 00:50:30.830 align:middle line:90%
+[LAUGHTER]
+
+00:50:30.830 --> 00:50:31.880 align:middle line:90%
+Yeah, yeah.
+
+00:50:31.880 --> 00:50:36.800 align:middle line:84%
+I think it's the
+right time to ask
+
+00:50:36.800 --> 00:50:41.750 align:middle line:84%
+Pavel Grinfeld, who was
+one of my first early PhDs,
+
+00:50:41.750 --> 00:50:43.940 align:middle line:90%
+to say a few words.
+
+00:50:43.940 --> 00:50:46.760 align:middle line:84%
+And then if Professor
+Goemans is here--
+
+00:50:46.760 --> 00:50:47.840 align:middle line:90%
+he's here, OK.
+
+00:50:47.840 --> 00:50:51.730 align:middle line:90%
+So Pavel, thanks.
+
+00:50:51.730 --> 00:50:52.230 align:middle line:90%
+Thank you.
+
+00:50:52.230 --> 00:50:55.688 align:middle line:90%
+[CHEERING, APPLAUSE]
+
+00:50:55.688 --> 00:50:59.146 align:middle line:90%
+
+
+00:50:59.146 --> 00:51:00.630 align:middle line:90%
+PAVEL GRINFELD: Hi.
+
+00:51:00.630 --> 00:51:02.950 align:middle line:90%
+This is the mic, right?
+
+00:51:02.950 --> 00:51:03.700 align:middle line:90%
+Hi.
+
+00:51:03.700 --> 00:51:07.297 align:middle line:84%
+So I wrote down some thoughts,
+so please don't be worried.
+
+00:51:07.297 --> 00:51:08.380 align:middle line:90%
+This is not a long speech.
+
+00:51:08.380 --> 00:51:09.550 align:middle line:90%
+It's just a very large font.
+
+00:51:09.550 --> 00:51:10.690 align:middle line:90%
+[LAUGHTER]
+
+00:51:10.690 --> 00:51:15.160 align:middle line:84%
+And so and I just want to say--
+this is not in the speech.
+
+00:51:15.160 --> 00:51:18.400 align:middle line:84%
+I was sitting over there,
+and I was looking back
+
+00:51:18.400 --> 00:51:21.310 align:middle line:84%
+most of the time at this
+sea of beautiful faces.
+
+00:51:21.310 --> 00:51:23.740 align:middle line:84%
+And I was just
+thinking to myself,
+
+00:51:23.740 --> 00:51:27.820 align:middle line:84%
+your faces are so beautiful not
+only because you're so young
+
+00:51:27.820 --> 00:51:29.335 align:middle line:90%
+and have such amazing hair--
+
+00:51:29.335 --> 00:51:30.430 align:middle line:90%
+[LAUGHTER]
+
+00:51:30.430 --> 00:51:32.320 align:middle line:84%
+--and not only because
+you're accomplished
+
+00:51:32.320 --> 00:51:34.360 align:middle line:84%
+enough to be taking
+linear algebra so
+
+00:51:34.360 --> 00:51:37.840 align:middle line:84%
+early in your college careers,
+but also because you're
+
+00:51:37.840 --> 00:51:39.640 align:middle line:90%
+in Gil's presence.
+
+00:51:39.640 --> 00:51:41.620 align:middle line:84%
+And when you're
+in Gil's presence,
+
+00:51:41.620 --> 00:51:45.020 align:middle line:84%
+you're just in a better,
+more beautiful world,
+
+00:51:45.020 --> 00:51:48.790 align:middle line:84%
+and I think that your
+faces are channeling that.
+
+00:51:48.790 --> 00:51:53.170 align:middle line:84%
+So that's just what
+it's like knowing Gil.
+
+00:51:53.170 --> 00:51:57.430 align:middle line:84%
+And I think that's why I
+chose to pursue the same line
+
+00:51:57.430 --> 00:52:00.010 align:middle line:90%
+of studies as Gil, and it has--
+
+00:52:00.010 --> 00:52:03.430 align:middle line:84%
+Gil's presence in my
+life has informed so many
+
+00:52:03.430 --> 00:52:04.220 align:middle line:90%
+of my decisions.
+
+00:52:04.220 --> 00:52:07.450 align:middle line:84%
+So anyway, so that's just
+some thoughts that I had.
+
+00:52:07.450 --> 00:52:08.920 align:middle line:90%
+Now I'll get to my speech.
+
+00:52:08.920 --> 00:52:11.980 align:middle line:84%
+And first, I want to say
+congratulations, Gil,
+
+00:52:11.980 --> 00:52:14.106 align:middle line:90%
+on your retirement.
+
+00:52:14.106 --> 00:52:15.540 align:middle line:90%
+[APPLAUSE]
+
+00:52:15.540 --> 00:52:19.364 align:middle line:84%
+GILBERT STRANG:
+[CHUCKLES] Thank you.
+
+00:52:19.364 --> 00:52:22.250 align:middle line:90%
+
+
+00:52:22.250 --> 00:52:23.750 align:middle line:84%
+PAVEL GRINFELD: Now
+you will finally
+
+00:52:23.750 --> 00:52:25.790 align:middle line:84%
+have some time to
+concentrate on your research.
+
+00:52:25.790 --> 00:52:27.320 align:middle line:90%
+[LAUGHTER]
+
+00:52:27.320 --> 00:52:31.970 align:middle line:84%
+And we all owe you
+a debt of gratitude
+
+00:52:31.970 --> 00:52:34.070 align:middle line:90%
+for everything you've done.
+
+00:52:34.070 --> 00:52:38.210 align:middle line:84%
+But my life, especially,
+has been touched by you.
+
+00:52:38.210 --> 00:52:40.190 align:middle line:84%
+So all I want to
+do is just share
+
+00:52:40.190 --> 00:52:43.920 align:middle line:84%
+a few of my personal
+experiences.
+
+00:52:43.920 --> 00:52:47.900 align:middle line:84%
+So if I think back to one of the
+most important days in my life,
+
+00:52:47.900 --> 00:52:50.640 align:middle line:84%
+it was the day that
+I passed my qual.
+
+00:52:50.640 --> 00:52:52.970 align:middle line:84%
+And it wasn't because
+I passed my qual.
+
+00:52:52.970 --> 00:52:55.730 align:middle line:84%
+It's because when you
+said, congratulations,
+
+00:52:55.730 --> 00:52:59.270 align:middle line:84%
+and I said, thank you,
+Professor Strang, you said,
+
+00:52:59.270 --> 00:53:02.130 align:middle line:84%
+I think that, going forward,
+Gil is more appropriate.
+
+00:53:02.130 --> 00:53:03.005 align:middle line:90%
+GILBERT STRANG: Yeah.
+
+00:53:03.005 --> 00:53:03.505 align:middle line:90%
+[LAUGHS]
+
+00:53:03.505 --> 00:53:04.980 align:middle line:84%
+PAVEL GRINFELD:
+And in that moment,
+
+00:53:04.980 --> 00:53:07.190 align:middle line:90%
+I felt like I've made it.
+
+00:53:07.190 --> 00:53:13.130 align:middle line:84%
+And to this day, I look
+back on that day as the day
+
+00:53:13.130 --> 00:53:14.810 align:middle line:90%
+that I've made it.
+
+00:53:14.810 --> 00:53:16.460 align:middle line:84%
+That's just how
+much it means to me
+
+00:53:16.460 --> 00:53:19.710 align:middle line:84%
+to be on the first-name
+basis with you.
+
+00:53:19.710 --> 00:53:22.400 align:middle line:84%
+And speaking of
+your name, I have
+
+00:53:22.400 --> 00:53:25.865 align:middle line:84%
+to confess that I namedrop
+your name all the time.
+
+00:53:25.865 --> 00:53:27.090 align:middle line:90%
+[LAUGHTER]
+
+00:53:27.090 --> 00:53:29.810 align:middle line:84%
+So, for example, if somebody
+asks me for a linear algebra
+
+00:53:29.810 --> 00:53:33.170 align:middle line:84%
+textbook recommendation,
+I say, well,
+
+00:53:33.170 --> 00:53:36.890 align:middle line:84%
+I might be biased because
+he was my advisor,
+
+00:53:36.890 --> 00:53:39.260 align:middle line:90%
+but I recommend Strang's book.
+
+00:53:39.260 --> 00:53:42.170 align:middle line:84%
+And I understand it takes
+away from the recommendation
+
+00:53:42.170 --> 00:53:44.630 align:middle line:84%
+a little bit, but
+that's just how
+
+00:53:44.630 --> 00:53:48.950 align:middle line:90%
+proud I am to be your student.
+
+00:53:48.950 --> 00:53:51.540 align:middle line:90%
+Now, this is very personal.
+
+00:53:51.540 --> 00:53:53.750 align:middle line:84%
+I want to say a few
+words about your office.
+
+00:53:53.750 --> 00:53:58.610 align:middle line:84%
+When I'm in your office, to me,
+it's like an oasis of peace.
+
+00:53:58.610 --> 00:54:03.650 align:middle line:84%
+And I feel like the zero-sum
+world is left at the door
+
+00:54:03.650 --> 00:54:08.120 align:middle line:84%
+and that only good things
+can happen while I'm there.
+
+00:54:08.120 --> 00:54:12.140 align:middle line:84%
+And I just still remember
+sitting in front of your desk
+
+00:54:12.140 --> 00:54:15.150 align:middle line:84%
+and the stacks of
+papers and books.
+
+00:54:15.150 --> 00:54:18.320 align:middle line:84%
+It looks like the late
+stages of the game, Jenga,
+
+00:54:18.320 --> 00:54:20.630 align:middle line:84%
+and I feel like they
+might be about to fall,
+
+00:54:20.630 --> 00:54:23.510 align:middle line:84%
+but I still feel like all
+is right with the world.
+
+00:54:23.510 --> 00:54:28.700 align:middle line:84%
+And it's just one of the most
+comfortable places to be.
+
+00:54:28.700 --> 00:54:33.200 align:middle line:84%
+And today, when I know that my
+son is outside playing soccer,
+
+00:54:33.200 --> 00:54:37.250 align:middle line:84%
+and I hear the sound
+of shattering glass,
+
+00:54:37.250 --> 00:54:38.240 align:middle line:90%
+I close my eyes.
+
+00:54:38.240 --> 00:54:41.390 align:middle line:84%
+I take a deep breath, and
+I go to my good place,
+
+00:54:41.390 --> 00:54:42.590 align:middle line:90%
+which is your office.
+
+00:54:42.590 --> 00:54:43.720 align:middle line:90%
+[LAUGHTER]
+
+00:54:43.720 --> 00:54:45.860 align:middle line:90%
+That's the safe place.
+
+00:54:45.860 --> 00:54:47.030 align:middle line:90%
+That's the safe place in me.
+
+00:54:47.030 --> 00:54:50.360 align:middle line:90%
+So you've been--
+
+00:54:50.360 --> 00:54:53.610 align:middle line:84%
+Alan was saying
+something to that effect,
+
+00:54:53.610 --> 00:54:57.770 align:middle line:84%
+but you've been a role model
+in all aspects of my life.
+
+00:54:57.770 --> 00:54:59.690 align:middle line:84%
+You've taught me
+a lot of things.
+
+00:54:59.690 --> 00:55:01.670 align:middle line:84%
+You've taught me--
+you've shown me
+
+00:55:01.670 --> 00:55:05.750 align:middle line:84%
+how to give without
+thinking about taking.
+
+00:55:05.750 --> 00:55:10.220 align:middle line:84%
+You taught me how to
+always find a positive way
+
+00:55:10.220 --> 00:55:12.560 align:middle line:84%
+when you need to say
+something and how
+
+00:55:12.560 --> 00:55:15.470 align:middle line:84%
+it's especially important to
+find a positive way to answer
+
+00:55:15.470 --> 00:55:18.530 align:middle line:84%
+a question that wasn't
+necessarily asked
+
+00:55:18.530 --> 00:55:21.890 align:middle line:90%
+in a positive way.
+
+00:55:21.890 --> 00:55:25.970 align:middle line:84%
+You taught me a lot about always
+remembering about what matters.
+
+00:55:25.970 --> 00:55:31.220 align:middle line:84%
+I remember I was lamenting
+to you how my videos--
+
+00:55:31.220 --> 00:55:35.240 align:middle line:84%
+how other math videos on YouTube
+get thousands of times more
+
+00:55:35.240 --> 00:55:37.280 align:middle line:90%
+views than my videos.
+
+00:55:37.280 --> 00:55:42.250 align:middle line:84%
+And you said, views, yes,
+but how many memories?
+
+00:55:42.250 --> 00:55:48.230 align:middle line:84%
+And I just want to say that guys
+are so lucky because you will
+
+00:55:48.230 --> 00:55:52.820 align:middle line:84%
+remember this class, and you
+will remember this experience,
+
+00:55:52.820 --> 00:55:54.350 align:middle line:84%
+and you will have
+these memories,
+
+00:55:54.350 --> 00:55:58.250 align:middle line:84%
+and thanks for teaching me that
+it's the memories that count
+
+00:55:58.250 --> 00:55:59.120 align:middle line:90%
+and not the views.
+
+00:55:59.120 --> 00:56:03.530 align:middle line:84%
+And I never thought about views
+again after that conversation.
+
+00:56:03.530 --> 00:56:08.060 align:middle line:84%
+Now, you also-- what
+I really appreciate
+
+00:56:08.060 --> 00:56:11.150 align:middle line:84%
+is that you're always
+forthcoming with advice
+
+00:56:11.150 --> 00:56:12.630 align:middle line:90%
+when it's badly needed.
+
+00:56:12.630 --> 00:56:15.290 align:middle line:90%
+And I'll just relate one story.
+
+00:56:15.290 --> 00:56:18.170 align:middle line:84%
+When you were over at
+our house for dinner
+
+00:56:18.170 --> 00:56:21.680 align:middle line:84%
+and you learned that my kitchen
+had been under construction
+
+00:56:21.680 --> 00:56:24.560 align:middle line:84%
+for a year and making
+very slow progress,
+
+00:56:24.560 --> 00:56:27.170 align:middle line:84%
+you looked me straight
+in the eye and said,
+
+00:56:27.170 --> 00:56:30.350 align:middle line:84%
+Pavel, your family
+needs a kitchen.
+
+00:56:30.350 --> 00:56:33.720 align:middle line:84%
+And a month later, my
+kitchen was completed,
+
+00:56:33.720 --> 00:56:37.610 align:middle line:84%
+and I needed to
+hear that, and this
+
+00:56:37.610 --> 00:56:40.160 align:middle line:84%
+is the mildest of
+all examples when
+
+00:56:40.160 --> 00:56:43.880 align:middle line:84%
+you recognize that I
+needed input from you,
+
+00:56:43.880 --> 00:56:45.330 align:middle line:90%
+and you gave it.
+
+00:56:45.330 --> 00:56:48.077 align:middle line:84%
+So I'm thankful
+for that very much.
+
+00:56:48.077 --> 00:56:49.160 align:middle line:90%
+GILBERT STRANG: Thank you.
+
+00:56:49.160 --> 00:56:51.620 align:middle line:84%
+PAVEL GRINFELD: And my
+wife thanks you too.
+
+00:56:51.620 --> 00:56:54.900 align:middle line:84%
+I just have two
+more things to say.
+
+00:56:54.900 --> 00:56:57.920 align:middle line:84%
+So a few years ago,
+you came to Drexel
+
+00:56:57.920 --> 00:57:00.530 align:middle line:84%
+and gave a talk at
+the Math Colloquium.
+
+00:57:00.530 --> 00:57:04.730 align:middle line:84%
+And you said, I'm about to use
+two words that I may have never
+
+00:57:04.730 --> 00:57:07.580 align:middle line:84%
+used in a talk before,
+and those words
+
+00:57:07.580 --> 00:57:10.460 align:middle line:84%
+were "theorem" and
+"proof," which is quite
+
+00:57:10.460 --> 00:57:12.410 align:middle line:90%
+remarkable for a mathematician.
+
+00:57:12.410 --> 00:57:15.200 align:middle line:84%
+And I think we all
+appreciate how you
+
+00:57:15.200 --> 00:57:17.630 align:middle line:90%
+keep things unsophisticated.
+
+00:57:17.630 --> 00:57:19.675 align:middle line:90%
+Just look at this board--
+
+00:57:19.675 --> 00:57:23.670 align:middle line:84%
+its clear, clear,
+and clear and simple.
+
+00:57:23.670 --> 00:57:28.668 align:middle line:84%
+And for a guy who only
+talks about matrices,
+
+00:57:28.668 --> 00:57:30.960 align:middle line:84%
+it's amazing that you are,
+as I see it, one of the most
+
+00:57:30.960 --> 00:57:33.210 align:middle line:90%
+universal mathematicians.
+
+00:57:33.210 --> 00:57:36.750 align:middle line:84%
+And you have taught us
+that a simple 3-by-3 matrix
+
+00:57:36.750 --> 00:57:41.740 align:middle line:90%
+can give us scientific insight.
+
+00:57:41.740 --> 00:57:46.060 align:middle line:84%
+And before you, "matrix"
+was a dirty word.
+
+00:57:46.060 --> 00:57:49.330 align:middle line:84%
+And now I think we would
+all be proud to have
+
+00:57:49.330 --> 00:57:52.390 align:middle line:84%
+a beautiful matrix
+with special properties
+
+00:57:52.390 --> 00:57:55.030 align:middle line:84%
+at the center of
+any of our papers.
+
+00:57:55.030 --> 00:57:56.980 align:middle line:84%
+And I think that
+mathematicians used
+
+00:57:56.980 --> 00:58:01.240 align:middle line:84%
+to look down on linear algebra,
+but you were right all along
+
+00:58:01.240 --> 00:58:03.250 align:middle line:84%
+about how important
+the subject is.
+
+00:58:03.250 --> 00:58:07.630 align:middle line:84%
+And I think ChatGPT and the
+linear algebra behind it
+
+00:58:07.630 --> 00:58:09.220 align:middle line:90%
+looks down on us.
+
+00:58:09.220 --> 00:58:11.200 align:middle line:90%
+So you had it right.
+
+00:58:11.200 --> 00:58:15.940 align:middle line:84%
+So we're all very excited to
+see what you will accomplish
+
+00:58:15.940 --> 00:58:21.040 align:middle line:84%
+in your retirement, but I'm
+sure that whatever it is,
+
+00:58:21.040 --> 00:58:23.710 align:middle line:84%
+you will be remembered not
+just for your scientific
+
+00:58:23.710 --> 00:58:26.620 align:middle line:84%
+accomplishments but
+for human decency.
+
+00:58:26.620 --> 00:58:30.770 align:middle line:84%
+And I might be biased
+because I was your student,
+
+00:58:30.770 --> 00:58:33.177 align:middle line:84%
+but I think you were
+the best, so thank you.
+
+00:58:33.177 --> 00:58:34.010 align:middle line:90%
+[CHEERING, APPLAUSE]
+
+00:58:34.010 --> 00:58:35.093 align:middle line:90%
+GILBERT STRANG: Thank you.
+
+00:58:35.093 --> 00:58:42.350 align:middle line:90%
+
+
+00:58:42.350 --> 00:58:44.115 align:middle line:90%
+Thank you, Pavel.
+
+00:58:44.115 --> 00:58:45.365 align:middle line:90%
+Thanks, that was really great.
+
+00:58:45.365 --> 00:58:49.610 align:middle line:90%
+
+
+00:58:49.610 --> 00:58:53.330 align:middle line:84%
+MICHEL GOEMANS: Let me say
+a few quick ones since it's
+
+00:58:53.330 --> 00:58:55.550 align:middle line:90%
+almost the end of the hour.
+
+00:58:55.550 --> 00:58:59.150 align:middle line:84%
+So I'm Michel Goemans,
+and I am the head
+
+00:58:59.150 --> 00:59:00.380 align:middle line:90%
+of the math department.
+
+00:59:00.380 --> 00:59:05.600 align:middle line:84%
+And Gil's career at MIT has
+just been extraordinary.
+
+00:59:05.600 --> 00:59:09.800 align:middle line:84%
+As he said, he has
+been for 61 years
+
+00:59:09.800 --> 00:59:13.400 align:middle line:90%
+on the faculty in mathematics.
+
+00:59:13.400 --> 00:59:18.230 align:middle line:84%
+And that's actually more
+than any other faculty
+
+00:59:18.230 --> 00:59:23.150 align:middle line:84%
+member in the history of
+the department and possibly
+
+00:59:23.150 --> 00:59:24.320 align:middle line:90%
+of the history of--
+
+00:59:24.320 --> 00:59:27.743 align:middle line:90%
+[APPLAUSE]
+
+00:59:27.743 --> 00:59:29.210 align:middle line:90%
+
+
+00:59:29.210 --> 00:59:33.200 align:middle line:84%
+--and possibly even in the
+history of MIT, but I didn't--
+
+00:59:33.200 --> 00:59:36.960 align:middle line:90%
+I couldn't check that.
+
+00:59:36.960 --> 00:59:40.670 align:middle line:84%
+And as he said, his
+affiliation with MIT
+
+00:59:40.670 --> 00:59:42.680 align:middle line:84%
+has been even
+longer since he was
+
+00:59:42.680 --> 00:59:49.210 align:middle line:84%
+a math major from 1952 to 1955
+and a Moore instructor from '59
+
+00:59:49.210 --> 00:59:50.480 align:middle line:90%
+to '61.
+
+00:59:50.480 --> 00:59:52.190 align:middle line:84%
+Mathematics, as you
+know, is everywhere
+
+00:59:52.190 --> 00:59:53.660 align:middle line:90%
+in engineering and science.
+
+00:59:53.660 --> 00:59:55.850 align:middle line:84%
+And in that spirit,
+Gil's mission
+
+00:59:55.850 --> 00:59:58.670 align:middle line:84%
+has been to educate
+countless of students
+
+00:59:58.670 --> 01:00:02.960 align:middle line:84%
+from everywhere on the planet
+in linear algebra, calculus,
+
+01:00:02.960 --> 01:00:04.580 align:middle line:84%
+differential
+equations, and, more
+
+01:00:04.580 --> 01:00:10.250 align:middle line:84%
+generally, applied mathematics
+and computational science.
+
+01:00:10.250 --> 01:00:12.150 align:middle line:90%
+I say everyone on the planet--
+
+01:00:12.150 --> 01:00:14.700 align:middle line:84%
+and, in fact, at the
+beginning of this lecture,
+
+01:00:14.700 --> 01:00:18.530 align:middle line:84%
+I was checking on YouTube,
+and I saw comments from people
+
+01:00:18.530 --> 01:00:22.070 align:middle line:84%
+in Kurdistan, Turkey, Russia,
+Mongolia, Iran, Brazil,
+
+01:00:22.070 --> 01:00:26.060 align:middle line:84%
+Thailand, India, South Korea,
+Nigeria, Germany, Malaysia,
+
+01:00:26.060 --> 01:00:28.850 align:middle line:84%
+Hong Kong, Bangladesh,
+Philippines, Morocco, Greece,
+
+01:00:28.850 --> 01:00:33.020 align:middle line:84%
+Italy, China, Taiwan, Brazil,
+Armenia, Indonesia, Croatia,
+
+01:00:33.020 --> 01:00:37.250 align:middle line:84%
+Egypt, and even my own
+country of Belgium.
+
+01:00:37.250 --> 01:00:39.800 align:middle line:90%
+His lectures are legendary.
+
+01:00:39.800 --> 01:00:44.660 align:middle line:84%
+It's not a surprise that 450
+students registered for 18.06
+
+01:00:44.660 --> 01:00:46.700 align:middle line:84%
+for the last term he
+was teaching together
+
+01:00:46.700 --> 01:00:49.010 align:middle line:90%
+with Andrew Horning.
+
+01:00:49.010 --> 01:00:54.140 align:middle line:84%
+But students well
+beyond the walls of MIT
+
+01:00:54.140 --> 01:00:57.560 align:middle line:90%
+have benefited from his classes.
+
+01:00:57.560 --> 01:01:04.370 align:middle line:84%
+He was the first to
+put lectures on OCW
+
+01:01:04.370 --> 01:01:08.900 align:middle line:90%
+as it started and has had--
+
+01:01:08.900 --> 01:01:16.700 align:middle line:84%
+his many courses on OCW attract
+about 5,000 daily visits.
+
+01:01:16.700 --> 01:01:20.840 align:middle line:90%
+That's pretty significant.
+
+01:01:20.840 --> 01:01:23.540 align:middle line:84%
+And his videos
+apparently have been seen
+
+01:01:23.540 --> 01:01:25.790 align:middle line:90%
+by more than 14 million people.
+
+01:01:25.790 --> 01:01:29.280 align:middle line:90%
+That's quite remarkable.
+
+01:01:29.280 --> 01:01:31.250 align:middle line:84%
+And as part of his
+educational mission,
+
+01:01:31.250 --> 01:01:36.410 align:middle line:84%
+he has published over 17 books,
+if I got the number right,
+
+01:01:36.410 --> 01:01:38.450 align:middle line:84%
+because it seems
+that, every week,
+
+01:01:38.450 --> 01:01:41.060 align:middle line:90%
+there is almost a new one.
+
+01:01:41.060 --> 01:01:44.870 align:middle line:84%
+His impact on
+mathematics has been--
+
+01:01:44.870 --> 01:01:46.940 align:middle line:84%
+and especially on
+math education,
+
+01:01:46.940 --> 01:01:48.840 align:middle line:90%
+has been mind boggling.
+
+01:01:48.840 --> 01:01:51.320 align:middle line:84%
+So I taught 18.06
+many years ago.
+
+01:01:51.320 --> 01:01:54.950 align:middle line:84%
+And before teaching, I
+attended Gil's lectures just
+
+01:01:54.950 --> 01:01:57.830 align:middle line:90%
+to see his way of teaching.
+
+01:01:57.830 --> 01:02:02.330 align:middle line:84%
+And his pedagogical style
+is indeed really unique.
+
+01:02:02.330 --> 01:02:08.360 align:middle line:84%
+I felt he's really good at
+making students think and feel
+
+01:02:08.360 --> 01:02:12.510 align:middle line:84%
+like they discover the
+concepts by themselves.
+
+01:02:12.510 --> 01:02:16.850 align:middle line:84%
+And if he seems sometimes lost
+in front of the blackboard,
+
+01:02:16.850 --> 01:02:20.840 align:middle line:84%
+I quickly realized
+it's just pretense.
+
+01:02:20.840 --> 01:02:25.400 align:middle line:84%
+He knows exactly what
+he's talking about.
+
+01:02:25.400 --> 01:02:29.630 align:middle line:84%
+And I should say also
+that, as department head,
+
+01:02:29.630 --> 01:02:34.430 align:middle line:84%
+I often meet alumni, MIT Alumni,
+whether they are math majors
+
+01:02:34.430 --> 01:02:36.320 align:middle line:90%
+or from other disciplines.
+
+01:02:36.320 --> 01:02:38.810 align:middle line:84%
+And quite often
+they say, oh, I have
+
+01:02:38.810 --> 01:02:43.100 align:middle line:90%
+this memorable class at MIT.
+
+01:02:43.100 --> 01:02:45.140 align:middle line:90%
+The name was, uh, ah--
+
+01:02:45.140 --> 01:02:46.370 align:middle line:90%
+Gil Strang.
+
+01:02:46.370 --> 01:02:51.750 align:middle line:84%
+And then they say, oh, he must
+be retired by now, decades ago.
+
+01:02:51.750 --> 01:02:55.940 align:middle line:84%
+And I say, no, no,
+he's still here.
+
+01:02:55.940 --> 01:03:01.190 align:middle line:84%
+But finally, I'll be able to
+say, yes, he has retired now.
+
+01:03:01.190 --> 01:03:03.080 align:middle line:84%
+GILBERT STRANG: I'm
+sorry to hear that.
+
+01:03:03.080 --> 01:03:05.550 align:middle line:90%
+[LAUGHTER]
+
+01:03:05.550 --> 01:03:09.140 align:middle line:84%
+MICHEL GOEMANS: So I've
+been in this department
+
+01:03:09.140 --> 01:03:13.370 align:middle line:84%
+for half of his tenure, and he
+has been an amazingly pleasant
+
+01:03:13.370 --> 01:03:13.940 align:middle line:90%
+colleague.
+
+01:03:13.940 --> 01:03:15.800 align:middle line:90%
+He is so humble.
+
+01:03:15.800 --> 01:03:18.950 align:middle line:84%
+And so after 61 years
+at the Institute,
+
+01:03:18.950 --> 01:03:21.150 align:middle line:90%
+we'll miss him and his teaching.
+
+01:03:21.150 --> 01:03:23.300 align:middle line:84%
+But I think he fully
+deserves retirement.
+
+01:03:23.300 --> 01:03:25.640 align:middle line:84%
+So please join me in
+congratulating Gil
+
+01:03:25.640 --> 01:03:29.300 align:middle line:84%
+for his lifelong
+dedication to mathematics
+
+01:03:29.300 --> 01:03:31.400 align:middle line:90%
+and his education in MIT.
+
+01:03:31.400 --> 01:03:34.706 align:middle line:90%
+[CHEERING, APPLAUSE]
+
+01:03:34.706 --> 01:03:54.837 align:middle line:90%
+
+
+01:03:54.837 --> 01:03:56.310 align:middle line:90%
+GILBERT STRANG: Oh.
+
+01:03:56.310 --> 01:04:00.660 align:middle line:90%
+[LAUGHS] Thank you all.
+
+01:04:00.660 --> 01:04:03.780 align:middle line:84%
+This is really an
+unforgettable day for me.
+
+01:04:03.780 --> 01:04:04.500 align:middle line:90%
+Thank you.
+
+01:04:04.500 --> 01:04:06.930 align:middle line:90%
+And thank you, Michel.
+
+01:04:06.930 --> 01:04:07.980 align:middle line:90%
+Good.
+
+01:04:07.980 --> 01:04:08.645 align:middle line:90%
+Very good.
+
+01:04:08.645 --> 01:04:11.940 align:middle line:90%
+
+
+01:04:11.940 --> 01:04:14.340 align:middle line:84%
+So he believes I'm
+going to retire.
+
+01:04:14.340 --> 01:04:15.930 align:middle line:90%
+I'm going to think about it.
+
+01:04:15.930 --> 01:04:18.760 align:middle line:90%
+[LAUGHTER]
+
+01:04:18.760 --> 01:04:20.010 align:middle line:90%
+So thank you all.
+
+01:04:20.010 --> 01:04:23.850 align:middle line:90%
+[CHEERING, APPLAUSE]
+
+01:04:23.850 --> 01:04:29.510 align:middle line:90%
+
+
+01:04:29.510 --> 01:04:31.010 align:middle line:84%
+MICHEL GOEMANS:
+We've gone overtime.
+
+01:04:31.010 --> 01:04:33.510 align:middle line:84%
+We should try to
+empty the classroom.
+
+01:04:33.510 --> 01:04:34.010 align:middle line:90%
+Very good.
+
+01:04:34.010 --> 01:04:36.110 align:middle line:90%
+[SIDE CONVERSATIONS]
+
+01:04:36.110 --> 01:04:40.010 align:middle line:90%
+
+
+01:04:40.010 --> 01:04:42.110 align:middle line:84%
+GILBERT STRANG: Oh, very
+welcome, yeah, yeah.
+
+01:04:42.110 --> 01:04:45.810 align:middle line:90%
+
+
+01:04:45.810 --> 01:04:46.310 align:middle line:90%
+Good.
+
+01:04:46.310 --> 01:04:48.710 align:middle line:84%
+Could you take care of the
+class and send this to me?
+
+01:04:48.710 --> 01:04:53.210 align:middle line:90%
+
+
+01:04:53.210 --> 01:04:54.710 align:middle line:90%
+No, thank you.
+
+01:04:54.710 --> 01:04:56.210 align:middle line:90%
+I like that.
+
+01:04:56.210 --> 01:04:57.710 align:middle line:90%
+Oh, that's great.
+
+01:04:57.710 --> 01:04:58.610 align:middle line:90%
+Thanks.
+
+01:04:58.610 --> 01:05:01.010 align:middle line:90%
+Thank you.
+
+01:05:01.010 --> 01:05:03.110 align:middle line:90%
+Oh, you too.
+
+01:05:03.110 --> 01:05:07.310 align:middle line:84%
+If you get it by Thursday,
+take it to office.
+
+01:05:07.310 --> 01:05:09.760 align:middle line:90%
+It's the best little moment in--

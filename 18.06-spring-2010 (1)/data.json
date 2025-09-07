@@ -1,0 +1,23 @@
+{
+  "course_title":"Linear Algebra",
+  "course_description":"This is a basic subject on matrix theory and linear algebra. Emphasis is given to topics that will be useful in other disciplines, including systems of equations, vector spaces, determinants, eigenvalues, similarity, and positive definite matrices.\n",
+  "course_description_html":"This is a basic subject on matrix theory and linear algebra. Emphasis is given to topics that will be useful in other disciplines, including systems of equations, vector spaces, determinants, eigenvalues, similarity, and positive definite matrices.",
+  "site_uid":"6768e8c9-a5dd-44cc-b618-da4d603694d3",
+  "legacy_uid":"aabc44bd-b2e4-5374-d62f-30f2a6d4c63e","instructors": [{
+    "first_name":"Gilbert",
+    "last_name":"Strang",
+    "middle_initial":"",
+    "salutation":"Prof.",
+    "title":"Prof. Gilbert Strang"}],"department_numbers":["18"],
+  "learning_resource_types":["Lecture Videos","Problem Sets with Solutions","Exams with Solutions","Instructor Insights"],
+  "topics":[["Mathematics","Linear Algebra"]],
+  "mit_learn_topics":null,
+  "primary_course_number":"18.06",
+  "extra_course_numbers":"",
+  "term":"Spring",
+  "year":"2010",
+  "level":["Undergraduate"],
+  "hide_download":null,
+  "image_src":"./static_resources/862a5bbedf159572528b0f0766d1e611_18-06s10.jpg",
+  "course_image_metadata":{"content_type":"resource","description":"","draft":false,"file":"/courses/18-06-linear-algebra-spring-2010/862a5bbedf159572528b0f0766d1e611_18-06s10.jpg","file_size":160536,"file_type":"image/jpeg","image_metadata":{"caption":"These windows in Philadelphia represent a beautiful block matrix. (Courtesy Gail Corbett. Used with permission.)","credit":"","image-alt":"A photograph of windows in Philadelphia, representing a block matrix."},"iscjklanguage":false,"learning_resource_types":[],"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","ocw_type":"OCWImage","resourcetype":"Image","title":"18-06s10.jpg","uid":"862a5bbe-df15-9572-528b-0f0766d1e611","video_files":{"video_thumbnail_file":null},"video_metadata":{"youtube_id":null}}}
+

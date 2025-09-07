@@ -1,0 +1,6 @@
+
+{
+  "title":"Tools",
+  "content":"The flash animations were developed by Jean-Michel Claus (with voiceover by Gilbert Strang). We are grateful! Funding was provided by a grant from the The d\u0026rsquo;Arbeloff Fund for Excellence in MIT Education as part of The d\u0026rsquo;Arbeloff Interactive Mathematics Project (d\u0026rsquo;A I M P).\nMatrix Multiplication An interactive demo (with voiceover explanation) on Matrix Multiplication, A = LU, and PA = LU\nEigenvalue Demonstrations The demonstrations below employ Java® applets with voice-over narration to show some Eigenvalue concepts.\nDemo 1 - This 3-minute demo shows eigenvectors of 2 by 2 matrices\nThe demo is also broken into 7 independent pieces:\nPart 1 Part 2 Part 3 Part 4 Part 5 Part 6 Part 7 Demo 2 - Powers AnV lead toward the top eigenvalue/eigenvector\nMini-lectures on Eigenvalues The mini-lectures with voice-over narration below help to explain some key Eigenvalue concepts.\nFull Lecture (all eight together)\nOr view individually (about 2 minutes each)\ndet(A-\\lambda I)=0 Eigenvectors and Trace Powers Diagonalization Differential Equations Symmetry Positive Definite SVD "}
+
+
